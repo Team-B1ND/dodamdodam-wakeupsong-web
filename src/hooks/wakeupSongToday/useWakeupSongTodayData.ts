@@ -4,8 +4,9 @@ import { WakeupSongMyMusic } from "types/wakeupSong/wakeupSongMy";
 
 const useWakeupSongTodayData = () => {
   const [todaySongData, setTodaySongData] = useState<WakeupSongMyMusic[]>([]);
-  const date = new Date().toLocaleDateString().split(".");
+
   useEffect(() => {
+    const date = new Date().toLocaleDateString().split(".");
     const getTodayData = async () => {
       try {
         const { data } = await wakeupSongRepository.getWakeupSongTodayMusicData(
