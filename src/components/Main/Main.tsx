@@ -1,9 +1,14 @@
 import { MainContainer, } from "./Main.style";
-import MyMusicPlayList from "./MyMusicPlayList";
+import MusicList from "./MusicList";
+import MyMusicList from "./MyMusicList";
+import TodayMusicList from "./TodayMusicList";
 const Main = () => {
   return (
     <MainContainer>
-      <MyMusicPlayList />
+      <TodayMusicList />
+      <MusicList />
+      <MyMusicList />
+      {/* <ApplyMusic /> */}
     </MainContainer>
   );
 };
