@@ -1,5 +1,6 @@
 import * as S from "./TodayMusicList.style";
 import useWakeupSongTodayData from "hooks/wakeupSongToday/useWakeupSongTodayData";
+import Title from "components/Common/Title";
 
 const TodayMusicList = () => {
 
@@ -7,14 +8,7 @@ const TodayMusicList = () => {
 
   return (
     <S.TodayMusicListContainer>
-      <S.TodayMusicListTitle>
-        <S.TitleMent>
-          오늘의 기상송
-        </S.TitleMent>
-        <S.SubTitleMent>
-          오늘 나온 기상송은 어땠나요?
-        </S.SubTitleMent>
-      </S.TodayMusicListTitle>
+      <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
 
       <S.TodayMusicListContents>
         {todaySongData && todaySongData.map((item, idx) => {
@@ -26,7 +20,7 @@ const TodayMusicList = () => {
           )
         })}
       </S.TodayMusicListContents>
-    </S.TodayMusicListContainer>
+    </S.TodayMusicListContainer >
   );
 };
 

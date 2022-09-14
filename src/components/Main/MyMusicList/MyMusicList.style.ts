@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MyMusicListContainer = styled.div`
-  margin-top: 60px;
+  margin-top: 30px;
   padding: 30px 170px;
   display: grid;
   gap: 10px;

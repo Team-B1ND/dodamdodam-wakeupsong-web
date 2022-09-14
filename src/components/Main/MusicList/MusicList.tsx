@@ -1,5 +1,6 @@
 import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMyData";
 import * as S from "./MusicList.style";
+import Title from "components/Common/Title";
 
 const MusicList = () => {
 
@@ -7,9 +8,7 @@ const MusicList = () => {
 
   return (
     <S.MusicListContainer>
-      <S.MusicListTitle>
-        기상송
-      </S.MusicListTitle>
+      <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는기 확인해봐요!"} />
 
       {myData && myData.map((item, idx) => {
         const createdDate = item.createdDate.split(" ")[0];

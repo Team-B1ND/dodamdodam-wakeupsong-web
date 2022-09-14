@@ -6,14 +6,9 @@ export const MusicListContainer = styled.div`
   gap: 10px;
 `;
 
-export const MusicListTitle = styled.div`
-  font-weight: bold;
-  font-size: 1.3rem;
-`;
-
 export const MusicListWrapper = styled.div`
   display: flex;
-  gap: 25px;
+  gap: 30px;
   flex-wrap: wrap;
   max-height: 350px;
   overflow: auto;
