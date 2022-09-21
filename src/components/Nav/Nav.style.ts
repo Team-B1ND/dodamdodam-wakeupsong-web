@@ -1,13 +1,16 @@
+import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
-  min-width: 150px;
-  height: 100vh;
+  min-width: 20%;
+  height: 100%;
+  padding: 30px;
   display: flex;
-  justify-content: center;
-  background-color: skyblue;
+  flex-direction: column;
+  background-color: ${palette.mainDark};
   color: #fff;
 `;
-export const MusicChart = styled.div`
-  padding-top: 130px;
+
+export const DodamLogo = styled.img`
+  width: 200px;
 `;

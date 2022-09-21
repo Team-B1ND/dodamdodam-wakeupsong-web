@@ -1,12 +1,13 @@
-import { NavBarContainer, MusicChart } from "./Nav.style";
+import * as S from "./Nav.style";
+import DODAMLOGO from "assets/logo_img/dodamdodam 6.svg";
+import ApplyMusic from "./ApplyMusic";
 
 const Nav = () => {
   return (
-    <NavBarContainer>
-      <MusicChart>
-        기상송 차트
-      </MusicChart>
-    </NavBarContainer>
+    <S.NavBarContainer>
+      <S.DodamLogo src={DODAMLOGO} alt="dodam_logo" />
+      <ApplyMusic />
+    </S.NavBarContainer>
   );
 };
 
