@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 export const MyMusicListContainer = styled.div`
-  margin-top: 30px;
-  padding: 30px 170px;
+  margin-top: 40px;
   display: grid;
   gap: 10px;
 `;
@@ -28,14 +27,14 @@ export const MyMusicThumbnailImg = styled.img`
 `;
 
 export const MyMusicThumbnailTitle = styled.div`
-  color: #fff;
-  width: 300px;
-  padding: 15px 10px;
+  padding: 10px 0px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  backdrop-filter: blur(4px);
-  transform: translateY(-47px);
-  border-radius: 0 0 5px 5px;
-  background-color: rgba(0, 0, 0, 0.6);
+`;
+
+export const CreatedDateContainer = styled.div`
+  font-size: 0.85rem;
+  display: flex;
+  gap: 7px;
 `;

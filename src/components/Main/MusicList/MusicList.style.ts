@@ -1,29 +1,39 @@
+import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const MusicListContainer = styled.div`
-  padding: 30px 170px;
   display: grid;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const MusicListWrapper = styled.div`
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  max-height: 350px;
-  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 320px);
+  grid-gap: 20px;
+  max-height: 340px;
+  overflow: hidden;
 `;
 
 export const MusicContainer = styled.div`
-  width: 320px;
   display: flex;
-  gap: 7px;
+  gap: 13px;
+  cursor: pointer;
+  &:hover {
+    background-color: ${palette.gray[100]};
+  }
 `;
 
 export const MusicTumbnailImg = styled.img`
-  width: 90px;
-  cursor: pointer;
+  width: 60px;
   border-radius: 5px;
+`;
+
+export const ApplyRanking = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.9rem;
+  font-weight: bold;
 `;
 
 export const TitleWrap = styled.div`
@@ -33,20 +43,13 @@ export const TitleWrap = styled.div`
 `;
 
 export const videoTitle = styled.div`
-  font-size: 0.95rem;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-`;
-
-export const channelTitle = styled.div`
   font-size: 0.9rem;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
-export const createdDateContainer = styled.div`
+export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
