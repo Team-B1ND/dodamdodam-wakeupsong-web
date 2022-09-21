@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const TodayMusicListContainer = styled.div`
-  padding: 30px 170px;
+  margin-top: 30px;
   display: grid;
-  gap: 10px;
+  gap: 20px;
 `;
 
 export const TodayMusicListTitle = styled.div`
@@ -26,24 +26,37 @@ export const SubTitleMent = styled.div`
 `;
 
 export const MusicContainer = styled.div`
-  width: 300px;
+  width: 360px;
+  height: 201px;
   cursor: pointer;
 `;
 
-export const MusicThumbnailImg = styled.img`
+export const MusicThumbnailImg = styled.div<{ src: string }>`
   width: 100%;
-  border-radius: 5px;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(${({ src }) => src});
 `;
 
 export const MusicThumbnailTitle = styled.div`
   color: #fff;
-  width: 300px;
+  width: 100%;
+  font-size: 0.95rem;
   overflow: hidden;
-  padding: 15px 10px;
+  padding: 10px 10px;
   white-space: nowrap;
   text-overflow: ellipsis;
   backdrop-filter: blur(4px);
-  transform: translateY(-47px);
-  border-radius: 0 0 5px 5px;
-  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-35px);
+  /* border-radius: 0 0 5px 5px; */
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+export const MusicNull = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
