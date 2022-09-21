@@ -1,4 +1,4 @@
-export interface WakeupSongMyMusic {
+export interface WakeupSongMusic {
   applyingMember: {
     email: string;
     id: string;
@@ -29,6 +29,6 @@ export interface WakeupSongMyMusic {
   videoUrl: string;
 }
 
-export interface WakeupSongMyMusicLists {
-  data: WakeupSongMyMusic[];
+export interface WakeupSongMusicLists {
+  data: WakeupSongMusic[];
 }
