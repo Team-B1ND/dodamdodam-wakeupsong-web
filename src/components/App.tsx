@@ -1,19 +1,21 @@
 import styled from "styled-components";
+import Header from "./Header";
 import Main from "./Main";
 import Nav from "./Nav/index";
 
 const App = () => {
   return (
     <AppContainer>
-      <Nav />
+      <Header />
       <Main />
+      <Nav />
     </AppContainer>
   );
 }
 
 const AppContainer = styled.div`
-width: 100vw;
-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
 `;
 

@@ -9,6 +9,7 @@ const Title = ({
   titleMent = "",
   subTitleMent = "",
 }: Props) => {
+
   return (
     <S.MusicListTitle>
       <S.TitleMent>{titleMent}</S.TitleMent>
