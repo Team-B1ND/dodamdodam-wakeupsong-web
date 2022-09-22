@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TodayMusicListContainer = styled.div`
-  margin-top: 30px;
+  margin-top: 28px;
   display: grid;
   gap: 20px;
 `;
@@ -49,7 +49,6 @@ export const MusicThumbnailTitle = styled.div`
   text-overflow: ellipsis;
   backdrop-filter: blur(4px);
   transform: translateY(-35px);
-  /* border-radius: 0 0 5px 5px; */
   background-color: rgba(0, 0, 0, 0.4);
 `;
 

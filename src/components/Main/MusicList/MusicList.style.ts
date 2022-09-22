@@ -7,17 +7,23 @@ export const MusicListContainer = styled.div`
 `;
 
 export const MusicListWrapper = styled.div`
+  width: 100%;
+  height: 250px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
-  grid-gap: 20px;
-  max-height: 340px;
+  grid-gap: 18px;
   overflow: hidden;
 `;
 
-export const MusicContainer = styled.div`
+export const MusicContainer = styled.button`
   display: flex;
   gap: 13px;
-  cursor: pointer;
+  border: none;
+  background-color: #fff;
+  outline: none;
+  &:focus {
+    background-color: ${palette.gray[100]};
+  }
   &:hover {
     background-color: ${palette.gray[100]};
   }
@@ -26,18 +32,17 @@ export const MusicContainer = styled.div`
 export const MusicTumbnailImg = styled.img`
   width: 60px;
   border-radius: 5px;
+  cursor: pointer;
 `;
 
 export const ApplyRanking = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 0.9rem;
   font-weight: bold;
 `;
 
 export const TitleWrap = styled.div`
   display: grid;
+  gap: 8px;
   align-items: center;
   overflow: auto;
 `;

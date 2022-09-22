@@ -1,10 +1,17 @@
 import * as S from "./MusicList.style";
 import Title from "components/Common/Title";
 import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
+import { useRecoilState } from "recoil";
+import { allowMusicInfo } from "store/reducer";
 
 const MusicList = () => {
 
+  const [musicInfo, setMusicInfo] = useRecoilState(allowMusicInfo);
   const { pendingMusicListData } = useWakeupSongPendingMusicListData();
+  const now = new Date();
+  const PlayedDate = new Date(now.setDate(now.getDate() + 1)).getDay();
+  console.log(PlayedDate);
+
 
   return (
     <S.MusicListContainer>
@@ -15,8 +22,10 @@ const MusicList = () => {
           const createdDate = item.createdDate.split(" ")[0];
 
           return (
-            <S.MusicContainer key={idx} onClick={() => window.open(item.videoUrl)} >
-              <S.MusicTumbnailImg src={item.thumbnailUrl} />
+            <S.MusicContainer key={idx} onClick={() => {
+              // setMusicInfo({ id: item.id, playedDate: PlayedDate });
+            }}>
+              <S.MusicTumbnailImg src={item.thumbnailUrl} onClick={() => window.open(item.videoUrl)} />
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
 
               <S.TitleWrap>
@@ -30,7 +39,7 @@ const MusicList = () => {
           )
         })}
       </S.MusicListWrapper>
-    </S.MusicListContainer>
+    </S.MusicListContainer >
   );
 };
 

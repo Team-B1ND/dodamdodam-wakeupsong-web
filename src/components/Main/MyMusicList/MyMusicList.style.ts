@@ -12,12 +12,19 @@ export const MyMusicListTitle = styled.div`
 `;
 
 export const MyMusicListContents = styled.div`
+  width: 97%;
+  height: 255px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   display: flex;
   gap: 10px;
 `;
 
 export const MyMusicContainer = styled.div`
-  width: 300px;
+  /* width: 340px; // 4개 */
+  width: 260px; // 5개
   cursor: pointer;
 `;
 
