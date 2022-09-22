@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import wakeupSongRepository from "repository/wakeupSong.repository";
-import { WakeupSongMusic } from "types/wakeupSong/wakeupSongMy";
+import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy";
 
 const useWakeupSongTodayData = () => {
   const [todaySongData, setTodaySongData] = useState<WakeupSongMusic[]>([]);
