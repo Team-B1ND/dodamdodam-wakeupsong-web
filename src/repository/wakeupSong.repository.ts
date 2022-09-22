@@ -1,5 +1,6 @@
 import customAxios from "lib/axios/customAxios";
-import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSongMy";
+import { allow } from "types/wakeupSongAllow/wakeupSongAllow";
+import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy";
 
 class wakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
@@ -27,6 +28,14 @@ class wakeupSongRepository {
       videoUrl: wakeupSongUrl,
     });
     console.log(status);
+  }
+
+  public async wakeupSongAllow(musicInfo: allow) {
+    const { data } = await customAxios.patch("wakeup-song/allow", {
+      id: musicInfo.id,
+      playedDate: musicInfo.playedDate,
+    });
+    return data;
   }
 }
 
