@@ -1,6 +1,7 @@
 import customAxios from "lib/axios/customAxios";
-import { allow } from "types/wakeupSongAllow/wakeupSongAllow";
-import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy";
+import { Response } from "types/util/response.type";
+import { allow } from "types/wakeupSongAllow/wakeupSongAllow.type";
+import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
 
 class wakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
@@ -8,7 +9,7 @@ class wakeupSongRepository {
     return data;
   }
 
-  public async getWakeupSongMyData(): Promise<WakeupSongMusicLists> {
+  public async getWakeupSongMy(): Promise<WakeupSongMusicLists> {
     const { data } = await customAxios.get("wakeup-song/my");
     return data;
   }
@@ -22,15 +23,14 @@ class wakeupSongRepository {
     return data;
   }
 
-  public async postApplyWakeupSong(wakeupSongUrl: string) {
-    // 신청헸다는 것을 status로 유저에게 알려주기 alert으로
-    const { status } = await customAxios.post(`wakeup-song`, {
+  public async postApplyWakeupSong(wakeupSongUrl: string): Promise<Response> {
+    const { data } = await customAxios.post(`wakeup-song`, {
       videoUrl: wakeupSongUrl,
     });
-    console.log(status);
+    return data;
   }
 
-  public async wakeupSongAllow(musicInfo: allow) {
+  public async wakeupSongAllow(musicInfo: allow): Promise<Response> {
     const { data } = await customAxios.patch("wakeup-song/allow", {
       id: musicInfo.id,
       playedDate: musicInfo.playedDate,

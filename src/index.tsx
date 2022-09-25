@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import reportWebVitals from './reportWebVitals';
 import Root from 'Root';
 
@@ -11,9 +11,13 @@ const router = createBrowserRouter([
     element: <Root />,
   },
   {
+    path: "/apllyMusic",
+    element: <Link to={"/"}>내가 신청한 기상송</Link> //보관함 페이지 만들어서 보여주기
+  },
+  {
     path: "/storage",
-    element: <Root />, //보관함 페이지 만들어서 보여주기
-  }
+    element: <Link to={"/"}>보관함</Link>//보관함 페이지 만들어서 보여주기
+  },
 ]);
 
 const root = ReactDOM.createRoot(
