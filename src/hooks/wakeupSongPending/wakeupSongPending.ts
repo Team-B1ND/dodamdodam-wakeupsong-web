@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import wakeupSongRepository from "repository/wakeupSong.repository";
-import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy";
+import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 
 const useWakeupSongPendingMusicListData = () => {
   const [pendingMusicListData, setPendingMusicListData] = useState<

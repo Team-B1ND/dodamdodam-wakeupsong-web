@@ -1,24 +1,23 @@
 import { useEffect, useState } from "react";
 import wakeupSongRepository from "repository/wakeupSong.repository";
-import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy";
+import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 
-const useWakeupSongMyData = () => {
+const useWakeupSongMy = () => {
   const [myData, setMyData] = useState<WakeupSongMusic[]>([]);
 
   useEffect(() => {
     const getMyData = async () => {
       try {
-        const { data } = await wakeupSongRepository.getWakeupSongMyData();
+        const { data } = await wakeupSongRepository.getWakeupSongMy();
         setMyData(data);
       } catch (error) {
         console.log(error);
       }
     };
-
     getMyData();
   }, []);
 
   return { myData };
 };
 
-export default useWakeupSongMyData;
+export default useWakeupSongMy;
