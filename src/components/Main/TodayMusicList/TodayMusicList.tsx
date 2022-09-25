@@ -9,6 +9,7 @@ const TodayMusicList = () => {
   return (
     <S.TodayMusicListContainer>
       <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
+      {/* 오늘 승인한 기상송은 내일의 기상송이라고 표시 하고 그 다음날에 나오게 표시 해야함 */}
 
       <S.TodayMusicListContents>
         {todaySongData.length !== 0 ? todaySongData.map((item, idx) => {
@@ -18,7 +19,7 @@ const TodayMusicList = () => {
               <S.MusicThumbnailTitle>{item.videoTitle}</S.MusicThumbnailTitle>
             </S.MusicContainer>
           )
-        }) : <S.MusicNull>승인된 기상송이 없습니닷</S.MusicNull>
+        }) : <S.MusicNull>승인된 기상송이 없습니닷기릿</S.MusicNull>
         }
       </S.TodayMusicListContents>
     </S.TodayMusicListContainer >

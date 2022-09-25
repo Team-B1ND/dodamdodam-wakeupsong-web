@@ -2,13 +2,14 @@ import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const MusicListContainer = styled.div`
+  margin-top: 80px;
   display: grid;
   gap: 20px;
 `;
 
 export const MusicListWrapper = styled.div`
   width: 100%;
-  height: 250px;
+  max-height: 250px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
   grid-gap: 18px;
@@ -29,9 +30,13 @@ export const MusicContainer = styled.button`
   }
 `;
 
-export const MusicTumbnailImg = styled.img`
-  width: 60px;
-  border-radius: 5px;
+export const MusicTumbnailImg = styled.div<{ src: string }>`
+  width: 150px;
+  height: 43px;
+  border-radius: 3px;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(${({ src }) => src});
   cursor: pointer;
 `;
 
@@ -58,4 +63,12 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+`;
+
+export const MusicNull = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

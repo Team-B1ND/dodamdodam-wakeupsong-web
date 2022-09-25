@@ -24,7 +24,8 @@ export const LinkWrap = styled.button<{ linkName: string; pathName: string }>`
   .Link {
     color: ${({ linkName, pathName }) =>
       linkName === pathName ? `${palette.main}` : "#333"};
-    font-weight: bold;
+    font-weight: ${({ linkName, pathName }) =>
+      linkName === pathName ? "bold" : "none"};
   }
 
   .Link:hover {

@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const TodayMusicListContainer = styled.div`
-  margin-top: 28px;
+  margin-top: 120px;
   display: grid;
-  gap: 20px;
+  gap: 15px;
+  overflow: hidden;
 `;
 
 export const TodayMusicListTitle = styled.div`
@@ -14,6 +15,11 @@ export const TodayMusicListTitle = styled.div`
 export const TodayMusicListContents = styled.div`
   display: flex;
   gap: 15px;
+  width: 97%;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const TitleMent = styled.div`
@@ -26,8 +32,8 @@ export const SubTitleMent = styled.div`
 `;
 
 export const MusicContainer = styled.div`
-  width: 360px;
-  height: 201px;
+  width: 325px;
+  height: 180px;
   cursor: pointer;
 `;
 

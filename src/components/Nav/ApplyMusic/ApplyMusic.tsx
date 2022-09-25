@@ -14,7 +14,6 @@ const ApplyMusic = () => {
 
       <S.ApplyContainer onSubmit={(e) => {
         e.preventDefault();
-        // postApplyWakeupSong(applyUrl);
       }}>
         <S.ApplyUrlInput type={"text"} onChange={(e: ChangeEvent<HTMLInputElement>) => setApplyUrl(e.target.value)} placeholder="https://www.youtube.com/watch?v=" />
         <S.ApplyUrlSubmitBtn onClick={() => postApplyWakeupSong(applyUrl)}>신청하기</S.ApplyUrlSubmitBtn>

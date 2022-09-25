@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const MyMusicListContainer = styled.div`
-  margin-top: 40px;
+  margin-top: 80px;
   display: grid;
   gap: 10px;
 `;
@@ -15,22 +15,25 @@ export const MyMusicListContents = styled.div`
   width: 97%;
   height: 255px;
   overflow: scroll;
+  display: flex;
+  gap: 15px;
   &::-webkit-scrollbar {
     display: none;
   }
-  display: flex;
-  gap: 10px;
 `;
 
 export const MyMusicContainer = styled.div`
-  /* width: 340px; // 4개 */
-  width: 260px; // 5개
+  width: 325px;
+  height: 180px;
   cursor: pointer;
 `;
 
-export const MyMusicThumbnailImg = styled.img`
+export const MyMusicThumbnailImg = styled.div<{ src: string }>`
   width: 100%;
-  border-radius: 5px;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-image: url(${({ src }) => src});
 `;
 
 export const MyMusicThumbnailTitle = styled.div`
@@ -44,4 +47,12 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+`;
+
+export const MusicNull = styled.div`
+  width: 100%;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
