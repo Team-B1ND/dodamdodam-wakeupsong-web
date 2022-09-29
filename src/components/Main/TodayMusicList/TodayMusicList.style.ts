@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TodayMusicListContainer = styled.div`
-  margin-top: 120px;
+  margin-top: 90px;
   display: grid;
   gap: 15px;
   overflow: hidden;
@@ -38,8 +38,8 @@ export const MusicContainer = styled.div`
 `;
 
 export const MusicThumbnailImg = styled.div<{ src: string }>`
-  width: 100%;
-  height: 100%;
+  width: 325px;
+  height: 180px;
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});

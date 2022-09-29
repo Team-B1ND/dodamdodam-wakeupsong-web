@@ -18,6 +18,9 @@ export const LinkWrap = styled.button<{ linkName: string; pathName: string }>`
     ${({ linkName, pathName }) =>
       linkName === pathName ? `${palette.main}` : "#fff"};
   padding: 8px;
+  margin: 7px;
+  padding-left: 20px;
+  display: flex;
   cursor: pointer;
   background-color: #fff;
 

@@ -2,14 +2,14 @@ import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const MusicListContainer = styled.div`
-  margin-top: 80px;
+  margin-top: 50px;
   display: grid;
   gap: 20px;
 `;
 
 export const MusicListWrapper = styled.div`
   width: 100%;
-  max-height: 250px;
+  max-height: 280px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
   grid-gap: 18px;
@@ -18,7 +18,8 @@ export const MusicListWrapper = styled.div`
 
 export const MusicContainer = styled.button`
   display: flex;
-  gap: 13px;
+  align-items: center;
+  gap: 15px;
   border: none;
   background-color: #fff;
   outline: none;
@@ -31,8 +32,8 @@ export const MusicContainer = styled.button`
 `;
 
 export const MusicTumbnailImg = styled.div<{ src: string }>`
-  width: 150px;
-  height: 43px;
+  min-width: 100px;
+  min-height: 55px;
   border-radius: 3px;
   background-size: cover;
   background-position: center center;
@@ -41,15 +42,23 @@ export const MusicTumbnailImg = styled.div<{ src: string }>`
 `;
 
 export const ApplyRanking = styled.div`
-  font-size: 0.9rem;
+  text-align: left;
   font-weight: bold;
 `;
 
 export const TitleWrap = styled.div`
-  display: grid;
-  gap: 8px;
-  align-items: center;
+  width: 100%;
+  display: flex;
+  gap: 3px;
+  flex-direction: column;
   overflow: auto;
+`;
+
+export const TitleTopContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const videoTitle = styled.div`
@@ -57,6 +66,7 @@ export const videoTitle = styled.div`
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  text-align: left;
 `;
 
 export const CreatedDateContainer = styled.div`

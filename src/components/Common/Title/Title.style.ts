@@ -7,7 +7,7 @@ export const MusicListTitle = styled.div`
 
 export const TitleMent = styled.div`
   font-weight: bold;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 `;
 
 export const SubTitleMent = styled.div`

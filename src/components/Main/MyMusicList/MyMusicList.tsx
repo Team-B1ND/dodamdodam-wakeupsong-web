@@ -15,7 +15,7 @@ const MyMusicList = () => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <S.MyMusicContainer key={idx}>
-              <S.MyMusicThumbnailImg src={item.thumbnailUrl} />
+              <S.MyMusicThumbnailImg src={item.thumbnailUrl} onClick={() => window.open(item.videoUrl)} />
               <S.MyMusicThumbnailTitle>{item.videoTitle}</S.MyMusicThumbnailTitle>
               <S.CreatedDateContainer>
                 <div style={{ color: "#c5c5c5" }}>신청일</div>

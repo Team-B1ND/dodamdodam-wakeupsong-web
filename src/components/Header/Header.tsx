@@ -14,11 +14,11 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <S.LinkWrap linkName={"/"} pathName={pathname}>
-        <Link className="Link" to={`/`}>홈</Link>
+        <Link className="Link" to={`/`}>기상송 홈</Link>
       </S.LinkWrap>
 
-      <S.LinkWrap linkName={"/apllyMusic"} pathName={pathname}>
-        <Link className="Link" to={`/apllyMusic`}>MY 기상송</Link>
+      <S.LinkWrap linkName={"/mymusicstore"} pathName={pathname}>
+        <Link className="Link" to={`/mymusicstore`}>마이뮤직</Link>
       </S.LinkWrap>
 
       <S.LinkWrap linkName={"/storage"} pathName={pathname}>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ApplyMusicContainer = styled.div`
   display: flex;
-  margin-top: 40px;
+  margin-top: 70px;
   gap: 10px;
   flex-direction: column;
 `;
@@ -32,5 +32,5 @@ export const ApplyUrlSubmitBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${palette.main};
+  background: ${palette.rightGradient};
 `;
