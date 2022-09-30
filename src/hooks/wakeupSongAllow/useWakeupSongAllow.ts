@@ -1,11 +1,9 @@
-import wakeupSongRepository from "repository/wakeupSong.repository";
-import { allow } from "types/wakeupSongAllow/wakeupSongAllow.type";
+import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
+import { Allow } from "repository/wakeupSong/wakeupSong.Param";
 import { toast } from "react-toastify";
 
 const useWakeupSongAllow = () => {
-  const setWakeupSongAllow = async (musicInfo: allow) => {
-    console.log(musicInfo);
-
+  const setWakeupSongAllow = async (musicInfo: Allow) => {
     try {
       const { status } = await wakeupSongRepository.wakeupSongAllow(musicInfo);
       if (status === 200) {

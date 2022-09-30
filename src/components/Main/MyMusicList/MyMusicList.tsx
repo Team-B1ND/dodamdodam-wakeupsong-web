@@ -1,6 +1,7 @@
 import * as S from "./MyMusicList.style";
 import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import Title from "components/Common/Title";
+import { Link } from "react-router-dom";
 
 const MyMusicList = () => {
 
@@ -8,7 +9,11 @@ const MyMusicList = () => {
 
   return (
     <S.MyMusicListContainer>
-      <Title titleMent={"내가 신청한 기상송"} subTitleMent={""} />
+
+      <S.TitleContainer>
+        <Title titleMent={"내가 신청한 기상송"} subTitleMent={""} />
+        <Link className="seeMoreDetails" to={"mymusicstore"}>더보기</Link>
+      </S.TitleContainer>
 
       <S.MyMusicListContents>
         {myData.length !== 0 ? myData.map((item, idx) => {

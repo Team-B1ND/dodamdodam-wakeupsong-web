@@ -6,6 +6,17 @@ export const MyMusicListContainer = styled.div`
   gap: 10px;
 `;
 
+export const TitleContainer = styled.div`
+  width: 97%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .seeMoreDetails {
+    font-size: 0.9rem;
+    color: #333;
+  }
+`;
+
 export const MyMusicListTitle = styled.div`
   font-weight: bold;
   font-size: 1.3rem;
@@ -14,7 +25,7 @@ export const MyMusicListTitle = styled.div`
 export const MyMusicListContents = styled.div`
   width: 97%;
   height: 255px;
-  overflow: scroll;
+  overflow: hidden;
   display: flex;
   gap: 15px;
 `;
