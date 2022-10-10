@@ -8,7 +8,7 @@ const useWakeupSongPendingMusicListData = () => {
   >([]);
 
   useEffect(() => {
-    const getPendingMusicData = async () => {
+    (async () => {
       try {
         const { data } =
           await wakeupSongRepository.getWakeupSongPendingMusicListData();
@@ -16,9 +16,7 @@ const useWakeupSongPendingMusicListData = () => {
       } catch (error) {
         console.log(error);
       }
-    };
-
-    getPendingMusicData();
+    })();
   }, []);
 
   return { pendingMusicListData };
