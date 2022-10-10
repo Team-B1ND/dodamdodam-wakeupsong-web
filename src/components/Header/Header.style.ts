@@ -2,7 +2,7 @@ import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-  width: 8%;
+  width: 7%;
   height: 100%;
   padding-top: 170px;
   display: flex;

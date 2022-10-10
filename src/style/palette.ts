@@ -152,7 +152,7 @@ export const palette = {
   purple,
   indigo,
   random,
-  main: "#4997C0",
+  main: "#FF9169",
   rightGradient: "linear-gradient( to right, #646FD4, #3BACB6)",
   mainDark: "#333",
   inputBorderColor: "#bdbdbd",

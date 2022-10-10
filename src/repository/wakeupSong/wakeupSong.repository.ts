@@ -2,6 +2,7 @@ import customAxios from "lib/axios/customAxios";
 import { Response } from "types/util/response.type";
 import { Allow } from "repository/wakeupSong/wakeupSong.Param";
 import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
+import { WakeupSongDibsLists } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
 class wakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
@@ -38,10 +39,15 @@ class wakeupSongRepository {
     return data;
   }
 
-  public async wakeupSongDibs(wakeupSongUrl: string): Promise<Response> {
+  public async postWakeupSongDibs(wakeupSongUrl: string): Promise<Response> {
     const { data } = await customAxios.post("wakeup-song/dibs", {
       videoUrl: wakeupSongUrl,
     });
+    return data;
+  }
+
+  public async getWakeupSongDibs(): Promise<WakeupSongDibsLists> {
+    const { data } = await customAxios.get("wakeup-song/dibs");
     return data;
   }
 }

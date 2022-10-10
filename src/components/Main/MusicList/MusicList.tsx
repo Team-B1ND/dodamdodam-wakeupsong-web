@@ -3,19 +3,12 @@ import Title from "components/Common/Title";
 import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
 import { useRecoilState } from "recoil";
 import { allowMusicInfo } from "store/reducer";
-import { AiOutlineStar } from "react-icons/ai";
-import STAR_3D from "assets/3D_EMOJI/star_3d.png";
-import { useState } from "react";
-
-
 
 const MusicList = () => {
 
   const [musicInfo, setMusicInfo] = useRecoilState(allowMusicInfo);
   const { pendingMusicListData } = useWakeupSongPendingMusicListData();
   const PlayedDate = new Date().toISOString().split("T")[0];
-  const [dibs, setDibs] = useState<boolean>(true);
-
 
   return (
     <S.MusicListContainer>
@@ -34,7 +27,6 @@ const MusicList = () => {
               <S.TitleWrap>
                 <S.TitleTopContainer>
                   <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
-                  {dibs ? <AiOutlineStar onClick={() => setDibs((prev) => !prev)} style={{ cursor: "pointer", fontSize: "1rem " }} /> : <img src={STAR_3D} onClick={() => setDibs((prev) => !prev)} style={{ cursor: "pointer", width: "1rem " }} />}
                 </S.TitleTopContainer>
 
                 <S.videoTitle>{item.videoTitle}</S.videoTitle>

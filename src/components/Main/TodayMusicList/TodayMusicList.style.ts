@@ -1,10 +1,25 @@
+import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const TodayMusicListContainer = styled.div`
   margin-top: 90px;
   display: grid;
   gap: 15px;
-  overflow: hidden;
+  padding-left: 60px;
+`;
+
+export const TitleContainer = styled.div`
+  width: 96.3%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .seeMoreDetails {
+    font-size: 0.9rem;
+    color: ${palette.gray[500]};
+  }
+  .seeMoreDetails:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const TodayMusicListTitle = styled.div`
@@ -13,13 +28,9 @@ export const TodayMusicListTitle = styled.div`
 `;
 
 export const TodayMusicListContents = styled.div`
+  width: 97.5%;
   display: flex;
-  gap: 15px;
-  width: 97%;
-  overflow: scroll;
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  gap: 10px;
 `;
 
 export const TitleMent = styled.div`
@@ -37,12 +48,30 @@ export const MusicContainer = styled.div`
   cursor: pointer;
 `;
 
+// export const BookmarkPlusContainer = styled.div`
+//   transform: translateY(30px);
+// `;
+
 export const MusicThumbnailImg = styled.div<{ src: string }>`
   width: 325px;
   height: 180px;
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});
+  display: grid;
+  align-items: flex-end;
+  &:hover {
+    &::before {
+      content: "▶️";
+      position: relative;
+      margin-top: 35px;
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
 
 export const MusicThumbnailTitle = styled.div`
@@ -54,7 +83,6 @@ export const MusicThumbnailTitle = styled.div`
   white-space: nowrap;
   text-overflow: ellipsis;
   backdrop-filter: blur(4px);
-  transform: translateY(-35px);
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
@@ -64,4 +92,5 @@ export const MusicNull = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${palette.gray[400]};
 `;

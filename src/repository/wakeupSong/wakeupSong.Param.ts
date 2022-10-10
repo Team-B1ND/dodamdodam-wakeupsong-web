@@ -1,4 +1,4 @@
 export interface Allow {
-  id: number;
+  id?: number;
   playedDate: string;
 }

@@ -32,12 +32,13 @@ const errorInterceptor = async (config: AxiosError) => {
           },
         }
       );
-      cookie.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
 
       // customAxios.defaults.headers[
       //   REQUEST_TOKEN_KEY
       // ] = `Bearer ${data.data.accessToken}`
+
       if (originalRequest.headers) {
+        cookie.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
         originalRequest.headers[
           REQUEST_TOKEN_KEY
         ] = `Bearer ${data.data.accessToken}`;
@@ -45,7 +46,8 @@ const errorInterceptor = async (config: AxiosError) => {
 
       return axios(originalRequest);
     } catch (error) {
-      window.alert("리프레쉬 만료");
+      // window.alert("토큰이 만료되었습니다 다시 로그인해");
+      // window.location.href = "http://dodam.b1nd.com/sign";
     }
   }
 };

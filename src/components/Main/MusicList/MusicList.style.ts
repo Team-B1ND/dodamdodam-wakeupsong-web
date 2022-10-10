@@ -5,10 +5,11 @@ export const MusicListContainer = styled.div`
   margin-top: 50px;
   display: grid;
   gap: 20px;
+  padding-left: 60px;
 `;
 
 export const MusicListWrapper = styled.div`
-  width: 100%;
+  width: 98.5%;
   max-height: 280px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
@@ -21,13 +22,14 @@ export const MusicContainer = styled.button`
   align-items: center;
   gap: 15px;
   border: none;
-  background-color: #fff;
+  background-color: ${palette.gray[50]};
   outline: none;
+  border-radius: 5px;
   &:focus {
-    background-color: ${palette.gray[100]};
+    background-color: ${palette.gray[200]};
   }
   &:hover {
-    background-color: ${palette.gray[100]};
+    background-color: ${palette.gray[200]};
   }
 `;
 
@@ -38,6 +40,17 @@ export const MusicTumbnailImg = styled.div<{ src: string }>`
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});
+  display: grid;
+  align-items: center;
+  &:hover {
+    &::before {
+      content: "▶️";
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
   cursor: pointer;
 `;
 

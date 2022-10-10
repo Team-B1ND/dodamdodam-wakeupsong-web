@@ -1,19 +1,24 @@
+import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const MyMusicListContainer = styled.div`
   margin-top: 50px;
   display: grid;
   gap: 10px;
+  padding-left: 60px;
 `;
 
 export const TitleContainer = styled.div`
-  width: 97%;
+  width: 96.3%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   .seeMoreDetails {
     font-size: 0.9rem;
-    color: #333;
+    color: ${palette.gray[500]};
+  }
+  .seeMoreDetails:hover {
+    text-decoration: underline;
   }
 `;
 
@@ -23,11 +28,11 @@ export const MyMusicListTitle = styled.div`
 `;
 
 export const MyMusicListContents = styled.div`
-  width: 97%;
+  width: 97.5%;
   height: 255px;
   overflow: hidden;
   display: flex;
-  gap: 15px;
+  gap: 10px;
 `;
 
 export const MyMusicContainer = styled.div`
@@ -42,6 +47,18 @@ export const MyMusicThumbnailImg = styled.div<{ src: string }>`
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});
+  display: grid;
+  align-items: center;
+  &:hover {
+    &::before {
+      content: "▶️";
+      font-size: 1.5rem;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;
 
 export const MyMusicThumbnailTitle = styled.div`
@@ -63,4 +80,5 @@ export const MusicNull = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  color: ${palette.gray[400]};
 `;

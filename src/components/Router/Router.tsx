@@ -7,9 +7,10 @@ import {
 import Header from "../Header"
 import Main from "../Main";
 import Nav from "../Nav";
-import Storage from "components/Storage";
+import DibsStorage from "components/DibsStorage";
 import { ToastContainer } from 'react-toastify';
-import MyMusicStore from "components/MyMusicStore";
+import MyMusicStore from "components/MyMusicDetail";
+import TodayMusicDetail from "components/TodayMusicDetail";
 
 
 const Router = () => {
@@ -27,15 +28,14 @@ const Router = () => {
                 pauseOnHover
             />
             <Header />
-
             <Routes>
                 <Route path="/" element={<Main />} />
-                <Route path="storage" element={<Storage />} />
-                <Route path="mymusicstore" element={<MyMusicStore />} />
+                <Route path="dibsstorage" element={<DibsStorage />} />
+                <Route path="mymusicdetail" element={<MyMusicStore />} />
+                <Route path="todaymusicdetail" element={<TodayMusicDetail />} />
             </Routes>
-
             <Nav />
-        </BrowserRouter>
+        </BrowserRouter >
     )
 }
 

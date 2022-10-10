@@ -11,8 +11,8 @@ const MyMusicList = () => {
     <S.MyMusicListContainer>
 
       <S.TitleContainer>
-        <Title titleMent={"내가 신청한 기상송"} subTitleMent={""} />
-        <Link className="seeMoreDetails" to={"mymusicstore"}>더보기</Link>
+        <Title titleMent={"마이뮤직"} subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"} />
+        <Link className="seeMoreDetails" to={"mymusicdetail"}>더보기</Link>
       </S.TitleContainer>
 
       <S.MyMusicListContents>

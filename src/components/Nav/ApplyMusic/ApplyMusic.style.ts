@@ -32,5 +32,5 @@ export const ApplyUrlSubmitBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${palette.rightGradient};
+  background: ${palette.main};
 `;

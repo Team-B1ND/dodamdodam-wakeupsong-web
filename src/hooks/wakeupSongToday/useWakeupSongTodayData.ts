@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 
@@ -11,11 +12,9 @@ const useWakeupSongTodayData = () => {
         const { data } = await wakeupSongRepository.getWakeupSongTodayMusicData(
           new Date().toLocaleDateString().split(".")
         );
-        console.log(data);
-
-        setTodaySongData(data);
+        setTodaySongData(data.slice(0, 4));
       } catch (error) {
-        console.log(error);
+        toast.error("노래 리스트 불러오기 오류");
       }
     };
 
