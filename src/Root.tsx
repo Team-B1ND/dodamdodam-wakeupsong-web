@@ -4,7 +4,6 @@ import { darkTheme, lightTheme } from "style/theme"
 import App from 'components/App';
 import { RecoilRoot } from "recoil";
 import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from 'react-toastify';
 
 
 const Root = () => {

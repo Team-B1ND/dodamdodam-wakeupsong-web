@@ -6,15 +6,14 @@ const useWakeupSongMy = () => {
   const [myData, setMyData] = useState<WakeupSongMusic[]>([]);
 
   useEffect(() => {
-    const getMyData = async () => {
+    (async () => {
       try {
         const { data } = await wakeupSongRepository.getWakeupSongMy();
-        setMyData(data.slice(0, 4));
+        setMyData(data);
       } catch (error) {
         console.log(error);
       }
-    };
-    getMyData();
+    })();
   }, []);
 
   return { myData };
