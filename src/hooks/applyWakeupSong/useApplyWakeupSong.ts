@@ -15,7 +15,7 @@ const useApplyWakeupSong = () => {
         toast.success("기상송 신청성공!");
       }
     } catch (error) {
-      toast.error("정확한 주소를 입력해 주세요");
+      toast.error("정확한 url을 입력해 주세요");
     }
   };
 

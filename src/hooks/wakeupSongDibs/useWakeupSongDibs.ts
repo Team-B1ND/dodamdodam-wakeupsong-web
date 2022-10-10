@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { useEffect, useState } from "react";
-import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 import {
   WakeupSongDibs,
   WakeupSongDibsLists,

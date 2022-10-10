@@ -35,7 +35,7 @@ const Router = () => {
                 <Route path="todaymusicdetail" element={<TodayMusicDetail />} />
             </Routes>
             <Nav />
-        </BrowserRouter>
+        </BrowserRouter >
     )
 }
 
