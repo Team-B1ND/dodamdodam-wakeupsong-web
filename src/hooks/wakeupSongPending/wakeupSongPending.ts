@@ -12,7 +12,7 @@ const useWakeupSongPendingMusicListData = () => {
       try {
         const { data } =
           await wakeupSongRepository.getWakeupSongPendingMusicListData();
-        setPendingMusicListData(data);
+        setPendingMusicListData(data.splice(0, 16));
       } catch (error) {
         console.log(error);
       }

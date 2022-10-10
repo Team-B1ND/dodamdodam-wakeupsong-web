@@ -29,10 +29,10 @@ const Router = () => {
             />
             <Header />
             <Routes>
-                <Route path="/" element={<Main />} />
-                <Route path="dibsstorage" element={<DibsStorage />} />
-                <Route path="mymusicdetail" element={<MyMusicStore />} />
-                <Route path="todaymusicdetail" element={<TodayMusicDetail />} />
+                <Route path="/wakesong" element={<Main />} />
+                <Route path="/dibsstorage" element={<DibsStorage />} />
+                <Route path="/mymusicdetail" element={<MyMusicStore />} />
+                <Route path="/todaymusicdetail" element={<TodayMusicDetail />} />
             </Routes>
             <Nav />
         </BrowserRouter >

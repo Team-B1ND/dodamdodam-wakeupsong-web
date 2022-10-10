@@ -9,7 +9,7 @@ const useWakeupSongMy = () => {
     (async () => {
       try {
         const { data } = await wakeupSongRepository.getWakeupSongMy();
-        setMyData(data);
+        setMyData(data.splice(0, 4));
       } catch (error) {
         console.log(error);
       }

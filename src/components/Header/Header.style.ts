@@ -8,6 +8,8 @@ export const HeaderContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  box-shadow: 0 5px 15px ${palette.gray[200]};
+  z-index: 1;
 `;
 
 export const LinkWrap = styled.button<{ linkName: string; pathName: string }>`

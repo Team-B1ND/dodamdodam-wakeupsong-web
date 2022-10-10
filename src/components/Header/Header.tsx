@@ -14,8 +14,8 @@ const Header = () => {
 
   return (
     <S.HeaderContainer>
-      <S.LinkWrap linkName={"/"} pathName={pathname}>
-        <Link className="Link" to={`/`}>기상송 홈</Link>
+      <S.LinkWrap linkName={"/wakesong"} pathName={pathname}>
+        <Link className="Link" to={`/wakesong`}>기상송 홈</Link>
       </S.LinkWrap>
 
       <S.LinkWrap linkName={"/mymusicdetail"} pathName={pathname}>
@@ -26,9 +26,9 @@ const Header = () => {
         <Link className="Link" to={`/todaymusicdetail`}>오늘의 기상송</Link>
       </S.LinkWrap>
 
-      <S.LinkWrap linkName={"/dibsstorage"} pathName={pathname}>
+      {/* <S.LinkWrap linkName={"/dibsstorage"} pathName={pathname}>
         <Link className="Link" to={`/dibsstorage`}>보관함</Link>
-      </S.LinkWrap>
+      </S.LinkWrap> */}
 
       <div style={{ marginTop: "50px" }} onClick={() => {
         musicInfo.id !== 0 ?
