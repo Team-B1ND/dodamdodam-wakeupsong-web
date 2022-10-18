@@ -1,21 +1,26 @@
 import Title from "components/Common/Title";
 import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import * as S from "./MyMusicDetail.style";
+import { useEffect, useMemo } from "react";
 
 const MyMusicStore = () => {
 
-  const { myData } = useWakeupSongMyData();
+  const { myAllData, getMyAllData } = useWakeupSongMyData();
+
+  useMemo(() => {
+    getMyAllData();
+  }, [])
 
   return (
     <S.MyMusicDetailWrapContainer>
-      <Title titleMent={"마이뮤직"} subTitleMent={""} />
+      <Title titleMent={"마이뮤직"} subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"} />
       <S.MyMusicListWrap>
         <S.InfoTitle>
           <S.MusicName>곡명</S.MusicName>
           <S.ChannelName>채널명</S.ChannelName>
           <S.ApplyDay>신청일</S.ApplyDay>
         </S.InfoTitle>
-        {myData.length !== 0 ? myData.map((item, idx) => {
+        {myAllData.length !== 0 ? myAllData.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <S.MusicInfoContainer>

@@ -23,7 +23,7 @@ export const InfoTitle = styled.div`
 `;
 
 export const MusicName = styled.div`
-  width: 1031px;
+  width: 75%;
   padding-left: 200px;
   font-size: 0.9rem;
   color: ${palette.gray[400]};
@@ -41,7 +41,6 @@ export const ApplyDay = styled.div`
 `;
 
 export const ApplyDate = styled.div`
-  margin-left: 20px;
   font-size: 0.95rem;
 `;
 

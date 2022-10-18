@@ -13,7 +13,7 @@ const TodayMusicList = () => {
       <S.TitleContainer>
         <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
         {/* 오늘 승인한 기상송은 내일의 기상송이라고 표시 하고 그 다음날에 나오게 표시 해야함 */}
-        <Link className="seeMoreDetails" to={"todaymusicdetail"}>더보기</Link>
+        <Link className="seeMoreDetails" to={"/todaymusicdetail"}>더보기</Link>
       </S.TitleContainer>
 
       <S.TodayMusicListContents>

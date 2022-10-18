@@ -11,7 +11,7 @@ const TodayMusicDetail = () => {
 
   return (
     <S.TodayMusicDetailWrapContainer>
-      <Title titleMent={"오늘의 기상송"} subTitleMent={""} />
+      <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
       <S.TodayMusicWrap>
         <S.InfoTitle>
           <S.MusicName>곡명</S.MusicName>
