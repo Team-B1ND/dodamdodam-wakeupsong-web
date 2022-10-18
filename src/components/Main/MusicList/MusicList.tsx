@@ -3,16 +3,38 @@ import Title from "components/Common/Title";
 import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
 import { useRecoilState } from "recoil";
 import { allowMusicInfo } from "store/reducer";
+import { Link } from "react-router-dom";
+import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
+import { toast } from "react-toastify";
+import { useEffect } from "react"
 
 const MusicList = () => {
 
   const [musicInfo, setMusicInfo] = useRecoilState(allowMusicInfo);
-  const { pendingMusicListData } = useWakeupSongPendingMusicListData();
+  const { getWakeupSongPendingMusic, pendingMusicListData } = useWakeupSongPendingMusicListData();
   const PlayedDate = new Date().toISOString().split("T")[0];
+  const { setWakeupSongAllow } = useWakeupSongAllow();
+
+  useEffect(() => {
+    getWakeupSongPendingMusic();
+  }, [getWakeupSongPendingMusic])
+
 
   return (
     <S.MusicListContainer>
-      <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
+
+      <S.TitleContainer>
+        <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
+        <S.ApplyBtnContainer>
+          <S.ApplyBtn onClick={() => {
+            musicInfo.id !== 0 ?
+              setWakeupSongAllow(musicInfo)
+              : toast.error("기상송 신청실패");
+          }}>승인</S.ApplyBtn>
+        </S.ApplyBtnContainer>
+        <Link className="seeMoreDetails" to={"/pendingmusicdetail"}>더보기</Link>
+      </S.TitleContainer>
+
 
       <S.MusicListWrapper >
         {pendingMusicListData && pendingMusicListData.map((item, idx) => {

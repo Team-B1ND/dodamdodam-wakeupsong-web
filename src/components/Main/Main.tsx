@@ -1,3 +1,4 @@
+import Nav from "components/Nav";
 import { MainContainer, } from "./Main.style";
 import MusicList from "./MusicList";
 import MyMusicList from "./MyMusicList";

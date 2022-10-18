@@ -2,17 +2,22 @@ import * as S from "./MyMusicList.style";
 import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
+import { useEffect, useMemo } from "react";
 
 const MyMusicList = () => {
 
-  const { myData } = useWakeupSongMyData();
+  const { myData, getMyData } = useWakeupSongMyData();
+
+  useMemo(() => {
+    getMyData();
+  }, [])
 
   return (
     <S.MyMusicListContainer>
 
       <S.TitleContainer>
         <Title titleMent={"마이뮤직"} subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"} />
-        <Link className="seeMoreDetails" to={"mymusicdetail"}>더보기</Link>
+        <Link className="seeMoreDetails" to={"/mymusicdetail"}>더보기</Link>
       </S.TitleContainer>
 
       <S.MyMusicListContents>

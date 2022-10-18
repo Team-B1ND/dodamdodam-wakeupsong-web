@@ -10,21 +10,35 @@ export const MusicListContainer = styled.div`
 
 export const MusicListWrapper = styled.div`
   width: 98.5%;
-  max-height: 280px;
+  max-height: 285px;
   display: grid;
   grid-template-columns: repeat(4, 320px);
   grid-gap: 18px;
   overflow: hidden;
 `;
 
-export const MusicContainer = styled.button`
+export const TitleContainer = styled.div`
+  width: 96.3%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  .seeMoreDetails {
+    font-size: 0.9rem;
+    color: ${palette.gray[500]};
+  }
+  .seeMoreDetails:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const MusicContainer = styled.button`
   gap: 15px;
   border: none;
-  background-color: ${palette.gray[50]};
   outline: none;
+  display: flex;
   border-radius: 5px;
+  align-items: center;
+  background-color: ${palette.gray[50]};
   &:focus {
     background-color: ${palette.gray[200]};
   }
@@ -34,8 +48,8 @@ export const MusicContainer = styled.button`
 `;
 
 export const MusicTumbnailImg = styled.div<{ src: string }>`
-  min-width: 100px;
-  min-height: 55px;
+  min-width: 103px;
+  min-height: 58px;
   border-radius: 3px;
   background-size: cover;
   background-position: center center;
@@ -61,8 +75,8 @@ export const ApplyRanking = styled.div`
 
 export const TitleWrap = styled.div`
   width: 100%;
-  display: flex;
   gap: 3px;
+  display: flex;
   flex-direction: column;
   overflow: auto;
 `;
@@ -86,6 +100,21 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+`;
+
+export const ApplyBtnContainer = styled.div`
+  padding-right: 900px;
+`;
+
+export const ApplyBtn = styled.button`
+  width: 75px;
+  height: 35px;
+  background-color: ${palette.blue[300]};
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
 `;
 
 export const MusicNull = styled.div`
