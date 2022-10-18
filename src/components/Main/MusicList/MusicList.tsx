@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { toast } from "react-toastify";
 import { useEffect } from "react"
+import { useGetMyPermission } from "querys/permission/permission.query";
 
 const MusicList = () => {
 
@@ -14,10 +15,11 @@ const MusicList = () => {
   const { getWakeupSongPendingMusic, pendingMusicListData } = useWakeupSongPendingMusicListData();
   const PlayedDate = new Date().toISOString().split("T")[0];
   const { setWakeupSongAllow } = useWakeupSongAllow();
+  const { data } = useGetMyPermission();
 
   useEffect(() => {
     getWakeupSongPendingMusic();
-  }, [getWakeupSongPendingMusic])
+  }, [])
 
 
   return (
@@ -25,13 +27,16 @@ const MusicList = () => {
 
       <S.TitleContainer>
         <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
-        <S.ApplyBtnContainer>
-          <S.ApplyBtn onClick={() => {
-            musicInfo.id !== 0 ?
-              setWakeupSongAllow(musicInfo)
-              : toast.error("기상송 신청실패");
-          }}>승인</S.ApplyBtn>
-        </S.ApplyBtnContainer>
+        {data &&
+          <S.ApplyBtnContainer>
+
+            <S.ApplyBtn onClick={() => {
+              musicInfo.id !== 0 ?
+                setWakeupSongAllow(musicInfo)
+                : toast.error("기상송 신청실패");
+            }}>승인</S.ApplyBtn>
+          </S.ApplyBtnContainer>
+        }
         <Link className="seeMoreDetails" to={"/pendingmusicdetail"}>더보기</Link>
       </S.TitleContainer>
 

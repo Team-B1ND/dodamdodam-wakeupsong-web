@@ -102,9 +102,7 @@ export const CreatedDateContainer = styled.div`
   gap: 7px;
 `;
 
-export const ApplyBtnContainer = styled.div`
-  padding-right: 900px;
-`;
+export const ApplyBtnContainer = styled.div``;
 
 export const ApplyBtn = styled.button`
   width: 75px;
