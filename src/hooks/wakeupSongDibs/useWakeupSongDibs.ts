@@ -1,10 +1,7 @@
 import { toast } from "react-toastify";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
-import { useEffect, useState } from "react";
-import {
-  WakeupSongDibs,
-  WakeupSongDibsLists,
-} from "types/wakeupSongDibs/wakeupSongDibs.type";
+import { useState } from "react";
+import { WakeupSongDibs } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
 const useWakeupSongDibs = () => {
   const [dibsMusicLists, setDibsMusicLists] = useState<WakeupSongDibs[]>([]);
@@ -22,21 +19,16 @@ const useWakeupSongDibs = () => {
     }
   };
 
-  useEffect(() => {
-    const getWakeupSongDibs = async () => {
-      try {
-        const { data } = await wakeupSongRepository.getWakeupSongDibs();
-        setDibsMusicLists(data);
-        console.log(data);
-      } catch (error) {
-        toast.error("저장한 노래 불러오기 실패");
-      }
-    };
+  const getWakeupSongDibs = async () => {
+    try {
+      const { data } = await wakeupSongRepository.getWakeupSongDibs();
+      setDibsMusicLists(data);
+    } catch (error) {
+      toast.error("저장한 노래 불러오기 실패");
+    }
+  };
 
-    getWakeupSongDibs();
-  }, []);
-
-  return { postWakeupSongDibs, dibsMusicLists };
+  return { postWakeupSongDibs, dibsMusicLists, getWakeupSongDibs };
 };
 
 export default useWakeupSongDibs;
