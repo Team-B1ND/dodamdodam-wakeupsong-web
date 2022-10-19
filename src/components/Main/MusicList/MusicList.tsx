@@ -27,16 +27,6 @@ const MusicList = () => {
 
       <S.TitleContainer>
         <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
-        {data &&
-          <S.ApplyBtnContainer>
-
-            <S.ApplyBtn onClick={() => {
-              musicInfo.id !== 0 ?
-                setWakeupSongAllow(musicInfo)
-                : toast.error("기상송 신청실패");
-            }}>승인</S.ApplyBtn>
-          </S.ApplyBtnContainer>
-        }
         <Link className="seeMoreDetails" to={"/pendingmusicdetail"}>더보기</Link>
       </S.TitleContainer>
 
@@ -66,6 +56,20 @@ const MusicList = () => {
           )
         })}
       </S.MusicListWrapper>
+      {data?.data.permission &&
+        <S.ApplyBtnContainer>
+          <S.ApplyBtn onClick={() => {
+            musicInfo.id !== 0 ?
+              setWakeupSongAllow(musicInfo)
+              : toast.error("기상송 신청실패");
+          }}>승인</S.ApplyBtn>
+          <S.ApplyBtn onClick={() => {
+            musicInfo.id !== 0 ?
+              setWakeupSongAllow(musicInfo)
+              : toast.error("기상송 신청실패");
+          }}>거절</S.ApplyBtn>
+        </S.ApplyBtnContainer>
+      }
     </S.MusicListContainer >
   );
 };

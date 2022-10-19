@@ -11,9 +11,9 @@ export const MusicListContainer = styled.div`
 export const MusicListWrapper = styled.div`
   width: 98.5%;
   max-height: 285px;
-  display: grid;
-  grid-template-columns: repeat(4, 320px);
-  grid-gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 17px;
   overflow: hidden;
 `;
 
@@ -32,6 +32,7 @@ export const TitleContainer = styled.div`
 `;
 
 export const MusicContainer = styled.button`
+  width: 23.5%;
   gap: 15px;
   border: none;
   outline: none;
@@ -100,9 +101,15 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+  @media screen and (max-width: 1420px) {
+    display: none;
+  }
 `;
 
-export const ApplyBtnContainer = styled.div``;
+export const ApplyBtnContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
 
 export const ApplyBtn = styled.button`
   width: 75px;

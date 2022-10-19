@@ -1,6 +1,4 @@
-import { Response } from "types/util/response.type";
-
-export interface permissionParams {
+export interface PermissionParams {
   id: number;
   member: {
     email: string;
@@ -25,6 +23,6 @@ export interface permissionParams {
   permission: string;
 }
 
-export interface permissionParamsResponse {
-  data: permissionParams;
+export interface PermissionParamsResponse {
+  data: PermissionParams;
 }

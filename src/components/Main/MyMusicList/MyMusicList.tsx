@@ -3,6 +3,7 @@ import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
 import { useEffect, useMemo } from "react";
+import { useGetMelonChartLists } from "querys/melonChart/melonChart";
 
 const MyMusicList = () => {
 

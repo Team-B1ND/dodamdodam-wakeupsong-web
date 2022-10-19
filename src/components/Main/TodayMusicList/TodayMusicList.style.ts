@@ -29,7 +29,7 @@ export const TodayMusicListTitle = styled.div`
 
 export const TodayMusicListContents = styled.div`
   width: 97.5%;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   gap: 10px;
 `;

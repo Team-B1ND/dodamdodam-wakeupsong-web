@@ -30,7 +30,7 @@ export const MyMusicListTitle = styled.div`
 export const MyMusicListContents = styled.div`
   width: 97.5%;
   height: 255px;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   gap: 10px;
 `;

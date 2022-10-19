@@ -19,35 +19,32 @@ const errorInterceptor = async (config: AxiosError) => {
   const refresh_token = cookie.getCookie(REFRESH_TOKEN_KEY);
 
   const STATUS = config.response?.status;
+  if (config.response) {
+    if (STATUS === 401) {
+      const originalRequest = config.config;
 
-  if (STATUS === 401) {
-    const originalRequest = config.config;
+      try {
+        const { data } = await customAxios.get(
+          "token/refresh", //토큰키 가져오기
+          {
+            headers: {
+              [REQUEST_TOKEN_KEY]: `Bearer ${refresh_token}`,
+            },
+          }
+        );
 
-    try {
-      const { data } = await customAxios.get(
-        "token/refresh", //토큰키 가져오기
-        {
-          headers: {
-            [REQUEST_TOKEN_KEY]: `Bearer ${refresh_token}`,
-          },
-        }
-      );
-
-      // customAxios.defaults.headers[
-      //   REQUEST_TOKEN_KEY
-      // ] = `Bearer ${data.data.accessToken}`
-
-      if (originalRequest.headers) {
-        cookie.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
-        originalRequest.headers[
+        customAxios.defaults.headers.common[
           REQUEST_TOKEN_KEY
         ] = `Bearer ${data.data.accessToken}`;
+        cookie.setCookie(ACCESS_TOKEN_KEY, data.data.accessToken);
+        originalRequest.headers![
+          REQUEST_TOKEN_KEY
+        ] = `Bearer ${data.data.accessToken}`;
+        return axios(originalRequest);
+      } catch (error) {
+        // window.alert("토큰이 만료되었습니다 다시 로그인해");
+        // window.location.href = "http://dodam.b1nd.com/sign";
       }
-
-      return axios(originalRequest);
-    } catch (error) {
-      // window.alert("토큰이 만료되었습니다 다시 로그인해");
-      // window.location.href = "http://dodam.b1nd.com/sign";
     }
   }
 };

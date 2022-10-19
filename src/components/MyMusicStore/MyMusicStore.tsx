@@ -18,7 +18,7 @@ const MyMusicStore = () => {
         {myData.length !== 0 ? myData.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
-            <S.MusicInfoContainer>
+            <S.MusicInfoContainer key={idx + 1}>
               <S.MyMusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MyMusicThumbnailImg>
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
               <S.VideoTitle>{item.videoTitle}</S.VideoTitle>

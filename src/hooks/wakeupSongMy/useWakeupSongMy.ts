@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 

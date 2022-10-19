@@ -1,8 +1,8 @@
 import customAxios from "lib/axios/customAxios";
-import { permissionParamsResponse } from "./permission.Param";
+import { PermissionParamsResponse } from "./permission.Param";
 
 class permissionRepository {
-  public async getMyPermissionMy(): Promise<permissionParamsResponse> {
+  public async getMyPermissionMy(): Promise<PermissionParamsResponse> {
     const { data } = await customAxios.get("permission/my");
     return data;
   }
