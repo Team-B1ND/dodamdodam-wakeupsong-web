@@ -56,7 +56,7 @@ const MusicList = () => {
           )
         })}
       </S.MusicListWrapper>
-      {data?.data.permission &&
+      {!data?.data.permission &&
         <S.ApplyBtnContainer>
           <S.ApplyBtn onClick={() => {
             musicInfo.id !== 0 ?

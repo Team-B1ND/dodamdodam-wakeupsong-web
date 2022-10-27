@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const ApplyMusicContainer = styled.div`
   display: flex;
-  margin-top: 50px;
+  margin-top: 70px;
   gap: 10px;
   flex-direction: column;
 `;

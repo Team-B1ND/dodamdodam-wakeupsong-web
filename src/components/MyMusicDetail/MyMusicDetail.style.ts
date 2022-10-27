@@ -2,10 +2,10 @@ import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const MyMusicDetailWrapContainer = styled.div`
-  width: 75%;
+  width: 73%;
   height: 100%;
   overflow: auto;
-  padding: 90px 0 0 60px;
+  padding: 90px 0 0 40px;
   background-color: ${palette.gray[50]};
   &::-webkit-scrollbar {
     display: none;
@@ -23,14 +23,14 @@ export const InfoTitle = styled.div`
 `;
 
 export const MusicName = styled.div`
-  width: 75%;
+  width: 978px;
   padding-left: 200px;
   font-size: 0.9rem;
   color: ${palette.gray[400]};
 `;
 
 export const ChannelName = styled.div`
-  width: 197px;
+  width: 199px;
   font-size: 0.9rem;
   color: ${palette.gray[400]};
 `;
@@ -42,6 +42,7 @@ export const ApplyDay = styled.div`
 
 export const ApplyDate = styled.div`
   font-size: 0.95rem;
+  margin-left: 20px;
 `;
 
 export const ChannelNameData = styled.div`
@@ -53,6 +54,7 @@ export const ChannelNameData = styled.div`
 `;
 
 export const MusicInfoContainer = styled.div`
+  width: 96%;
   display: flex;
   align-items: center;
   padding: 15px 0;
@@ -76,7 +78,7 @@ export const ApplyRanking = styled.div`
 `;
 
 export const VideoTitle = styled.div`
-  width: 750px;
+  width: 700px;
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;
@@ -84,9 +86,9 @@ export const VideoTitle = styled.div`
 `;
 
 export const MusicNull = styled.div`
-  width: 97%;
+  width: 96%;
   height: 200px;
-  border-top: 1px solid ${palette.inputBorderColor};
+  border-top: 1px solid ${palette.gray[200]};
   color: ${palette.gray[400]};
   display: flex;
   justify-content: center;

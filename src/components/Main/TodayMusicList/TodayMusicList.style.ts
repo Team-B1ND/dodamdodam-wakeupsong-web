@@ -5,7 +5,7 @@ export const TodayMusicListContainer = styled.div`
   margin-top: 90px;
   display: grid;
   gap: 15px;
-  padding-left: 60px;
+  padding-left: 40px;
 `;
 
 export const TitleContainer = styled.div`
@@ -44,18 +44,14 @@ export const SubTitleMent = styled.div`
 `;
 
 export const MusicContainer = styled.div`
-  width: 325px;
-  height: 180px;
+  width: 323px;
+  height: 178px;
   cursor: pointer;
 `;
 
-// export const BookmarkPlusContainer = styled.div`
-//   transform: translateY(30px);
-// `;
-
 export const MusicThumbnailImg = styled.div<{ src: string }>`
-  width: 325px;
-  height: 180px;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});
@@ -79,8 +75,8 @@ export const MusicThumbnailTitle = styled.div`
   color: #fff;
   width: 100%;
   font-size: 0.95rem;
-  overflow: hidden;
   padding: 10px 10px;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   backdrop-filter: blur(4px);

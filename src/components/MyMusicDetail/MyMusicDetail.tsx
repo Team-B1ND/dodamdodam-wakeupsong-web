@@ -24,8 +24,8 @@ const MyMusicStore = () => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <S.MusicInfoContainer>
-              <S.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MusicThumbnailImg>
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
+              <S.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MusicThumbnailImg>
               <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
               <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>
               <S.ApplyDate>{createdDate}</S.ApplyDate>

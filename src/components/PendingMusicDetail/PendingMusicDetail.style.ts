@@ -2,17 +2,17 @@ import { palette } from "style/palette";
 import styled from "styled-components";
 
 export const PendingMusicDetailWrapContainer = styled.div`
-  width: 75%;
+  width: 73%;
   height: 100%;
   overflow: auto;
-  padding: 90px 0 0 60px;
+  padding: 90px 0 0 40px;
   background-color: ${palette.gray[50]};
   &::-webkit-scrollbar {
     display: none;
   }
 `;
 
-export const TodayMusicWrap = styled.div`
+export const PendingMusicMusicWrap = styled.div`
   width: 100%;
 `;
 
@@ -86,7 +86,7 @@ export const VideoTitle = styled.div`
 `;
 
 export const MusicNull = styled.div`
-  width: 97%;
+  width: 96%;
   height: 200px;
   border-top: 1px solid ${palette.inputBorderColor};
   color: ${palette.gray[400]};

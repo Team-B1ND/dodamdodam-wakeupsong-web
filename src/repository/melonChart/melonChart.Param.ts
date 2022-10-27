@@ -1,3 +1,5 @@
+import { Response } from "types/util/response.type";
+
 export interface MelonChartListsPrams {
   album: string;
   artist: string;
@@ -8,4 +10,9 @@ export interface MelonChartListsPrams {
 
 export interface MelonChartListsResponse {
   data: MelonChartListsPrams[];
+}
+
+export interface MelonKeyword {
+  artist: string;
+  title: string;
 }

@@ -1,23 +1,34 @@
 import Title from "components/Common/Title";
-import { useGetMelonChartLists } from "querys/melonChart/melonChart";
+import useMelonChart from "hooks/melonChart/useMelonChart";
+import { useGetMelonChartLists } from "querys/melonChart/melonChart.query";
 import * as S from "./MelonChart.style";
 
 const MelonChart = () => {
+
   const { data } = useGetMelonChartLists();
+  const { melonChartApply } = useMelonChart();
 
   return (
     <S.MelonChartContainer>
-      <Title titleMent="멜론 차트" subTitleMent="" />
+      <div style={{ cursor: "pointer" }} onClick={() => window.open("https://www.melon.com/chart/index.htm")}>
+        <Title titleMent="멜론 차트" subTitleMent="인기가 많은 노래들을 모아봤어요!" />
+      </div>
 
       <S.ChartListContainer>
         {data?.data && data.data.map((item, idx) => {
           return (
-            <S.ChartWrapper key={idx + 1} >
-              <S.Thumbnail src={item.thumbnail} />
-              <S.ChartInfo>
-                <S.ChartName>{item.name}</S.ChartName>
-                <S.ArtistName>{item.artist}</S.ArtistName>
-              </S.ChartInfo>
+            <S.ChartWrapper key={idx + 1}>
+              <S.MelonChartInfoWrap >
+                <S.RankContainer>
+                  <div className="Rank">{item.rank}위</div>
+                </S.RankContainer>
+                <S.Thumbnail src={item.thumbnail} />
+                <S.ChartInfo>
+                  <S.ChartName>{item.name}</S.ChartName>
+                  <S.ArtistName>{item.artist}</S.ArtistName>
+                </S.ChartInfo>
+                <S.MusicApplyBtn onClick={() => melonChartApply(item.artist, item.name)} >신청</S.MusicApplyBtn>
+              </S.MelonChartInfoWrap>
             </S.ChartWrapper>
           )
         })}

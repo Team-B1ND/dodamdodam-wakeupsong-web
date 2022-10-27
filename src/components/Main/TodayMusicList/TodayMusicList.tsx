@@ -1,11 +1,11 @@
 import * as S from "./TodayMusicList.style";
-import useWakeupSongTodayData from "hooks/wakeupSongToday/useWakeupSongTodayData";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
+import { useGetTodayMusicData } from "querys/todayMusic/todayMusic.query";
 
 const TodayMusicList = () => {
 
-  const { todaySongData } = useWakeupSongTodayData();
+  const { data } = useGetTodayMusicData();
 
   return (
     <S.TodayMusicListContainer>
@@ -17,15 +17,12 @@ const TodayMusicList = () => {
       </S.TitleContainer>
 
       <S.TodayMusicListContents>
-        {todaySongData.length !== 0 ? todaySongData.map((item, idx) => {
+        {data?.data ? data?.data.map((item, idx) => {
           return (
             <S.MusicContainer onClick={() => window.open(item.videoUrl)} key={idx + 1}>
               <S.MusicThumbnailImg src={item.thumbnailUrl} >
                 <S.MusicThumbnailTitle>{item.videoTitle}</S.MusicThumbnailTitle>
               </S.MusicThumbnailImg>
-              {/* <S.BookmarkPlusContainer>
-                <BsFillBookmarkPlusFill />
-              </S.BookmarkPlusContainer> */}
             </S.MusicContainer>
           )
         }) : <S.MusicNull>승인된 기상송이 없습니닷기릿</S.MusicNull>

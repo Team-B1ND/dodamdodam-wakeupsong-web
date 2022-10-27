@@ -5,7 +5,7 @@ export const MusicListContainer = styled.div`
   margin-top: 50px;
   display: grid;
   gap: 20px;
-  padding-left: 60px;
+  padding-left: 40px;
 `;
 
 export const MusicListWrapper = styled.div`

@@ -3,11 +3,14 @@ import useWakeupSongTodayData from "hooks/wakeupSongToday/useWakeupSongTodayData
 import * as S from "./TodayMusicDetail.style";
 import { BsFillBookmarkStarFill } from "react-icons/bs";
 import useWakeupSongDibs from "hooks/wakeupSongDibs/useWakeupSongDibs";
+import { useGetTodayMusicData } from "querys/todayMusic/todayMusic.query";
 
 const TodayMusicDetail = () => {
 
-  const { todaySongData } = useWakeupSongTodayData();
+  // const { todaySongData } = useWakeupSongTodayData();
   const { postWakeupSongDibs } = useWakeupSongDibs();
+  const { data } = useGetTodayMusicData();
+
 
   return (
     <S.TodayMusicDetailWrapContainer>
@@ -18,16 +21,16 @@ const TodayMusicDetail = () => {
           <S.ChannelName>채널명</S.ChannelName>
           <S.ApplyDay>신청일</S.ApplyDay>
         </S.InfoTitle>
-        {todaySongData.length !== 0 ? todaySongData.map((item, idx) => {
+        {data?.data ? data?.data.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <S.MusicInfoContainer key={idx}>
-              <S.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MusicThumbnailImg>
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
+              <S.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MusicThumbnailImg>
               <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
               <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>
               <S.ApplyDate>{createdDate}</S.ApplyDate>
-              <BsFillBookmarkStarFill style={{ fontSize: "1.2rem", color: "#5c5c5c", cursor: "pointer" }} onClick={() => postWakeupSongDibs(item.videoUrl)} />
+              {/* <BsFillBookmarkStarFill style={{ fontSize: "1.2rem", color: "#5c5c5c", cursor: "pointer" }} onClick={() => postWakeupSongDibs(item.videoUrl)} /> */}
             </S.MusicInfoContainer>
           )
         })
