@@ -3,6 +3,7 @@ import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { useState } from "react";
 import { WakeupSongDibs } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
+//서버 로직이 완성되지 않아서 뷰 구현은 됬지만 통신 로직이 안되어 있음. 그래서 사용안함
 const useWakeupSongDibs = () => {
   const [dibsMusicLists, setDibsMusicLists] = useState<WakeupSongDibs[]>([]);
 

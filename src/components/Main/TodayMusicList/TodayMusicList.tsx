@@ -9,7 +9,6 @@ const TodayMusicList = () => {
 
   return (
     <Style.TodayMusicListContainer>
-
       <Style.TitleContainer>
         <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
         {/* 오늘 승인한 기상송은 내일의 기상송이라고 표시 하고 그 다음날에 나오게 표시 해야함 */}
@@ -17,7 +16,7 @@ const TodayMusicList = () => {
       </Style.TitleContainer>
 
       <Style.TodayMusicListContents>
-        {data?.data ? data?.data.map((item, idx) => {
+        {data?.data ? data?.data.slice(0, 4).map((item, idx) => {
           return (
             <Style.MusicContainer onClick={() => window.open(item.videoUrl)} key={idx + 1}>
               <Style.MusicThumbnailImg src={item.thumbnailUrl} >

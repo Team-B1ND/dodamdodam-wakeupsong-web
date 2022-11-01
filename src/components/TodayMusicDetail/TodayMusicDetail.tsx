@@ -15,7 +15,7 @@ const TodayMusicDetail = () => {
           <Style.ChannelName>채널명</Style.ChannelName>
           <Style.ApplyDay>신청일</Style.ApplyDay>
         </Style.InfoTitle>
-        {data?.data ? data?.data.map((item, idx) => {
+        {data?.data ? data?.data.slice(0, 4).map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>
