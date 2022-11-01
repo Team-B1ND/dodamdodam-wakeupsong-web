@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { WakeupSongMusic } from "types/wakeupSongMy/wakeupSongMy.type.";
 
+//기상송 찜하기
 const useWakeupSongTodayData = () => {
   // const [todaySongData, setTodaySongData] = useState<WakeupSongMusic[]>([]);
   // useEffect(() => {

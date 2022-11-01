@@ -1,10 +1,7 @@
 import { usePostMelonChartApply } from "querys/melonChart/melonChart.query";
-import React from "react";
-import { useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 
 const useMelonChart = () => {
-  const queryClient = useQueryClient();
   const postMelonChartApply = usePostMelonChartApply();
 
   const melonChartApply = (artistParam: string, titleParam: string) => {

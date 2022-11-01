@@ -89,7 +89,7 @@ export const TitleTopContainer = styled.div`
   align-items: center;
 `;
 
-export const videoTitle = styled.div`
+export const VideoTitle = styled.div`
   font-size: 0.9rem;
   overflow: hidden;
   white-space: nowrap;

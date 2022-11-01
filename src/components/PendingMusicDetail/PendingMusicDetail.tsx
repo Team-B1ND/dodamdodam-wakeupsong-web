@@ -1,6 +1,6 @@
 import Title from "components/Common/Title";
 import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
-import * as S from "./PendingMusicDetail.style";
+import * as Style from "./PendingMusicDetail.style";
 import { useMemo } from "react";
 
 const PendingMusicDetail = () => {
@@ -11,31 +11,31 @@ const PendingMusicDetail = () => {
   }, [])
 
   return (
-    <S.PendingMusicDetailWrapContainer>
+    <Style.PendingMusicDetailWrapContainer>
       <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
-      <S.PendingMusicMusicWrap>
-        <S.InfoTitle>
-          <S.MusicName>곡명</S.MusicName>
-          <S.ChannelName>채널명</S.ChannelName>
-          <S.ApplyDay>신청일</S.ApplyDay>
-        </S.InfoTitle>
+      <Style.PendingMusicMusicWrap>
+        <Style.InfoTitle>
+          <Style.MusicName>곡명</Style.MusicName>
+          <Style.ChannelName>채널명</Style.ChannelName>
+          <Style.ApplyDay>신청일</Style.ApplyDay>
+        </Style.InfoTitle>
         {pendingAllMusicListData.length !== 0 ? pendingAllMusicListData.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
-            <S.MusicInfoContainer key={idx}>
-              <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
-              <S.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></S.MusicThumbnailImg>
-              <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
-              <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>
-              <S.ApplyDate>{createdDate}</S.ApplyDate>
-            </S.MusicInfoContainer>
+            <Style.MusicInfoContainer key={idx}>
+              <Style.ApplyRanking>{idx + 1}</Style.ApplyRanking>
+              <Style.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></Style.MusicThumbnailImg>
+              <Style.VideoTitle>{item.videoTitle}</Style.VideoTitle>
+              <Style.ChannelNameData>{item.channelTitle}</Style.ChannelNameData>
+              <Style.ApplyDate>{createdDate}</Style.ApplyDate>
+            </Style.MusicInfoContainer>
           )
         })
           :
-          <S.MusicNull>신청한 기상송이 없쓰껄</S.MusicNull>
+          <Style.MusicNull>신청한 기상송이 없쓰껄</Style.MusicNull>
         }
-      </S.PendingMusicMusicWrap>
-    </S.PendingMusicDetailWrapContainer>
+      </Style.PendingMusicMusicWrap>
+    </Style.PendingMusicDetailWrapContainer>
   );
 };
 

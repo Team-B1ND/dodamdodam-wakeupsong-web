@@ -1,5 +1,4 @@
 import customAxios from "lib/axios/customAxios";
-import { Response } from "types/util/response.type";
 import { MelonChartListsResponse, MelonKeyword } from "./melonChart.Param";
 
 class melonChartRepository {

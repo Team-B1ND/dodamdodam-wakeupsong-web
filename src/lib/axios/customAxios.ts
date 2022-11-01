@@ -11,7 +11,7 @@ const customAxios = axios.create({
   baseURL: config.SERVER,
   headers: {
     "Access-Control-Allow-Origin": "*",
-    [REQUEST_TOKEN_KEY]: `Bearer ${cookie.getCookie("access-token")}`,
+    [REQUEST_TOKEN_KEY]: `Bearer ${cookie.getCookie("access-token")}`, //요청 보낼때 header로 쿠키 보내기 [여기서 잠깐! 왜 header로 쿠키를 보내나요? body도 있지 않나요? 왜냐하면 header는 가벼운 데이터를 보내고 받을 때 사용해요]
   },
 });
 
@@ -42,8 +42,7 @@ const errorInterceptor = async (config: AxiosError) => {
         ] = `Bearer ${data.data.accessToken}`;
         return axios(originalRequest);
       } catch (error) {
-        // window.alert("토큰이 만료되었습니다 다시 로그인해");
-        // window.location.href = "http://dodam.b1nd.com/sign";
+        window.location.href = "http://dodam.b1nd.com/sign";
       }
     }
   }

@@ -1,9 +1,8 @@
-import * as S from "./MyMusicList.style";
+import * as Style from "./MyMusicList.style";
 import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
-import { useEffect, useMemo } from "react";
-import { useGetMelonChartLists } from "querys/melonChart/melonChart.query";
+import { useMemo } from "react";
 
 const MyMusicList = () => {
 
@@ -14,29 +13,29 @@ const MyMusicList = () => {
   }, [])
 
   return (
-    <S.MyMusicListContainer>
+    <Style.MyMusicListContainer>
 
-      <S.TitleContainer>
+      <Style.TitleContainer>
         <Title titleMent={"마이뮤직"} subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"} />
         <Link className="seeMoreDetails" to={"/mymusicdetail"}>더보기</Link>
-      </S.TitleContainer>
+      </Style.TitleContainer>
 
-      <S.MyMusicListContents>
+      <Style.MyMusicListContents>
         {myData.length !== 0 ? myData.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
-            <S.MyMusicContainer key={idx}>
-              <S.MyMusicThumbnailImg src={item.thumbnailUrl} onClick={() => window.open(item.videoUrl)} />
-              <S.MyMusicThumbnailTitle>{item.videoTitle}</S.MyMusicThumbnailTitle>
-              <S.CreatedDateContainer>
+            <Style.MyMusicContainer key={idx}>
+              <Style.MyMusicThumbnailImg src={item.thumbnailUrl} onClick={() => window.open(item.videoUrl)} />
+              <Style.MyMusicThumbnailTitle>{item.videoTitle}</Style.MyMusicThumbnailTitle>
+              <Style.CreatedDateContainer>
                 <div style={{ color: "#c5c5c5" }}>신청일</div>
                 <div style={{ color: "#a1a1a1" }}>{createdDate}</div>
-              </S.CreatedDateContainer>
-            </S.MyMusicContainer>
+              </Style.CreatedDateContainer>
+            </Style.MyMusicContainer>
           )
-        }) : <S.MusicNull>신청한 기상송이 없쓰껄</S.MusicNull>}
-      </S.MyMusicListContents>
-    </S.MyMusicListContainer>
+        }) : <Style.MusicNull>신청한 기상송이 없쓰껄</Style.MusicNull>}
+      </Style.MyMusicListContents>
+    </Style.MyMusicListContainer>
   );
 };
 
