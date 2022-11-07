@@ -1,11 +1,7 @@
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { toast } from "react-toastify";
-import { useResetRecoilState } from "recoil";
-import { allowMusicInfo } from "store/reducer";
 
 const useApplyWakeupSong = () => {
-  // const resetMusicInfo = useResetRecoilState(allowMusicInfo);
-
   const postApplyWakeupSong = async (wakeupSongUrl: string) => {
     try {
       const { status } = await wakeupSongRepository.postApplyWakeupSong(

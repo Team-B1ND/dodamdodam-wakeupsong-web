@@ -13,12 +13,9 @@ const PendingMusicDetail = () => {
   return (
     <Style.PendingMusicDetailWrapContainer>
       <Title titleMent={"신청 현황"} subTitleMent={"어떤 노래가 있는지 확인해보세요!"} />
+
       <Style.PendingMusicMusicWrap>
-        <Style.InfoTitle>
-          <Style.MusicName>곡명</Style.MusicName>
-          <Style.ChannelName>채널명</Style.ChannelName>
-          <Style.ApplyDay>신청일</Style.ApplyDay>
-        </Style.InfoTitle>
+
         {pendingAllMusicListData.length !== 0 ? pendingAllMusicListData.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (

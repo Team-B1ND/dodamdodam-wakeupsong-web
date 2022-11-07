@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const MainContainer = styled.div`
   width: 73%;
   height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: none;
   background-color: ${palette.gray[50]};
   &::-webkit-scrollbar {
     display: none;

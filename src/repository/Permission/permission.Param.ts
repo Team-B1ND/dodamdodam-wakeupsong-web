@@ -1,3 +1,5 @@
+import { Response } from "types/util/response.type";
+
 export interface PermissionParams {
   id: number;
   member: {
@@ -23,6 +25,6 @@ export interface PermissionParams {
   permission: string;
 }
 
-export interface PermissionParamsResponse {
-  data: PermissionParams;
+export interface PermissionParamsResponse extends Response {
+  data: PermissionParams[];
 }

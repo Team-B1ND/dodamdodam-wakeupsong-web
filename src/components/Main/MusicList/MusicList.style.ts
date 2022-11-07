@@ -10,7 +10,6 @@ export const MusicListContainer = styled.div`
 
 export const MusicListWrapper = styled.div`
   width: 98.5%;
-  max-height: 285px;
   display: flex;
   flex-wrap: wrap;
   grid-gap: 17px;
@@ -101,8 +100,14 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
-  @media screen and (max-width: 1420px) {
-    display: none;
+
+  .applyDay {
+    color: #c5c5c5;
+  }
+  @media screen and (max-width: 1550px) {
+    .applyDay {
+      display: none;
+    }
   }
 `;
 
@@ -111,10 +116,21 @@ export const ApplyBtnContainer = styled.div`
   gap: 10px;
 `;
 
-export const ApplyBtn = styled.button`
+export const AllowBtn = styled.button`
   width: 75px;
   height: 35px;
   background-color: ${palette.blue[300]};
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+`;
+
+export const RefuseBtn = styled.button`
+  width: 75px;
+  height: 35px;
+  background-color: ${palette.red[300]};
   border: none;
   border-radius: 15px;
   color: #fff;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const NavBarContainer = styled.div`
   width: 384px;
-  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;

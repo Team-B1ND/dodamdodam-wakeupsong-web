@@ -6,21 +6,20 @@ import { allowMusicInfo } from "store/reducer";
 import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { toast } from "react-toastify";
-import { useEffect } from "react"
+import { useMemo } from "react"
 import { useGetMyPermission } from "querys/permission/permission.query";
 
 const MusicList = () => {
 
   const [musicInfo, setMusicInfo] = useRecoilState(allowMusicInfo);
   const { getWakeupSongPendingMusic, pendingMusicListData } = useWakeupSongPendingMusicListData();
-
   const PlayedDate = new Date().toISOString().split("T")[0];
-  const { setWakeupSongAllow } = useWakeupSongAllow();
+  const { setWakeupSongAllow, setWakeupSongRefuse, isPermission } = useWakeupSongAllow();
   const { data } = useGetMyPermission();
 
-  useEffect(() => {
+  useMemo(() => {
     getWakeupSongPendingMusic();
-  })
+  }, [])
 
   return (
     <Style.MusicListContainer>
@@ -48,7 +47,7 @@ const MusicList = () => {
 
                 <Style.VideoTitle>{item.videoTitle}</Style.VideoTitle>
                 <Style.CreatedDateContainer>
-                  <div style={{ color: "#c5c5c5" }}>신청일</div>
+                  <div className="applyDay">신청일</div>
                   <div style={{ color: "#a1a1a1" }}>{createdDate}</div>
                 </Style.CreatedDateContainer>
               </Style.TitleWrap>
@@ -56,18 +55,19 @@ const MusicList = () => {
           )
         })}
       </Style.MusicListWrapper>
-      {!data?.data.permission &&
+      {data?.data.find(isPermission) &&
         <Style.ApplyBtnContainer>
-          <Style.ApplyBtn onClick={() => {
+          <Style.AllowBtn onClick={() => {
             musicInfo.id !== 0 ?
               setWakeupSongAllow(musicInfo)
-              : toast.error("기상송 신청실패");
-          }}>승인</Style.ApplyBtn>
-          <Style.ApplyBtn onClick={() => {
+              : toast.error("기상송 승인 실패");
+          }}>승인</Style.AllowBtn>
+          <Style.RefuseBtn onClick={() => {
+            console.log(musicInfo);
             musicInfo.id !== 0 ?
-              setWakeupSongAllow(musicInfo)
-              : toast.error("기상송 신청실패");
-          }}>거절</Style.ApplyBtn>
+              setWakeupSongRefuse(musicInfo)
+              : toast.error("기상송 거절 실패");
+          }}>거절</Style.RefuseBtn>
         </Style.ApplyBtnContainer>
       }
     </Style.MusicListContainer >

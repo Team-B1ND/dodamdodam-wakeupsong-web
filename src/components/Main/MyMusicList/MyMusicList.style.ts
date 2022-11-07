@@ -32,7 +32,7 @@ export const MyMusicListContents = styled.div`
   height: 255px;
   overflow: auto;
   display: flex;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const MyMusicContainer = styled.div`

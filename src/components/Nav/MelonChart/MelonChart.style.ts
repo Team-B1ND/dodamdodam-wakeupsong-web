@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const MelonChartContainer = styled.div`
   width: 100%;
-  height: 61%;
+  height: 55%;
   margin-top: 60px;
 `;
 

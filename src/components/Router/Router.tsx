@@ -13,11 +13,10 @@ import PendingMusicDetail from "components/PendingMusicDetail";
 
 const Router = () => {
     return (
-        <BrowserRouter>
-
+        <BrowserRouter basename="/wakesong">
             <Header />
             <Routes>
-                <Route path="/wakesong" element={<Main />} />
+                <Route path="/" element={<Main />} />
                 <Route path="/dibsstorage" element={<DibsStorage />} />
                 <Route path="/mymusicdetail" element={<MyMusicStore />} />
                 <Route path="/todaymusicdetail" element={<TodayMusicDetail />} />

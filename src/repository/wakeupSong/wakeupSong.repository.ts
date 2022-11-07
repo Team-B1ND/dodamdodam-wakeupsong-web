@@ -1,6 +1,6 @@
 import customAxios from "lib/axios/customAxios";
 import { Response } from "types/util/response.type";
-import { Allow } from "repository/wakeupSong/wakeupSong.Param";
+import { MusicInfo } from "repository/wakeupSong/wakeupSong.Param";
 import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
 import { WakeupSongDibsLists } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
@@ -31,11 +31,19 @@ class wakeupSongRepository {
     return data;
   }
 
-  public async wakeupSongAllow(musicInfo: Allow): Promise<Response> {
+  public async wakeupSongAllow(musicInfo: MusicInfo): Promise<Response> {
     const { data } = await customAxios.patch("wakeup-song/allow", {
       id: musicInfo.id,
       playedDate: musicInfo.playedDate,
     });
+    return data;
+  }
+
+  public async wakeupSongRefuse(musicInfo: MusicInfo): Promise<Response> {
+    const { data } = await customAxios.patch(
+      `wakeup-song/deny/${musicInfo.id}`,
+      {}
+    );
     return data;
   }
 

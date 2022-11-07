@@ -5,7 +5,7 @@ export const PendingMusicDetailWrapContainer = styled.div`
   width: 73%;
   height: 100%;
   overflow: auto;
-  padding: 90px 0 0 40px;
+  padding: 90px 40px 0 40px;
   background-color: ${palette.gray[50]};
   &::-webkit-scrollbar {
     display: none;
@@ -14,36 +14,31 @@ export const PendingMusicDetailWrapContainer = styled.div`
 
 export const PendingMusicMusicWrap = styled.div`
   width: 100%;
-`;
-
-export const InfoTitle = styled.div`
-  width: 100%;
-  margin: 50px 0 25px 0;
   display: flex;
+  flex-direction: column;
+  margin-top: 50px;
 `;
 
 export const MusicName = styled.div`
-  width: 978px;
-  padding-left: 200px;
+  width: 50%;
   font-size: 0.9rem;
   color: ${palette.gray[400]};
 `;
 
 export const ApplyDate = styled.div`
-  margin-left: 20px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 `;
 
 export const ChannelNameData = styled.div`
-  width: 150px;
-  margin-left: 50px;
+  width: 10%;
+  margin-left: 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 `;
 
 export const ChannelName = styled.div`
-  width: 199px;
+  width: 10%;
   font-size: 0.9rem;
   color: ${palette.gray[400]};
 `;
@@ -54,11 +49,11 @@ export const ApplyDay = styled.div`
 `;
 
 export const MusicInfoContainer = styled.div`
-  width: 96%;
+  width: 100%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  gap: 30px;
   border-top: 1px solid ${palette.gray[200]};
 `;
 
@@ -78,7 +73,8 @@ export const ApplyRanking = styled.div`
 `;
 
 export const VideoTitle = styled.div`
-  width: 700px;
+  width: 50%;
+  text-align: center;
   font-weight: bold;
   overflow: hidden;
   white-space: nowrap;
@@ -88,7 +84,7 @@ export const VideoTitle = styled.div`
 export const MusicNull = styled.div`
   width: 96%;
   height: 200px;
-  border-top: 1px solid ${palette.inputBorderColor};
+  border-top: 1px solid ${palette.gray[200]};
   color: ${palette.gray[400]};
   display: flex;
   justify-content: center;

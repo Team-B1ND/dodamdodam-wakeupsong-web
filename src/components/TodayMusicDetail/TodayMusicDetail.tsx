@@ -5,17 +5,18 @@ import { useGetTodayMusicData } from "querys/todayMusic/todayMusic.query";
 const TodayMusicDetail = () => {
 
   const { data } = useGetTodayMusicData();
+  const nowDate = new Date().getHours();
 
   return (
     <Style.TodayMusicDetailWrapContainer>
-      <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
+      {
+        nowDate >= 16 ?
+          <Title titleMent={"내일의 기상송"} subTitleMent={"내일 나올 기상송은 어떤가요?"} /> :
+          <Title titleMent={"오늘의 기상송"} subTitleMent={"오늘 나온 기상송은 어땠나요?"} />
+      }
+
       <Style.TodayMusicWrap>
-        <Style.InfoTitle>
-          <Style.MusicName>곡명</Style.MusicName>
-          <Style.ChannelName>채널명</Style.ChannelName>
-          <Style.ApplyDay>신청일</Style.ApplyDay>
-        </Style.InfoTitle>
-        {data?.data ? data?.data.slice(0, 4).map((item, idx) => {
+        {data?.data.length !== 0 ? data?.data.slice(0, 4).map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>
@@ -28,7 +29,7 @@ const TodayMusicDetail = () => {
           )
         })
           :
-          <Style.MusicNull>신청한 기상송이 없쓰껄</Style.MusicNull>
+          <Style.MusicNull>승인한 기상송이 없쓰껄</Style.MusicNull>
         }
       </Style.TodayMusicWrap>
     </Style.TodayMusicDetailWrapContainer>

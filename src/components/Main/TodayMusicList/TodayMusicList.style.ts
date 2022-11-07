@@ -31,7 +31,7 @@ export const TodayMusicListContents = styled.div`
   width: 97.5%;
   overflow: auto;
   display: flex;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const TitleMent = styled.div`
