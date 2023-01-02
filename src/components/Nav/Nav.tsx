@@ -1,13 +1,15 @@
-import * as S from "./Nav.style";
+import * as NavStyle from "./Nav.style";
 import DODAMLOGO from "assets/logo_img/Mask group.svg";
 import ApplyMusic from "./ApplyMusic";
+import MelonChart from "./MelonChart";
 
 const Nav = () => {
   return (
-    <S.NavBarContainer>
-      <S.DodamLogo src={DODAMLOGO} alt="dodam_logo" />
+    <NavStyle.NavBarContainer>
+      <NavStyle.DodamLogo src={DODAMLOGO} alt="dodam_logo" onClick={() => window.location.href = "http://dodam.b1nd.com"} />
       <ApplyMusic />
-    </S.NavBarContainer>
+      <MelonChart />
+    </NavStyle.NavBarContainer>
   );
 };
 

@@ -1,4 +1,4 @@
-export interface Allow {
+export interface MusicInfo {
   id?: number;
   playedDate: string;
 }

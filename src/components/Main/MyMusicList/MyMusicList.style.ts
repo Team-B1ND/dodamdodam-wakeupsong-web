@@ -5,7 +5,7 @@ export const MyMusicListContainer = styled.div`
   margin-top: 50px;
   display: grid;
   gap: 10px;
-  padding-left: 60px;
+  padding-left: 40px;
 `;
 
 export const TitleContainer = styled.div`
@@ -30,9 +30,9 @@ export const MyMusicListTitle = styled.div`
 export const MyMusicListContents = styled.div`
   width: 97.5%;
   height: 255px;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
-  gap: 10px;
+  gap: 5px;
 `;
 
 export const MyMusicContainer = styled.div`
@@ -42,8 +42,8 @@ export const MyMusicContainer = styled.div`
 `;
 
 export const MyMusicThumbnailImg = styled.div<{ src: string }>`
-  width: 325px;
-  height: 180px;
+  width: 323px;
+  height: 178px;
   background-size: cover;
   background-position: center center;
   background-image: url(${({ src }) => src});

@@ -5,26 +5,40 @@ export const MusicListContainer = styled.div`
   margin-top: 50px;
   display: grid;
   gap: 20px;
-  padding-left: 60px;
+  padding-left: 40px;
 `;
 
 export const MusicListWrapper = styled.div`
   width: 98.5%;
-  max-height: 280px;
-  display: grid;
-  grid-template-columns: repeat(4, 320px);
-  grid-gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 17px;
   overflow: hidden;
 `;
 
-export const MusicContainer = styled.button`
+export const TitleContainer = styled.div`
+  width: 96.3%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  .seeMoreDetails {
+    font-size: 0.9rem;
+    color: ${palette.gray[500]};
+  }
+  .seeMoreDetails:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const MusicContainer = styled.button`
+  width: 23.5%;
   gap: 15px;
   border: none;
-  background-color: ${palette.gray[50]};
   outline: none;
+  display: flex;
   border-radius: 5px;
+  align-items: center;
+  background-color: ${palette.gray[50]};
   &:focus {
     background-color: ${palette.gray[200]};
   }
@@ -34,8 +48,8 @@ export const MusicContainer = styled.button`
 `;
 
 export const MusicTumbnailImg = styled.div<{ src: string }>`
-  min-width: 100px;
-  min-height: 55px;
+  min-width: 103px;
+  min-height: 58px;
   border-radius: 3px;
   background-size: cover;
   background-position: center center;
@@ -61,8 +75,8 @@ export const ApplyRanking = styled.div`
 
 export const TitleWrap = styled.div`
   width: 100%;
-  display: flex;
   gap: 3px;
+  display: flex;
   flex-direction: column;
   overflow: auto;
 `;
@@ -74,7 +88,7 @@ export const TitleTopContainer = styled.div`
   align-items: center;
 `;
 
-export const videoTitle = styled.div`
+export const VideoTitle = styled.div`
   font-size: 0.9rem;
   overflow: hidden;
   white-space: nowrap;
@@ -86,6 +100,42 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+
+  .applyDay {
+    color: #c5c5c5;
+  }
+  @media screen and (max-width: 1550px) {
+    .applyDay {
+      display: none;
+    }
+  }
+`;
+
+export const ApplyBtnContainer = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+export const AllowBtn = styled.button`
+  width: 75px;
+  height: 35px;
+  background-color: ${palette.blue[300]};
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+`;
+
+export const RefuseBtn = styled.button`
+  width: 75px;
+  height: 35px;
+  background-color: ${palette.red[300]};
+  border: none;
+  border-radius: 15px;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
 `;
 
 export const MusicNull = styled.div`

@@ -1,15 +1,24 @@
 import Title from "components/Common/Title";
-import * as S from "./Storage.style";
+import useWakeupSongDibs from "hooks/wakeupSongDibs/useWakeupSongDibs";
+import { useEffect } from "react";
+import * as Style from "./Storage.style";
 
 
 const Storage = () => {
-  return (
-    <S.StorageWrapContainer>
-      <S.StorageListContainer>
-        <Title titleMent={"보관함"} subTitleMent={""} />
 
-      </S.StorageListContainer>
-    </S.StorageWrapContainer>
+  const { getWakeupSongDibs, dibsMusicLists } = useWakeupSongDibs();
+
+  useEffect(() => {
+    getWakeupSongDibs();
+  })
+
+  return (
+    <Style.StorageWrapContainer>
+      <Style.StorageListContainer>
+        <Title titleMent={"보관함"} subTitleMent={""} />
+        {dibsMusicLists && <div />}
+      </Style.StorageListContainer>
+    </Style.StorageWrapContainer>
   );
 };
 
