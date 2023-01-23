@@ -1,25 +1,21 @@
 import * as Style from "./MusicList.style";
 import Title from "components/Common/Title";
-import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
 import { useRecoilState } from "recoil";
 import { allowMusicInfo } from "store/reducer";
 import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { toast } from "react-toastify";
-import { useMemo } from "react"
-import { useGetMyPermission } from "querys/permission/permission.query";
+import { useGetMyPermission } from "queries/permission/permission.query";
+import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
 const MusicList = () => {
 
   const [musicInfo, setMusicInfo] = useRecoilState(allowMusicInfo);
-  const { getWakeupSongPendingMusic, pendingMusicListData } = useWakeupSongPendingMusicListData();
   const PlayedDate = new Date().toISOString().split("T")[0];
   const { setWakeupSongAllow, setWakeupSongRefuse, isPermission } = useWakeupSongAllow();
-  const { data } = useGetMyPermission();
+  const Permission = useGetMyPermission();
+  const PendingMusicListData = useGetPendingMusicList().data?.data.slice(0, 16);
 
-  useMemo(() => {
-    getWakeupSongPendingMusic();
-  }, [])
 
   return (
     <Style.MusicListContainer>
@@ -31,7 +27,7 @@ const MusicList = () => {
 
 
       <Style.MusicListWrapper >
-        {pendingMusicListData && pendingMusicListData.map((item, idx) => {
+        {PendingMusicListData?.length !== 0 && PendingMusicListData?.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
 
           return (
@@ -48,14 +44,14 @@ const MusicList = () => {
                 <Style.VideoTitle>{item.videoTitle}</Style.VideoTitle>
                 <Style.CreatedDateContainer>
                   <div className="applyDay">신청일</div>
-                  <div style={{ color: "#a1a1a1" }}>{createdDate}</div>
+                  <div className="applyDate">{createdDate}</div>
                 </Style.CreatedDateContainer>
               </Style.TitleWrap>
             </Style.MusicContainer>
           )
         })}
       </Style.MusicListWrapper>
-      {data?.data.find(isPermission) &&
+      {Permission.data?.data.find(isPermission) &&
         <Style.ApplyBtnContainer>
           <Style.AllowBtn onClick={() => {
             musicInfo.id !== 0 ?

@@ -1,6 +1,9 @@
 import customAxios from "lib/axios/customAxios";
 import { Response } from "types/util/response.type";
-import { MusicInfo } from "repository/wakeupSong/wakeupSong.Param";
+import {
+  DeleteMusicId,
+  MusicInfo,
+} from "repository/wakeupSong/wakeupSong.Param";
 import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
 import { WakeupSongDibsLists } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
@@ -28,6 +31,7 @@ class wakeupSongRepository {
     const { data } = await customAxios.post(`wakeup-song`, {
       videoUrl: wakeupSongUrl,
     });
+
     return data;
   }
 
@@ -41,8 +45,7 @@ class wakeupSongRepository {
 
   public async wakeupSongRefuse(musicInfo: MusicInfo): Promise<Response> {
     const { data } = await customAxios.patch(
-      `wakeup-song/deny/${musicInfo.id}`,
-      {}
+      `wakeup-song/deny/${musicInfo.id}`
     );
     return data;
   }
@@ -56,6 +59,11 @@ class wakeupSongRepository {
 
   public async getWakeupSongDibs(): Promise<WakeupSongDibsLists> {
     const { data } = await customAxios.get("wakeup-song/dibs");
+    return data;
+  }
+
+  public async deleteMyWakeupSong({ musicId }: DeleteMusicId) {
+    const { data } = await customAxios.delete(`wakeup-song/my/${musicId}`);
     return data;
   }
 }

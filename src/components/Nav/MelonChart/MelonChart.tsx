@@ -1,6 +1,6 @@
 import Title from "components/Common/Title";
 import useMelonChart from "hooks/melonChart/useMelonChart";
-import { useGetMelonChartLists } from "querys/melonChart/melonChart.query";
+import { useGetMelonChartLists } from "queries/melonChart/melonChart.query";
 import * as Style from "./MelonChart.style";
 
 const MelonChart = () => {

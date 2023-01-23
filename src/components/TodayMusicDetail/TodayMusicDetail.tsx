@@ -1,6 +1,6 @@
 import Title from "components/Common/Title";
 import * as Style from "./TodayMusicDetail.style";
-import { useGetTodayMusicData } from "querys/todayMusic/todayMusic.query";
+import { useGetTodayMusicData } from "queries/todayMusic/todayMusic.query";
 
 const TodayMusicDetail = () => {
 

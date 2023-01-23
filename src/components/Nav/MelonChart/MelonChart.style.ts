@@ -83,6 +83,9 @@ export const ChartName = styled.div`
 export const ArtistName = styled.div`
   font-size: 0.9rem;
   color: ${palette.gray[500]};
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 `;
 
 export const Thumbnail = styled.div<{ src: string }>`

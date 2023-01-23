@@ -13,4 +13,5 @@ export const NavBarContainer = styled.div`
 export const DodamLogo = styled.img`
   width: 200px;
   margin-top: 20px;
+  cursor: pointer;
 `;

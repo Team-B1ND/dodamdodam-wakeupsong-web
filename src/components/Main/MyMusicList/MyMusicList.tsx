@@ -1,16 +1,11 @@
 import * as Style from "./MyMusicList.style";
-import useWakeupSongMyData from "hooks/wakeupSongMy/useWakeupSongMy";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
-import { useMemo } from "react";
+import { useGetMyAllWakeupSong } from "queries/myAllWakeupSong/myAllWakeupSong.query";
 
 const MyMusicList = () => {
 
-  const { myData, getMyData } = useWakeupSongMyData();
-
-  useMemo(() => {
-    getMyData();
-  }, [])
+  const myData = useGetMyAllWakeupSong().data?.data.slice(0, 4);
 
   return (
     <Style.MyMusicListContainer>
@@ -21,7 +16,7 @@ const MyMusicList = () => {
       </Style.TitleContainer>
 
       <Style.MyMusicListContents>
-        {myData.length !== 0 ? myData.map((item, idx) => {
+        {myData?.length !== 0 ? myData?.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <Style.MyMusicContainer key={idx}>
