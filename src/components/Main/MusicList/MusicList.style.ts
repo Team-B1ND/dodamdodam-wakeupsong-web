@@ -9,10 +9,9 @@ export const MusicListContainer = styled.div`
 `;
 
 export const MusicListWrapper = styled.div`
-  width: 98.5%;
   display: flex;
   flex-wrap: wrap;
-  grid-gap: 17px;
+  grid-gap: 15px;
   overflow: hidden;
 `;
 
@@ -32,7 +31,7 @@ export const TitleContainer = styled.div`
 
 export const MusicContainer = styled.button`
   width: 23.5%;
-  gap: 15px;
+  gap: 10px;
   border: none;
   outline: none;
   display: flex;
@@ -48,8 +47,8 @@ export const MusicContainer = styled.button`
 `;
 
 export const MusicTumbnailImg = styled.div<{ src: string }>`
-  min-width: 103px;
-  min-height: 58px;
+  min-width: 100px;
+  min-height: 55px;
   border-radius: 3px;
   background-size: cover;
   background-position: center center;
@@ -104,8 +103,14 @@ export const CreatedDateContainer = styled.div`
   .applyDay {
     color: #c5c5c5;
   }
+  .applyDate {
+    color: #a1a1a1;
+  }
   @media screen and (max-width: 1550px) {
     .applyDay {
+      display: none;
+    }
+    .applyDate {
       display: none;
     }
   }

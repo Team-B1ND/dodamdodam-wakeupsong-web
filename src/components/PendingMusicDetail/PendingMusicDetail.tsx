@@ -1,14 +1,9 @@
 import Title from "components/Common/Title";
-import useWakeupSongPendingMusicListData from "hooks/wakeupSongPending/wakeupSongPending";
 import * as Style from "./PendingMusicDetail.style";
-import { useMemo } from "react";
+import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
 const PendingMusicDetail = () => {
-  const { pendingAllMusicListData, getWakeupSongPendingAllMusic } = useWakeupSongPendingMusicListData();
-
-  useMemo(() => {
-    getWakeupSongPendingAllMusic()
-  }, [])
+  const PendingMusicData = useGetPendingMusicList().data?.data;
 
   return (
     <Style.PendingMusicDetailWrapContainer>
@@ -16,7 +11,7 @@ const PendingMusicDetail = () => {
 
       <Style.PendingMusicMusicWrap>
 
-        {pendingAllMusicListData.length !== 0 ? pendingAllMusicListData.map((item, idx) => {
+        {PendingMusicData?.length !== 0 ? PendingMusicData?.map((item, idx) => {
           const createdDate = item.createdDate.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>

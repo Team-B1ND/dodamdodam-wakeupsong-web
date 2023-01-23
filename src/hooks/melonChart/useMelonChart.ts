@@ -1,11 +1,11 @@
-import { usePostMelonChartApply } from "querys/melonChart/melonChart.query";
+import { usePostMelonChartApply } from "queries/melonChart/melonChart.query";
 import { toast } from "react-toastify";
 
 const useMelonChart = () => {
-  const postMelonChartApply = usePostMelonChartApply();
+  const { usePostMelonChartApplyMutation } = usePostMelonChartApply();
 
   const melonChartApply = (artistParam: string, titleParam: string) => {
-    postMelonChartApply.mutateAsync(
+    usePostMelonChartApplyMutation.mutateAsync(
       {
         artist: artistParam,
         title: titleParam,
@@ -15,7 +15,7 @@ const useMelonChart = () => {
           toast.success("신청 성공");
         },
         onError: () => {
-          window.alert("신청 실패");
+          toast.error("신청 실패");
         },
       }
     );

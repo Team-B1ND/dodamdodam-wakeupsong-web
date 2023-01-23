@@ -9,10 +9,9 @@ import {
     QueryClientProvider,
 } from 'react-query'
 
-
 const Root = () => {
 
-    const queryClient = new QueryClient()
+    const queryClient = new QueryClient();
 
     return (
         <QueryClientProvider client={queryClient}>

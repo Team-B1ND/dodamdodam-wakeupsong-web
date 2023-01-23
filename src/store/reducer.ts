@@ -7,3 +7,10 @@ export const allowMusicInfo = atom({
     playedDate: "",
   },
 });
+
+export const isApplyMusicBtn = atom({
+  key: "ISAPPLYMUSICBTN",
+  default: {
+    isApply: false,
+  },
+});

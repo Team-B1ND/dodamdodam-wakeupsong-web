@@ -21,7 +21,10 @@ export const ApplyUrlInput = styled.input`
   border: 1px solid ${palette.inputBorderColor};
 `;
 
-export const ApplyUrlSubmitBtn = styled.button`
+export const ApplyUrlSubmitBtn = styled.button<{ isLoading: boolean }>`
+  background-color: ${({ isLoading }) => {
+    return isLoading ? "#c4c4c4" : `${palette.main}`;
+  }};
   width: 100%;
   height: 40px;
   padding: 24px;
@@ -32,5 +35,4 @@ export const ApplyUrlSubmitBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${palette.main};
 `;

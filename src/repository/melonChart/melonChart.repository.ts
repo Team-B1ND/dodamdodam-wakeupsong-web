@@ -10,12 +10,12 @@ class melonChartRepository {
   public async postMelonChartApply({
     artist,
     title,
-  }: MelonKeyword): Promise<number> {
-    const { status } = await customAxios.post("wakeup-song/keyword", {
+  }: MelonKeyword): Promise<Response> {
+    const { data } = await customAxios.post("wakeup-song/keyword", {
       artist: artist,
       title: title,
     });
-    return status;
+    return data;
   }
 }
 

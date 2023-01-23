@@ -19,7 +19,6 @@ const DibsStorage = () => {
           <Style.ApplyDay>신청일</Style.ApplyDay>
         </Style.InfoTitle>
         {dibsMusicLists.length !== 0 ? dibsMusicLists.map((item, idx) => {
-          // const createdDate = item.createdDa/te.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx + 1}>
               {/* <Style.MusicThumbnailImg onClick={() => window.open(item.videoUrl)} src={item.thumbnailUrl}></Style.MusicThumbnailImg> */}
