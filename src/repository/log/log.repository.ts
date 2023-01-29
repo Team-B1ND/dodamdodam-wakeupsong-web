@@ -1,4 +1,4 @@
-import customAxios from "lib/axios/customAxios";
+import xios from "lib/axios/customAxios";
 import { postModuleLogParam } from "./log.param";
 
 class LogRepoisitory {
