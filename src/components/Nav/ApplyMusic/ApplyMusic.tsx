@@ -19,7 +19,7 @@ const ApplyMusic = () => {
         e.preventDefault();
       }}>
         <Style.ApplyUrlInput type={"text"} onChange={(e: ChangeEvent<HTMLInputElement>) => setApplyUrl(e.target.value)} placeholder="https://www.youtube.com/watch?v=" />
-        <Style.ApplyUrlSubmitBtn disabled={isApply} isLoding={isApply} onClick={() => postApplyWakeupSong(applyUrl)}>신청하기</Style.ApplyUrlSubmitBtn>
+        <Style.ApplyUrlSubmitBtn disabled={isApply} isLoading={isApply} onClick={() => postApplyWakeupSong(applyUrl)}>신청하기</Style.ApplyUrlSubmitBtn>
       </Style.ApplyContainer>
 
     </Style.ApplyMusicContainer >
