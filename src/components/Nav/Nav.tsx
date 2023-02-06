@@ -8,13 +8,17 @@ import { Suspense } from "react";
 const Nav = () => {
   return (
     <NavStyle.NavBarContainer>
-      <NavStyle.DodamLogo
-        src={DODAMLOGO}
-        alt="dodam_logo"
-        onClick={() => (window.location.href = "http://dodam.b1nd.com")}
-      />
-      <ApplyMusic />
-      <MelonChart />
+      <ErrorBoundary fallback={<div>Error...</div>}>
+        <Suspense fallback={<div>Loading...</div>}>
+          <NavStyle.DodamLogo
+            src={DODAMLOGO}
+            alt="dodam_logo"
+            onClick={() => (window.location.href = "http://dodam.b1nd.com")}
+          />
+          <ApplyMusic />
+          <MelonChart />
+        </Suspense>
+      </ErrorBoundary>
     </NavStyle.NavBarContainer>
   );
 };

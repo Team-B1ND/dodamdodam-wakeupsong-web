@@ -1,6 +1,6 @@
 import Title from "components/Common/Title";
 import * as MyMusicDetailStyle from "./MyMusicDetail.style";
-import { BsTrash } from "react-icons/bs";
+// import { BsTrash } from "react-icons/bs";
 import useDeleteMyMusic from "hooks/deleteMyMusic/useDeleteMyWakeupSong";
 import ErrorBoundary from "components/Common/Errorboundary/Errordata";
 import { Suspense } from "react";
