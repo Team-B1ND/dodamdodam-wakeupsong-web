@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import Router from "./Router/Router";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 import { palette } from "style/palette";
-
 
 const App = () => {
   return (
@@ -21,7 +20,7 @@ const App = () => {
       <Router />
     </AppContainer>
   );
-}
+};
 
 const AppContainer = styled.div`
   width: 100vw;
