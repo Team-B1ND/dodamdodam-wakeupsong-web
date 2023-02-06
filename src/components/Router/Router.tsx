@@ -6,9 +6,6 @@ import DibsStorage from "components/DibsStorage";
 import MyMusicStore from "components/MyMusicDetail";
 import TodayMusicDetail from "components/TodayMusicDetail";
 import PendingMusicDetail from "components/PendingMusicDetail";
-import { Suspense, lazy } from "react";
-
-// const MyMusicStore = lazy(() => import("./routes/MyMusicStore"));///
 
 const Router = () => {
   return (
