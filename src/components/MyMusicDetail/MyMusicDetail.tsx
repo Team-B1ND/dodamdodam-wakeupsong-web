@@ -1,14 +1,11 @@
 import Title from "components/Common/Title";
 import * as MyMusicDetailStyle from "./MyMusicDetail.style";
-import { BsTrash } from "react-icons/bs";
-import useDeleteMyMusic from "hooks/deleteMyMusic/useDeleteMyWakeupSong";
 import ErrorBoundary from "components/Common/Errorboundary/Errordata";
 import { Suspense } from "react";
 import MyMusicList from "./MyMusicList";
+import Loading from "components/Common/Loading/Loading";
 
 const MyMusicStore = () => {
-  const { deleteMyWakeupSong } = useDeleteMyMusic();
-
   return (
     <MyMusicDetailStyle.MyMusicDetailWrapContainer>
       <Title
@@ -16,7 +13,7 @@ const MyMusicStore = () => {
         subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"}
       />
       <ErrorBoundary fallback={<div>error ...</div>}>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loading />}>
           <MyMusicList />
         </Suspense>
       </ErrorBoundary>
