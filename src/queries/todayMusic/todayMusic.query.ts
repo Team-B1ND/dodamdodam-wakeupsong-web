@@ -1,5 +1,8 @@
-import { useQuery } from "react-query";
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
+import { useQuery, UseQueryOptions } from "react-query";
+
+import { AxiosError } from "axios";
+import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
 
 export const useGetTodayMusicData = (
   options?: UseQueryOptions<

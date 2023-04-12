@@ -2,6 +2,8 @@ import * as NavStyle from "./Nav.style";
 import DODAMLOGO from "assets/logo_img/Mask group.svg";
 import ApplyMusic from "./ApplyMusic";
 import MelonChart from "./MelonChart";
+import ErrorBoundary from "../Common/Errorboundary/Errordata";
+import { Suspense } from "react";
 
 const Nav = () => {
   return (
