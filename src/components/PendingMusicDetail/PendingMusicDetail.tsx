@@ -4,7 +4,6 @@ import ErrorBoundary from "../Common/Errorboundary/Errordata";
 import Loading from "components/Common/Loading/Loading";
 import PendingMusicStore from "./PendingMusicStore";
 import { Suspense } from "react";
-
 const PendingMusicDetail = () => {
   return (
     <Style.PendingMusicDetailWrapContainer>
