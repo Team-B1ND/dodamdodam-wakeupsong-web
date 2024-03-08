@@ -1,11 +1,11 @@
-import { usePostMelonChartApply } from "queries/melonChart/melonChart.query";
+import { usePostMelonChartApplyMutation } from "queries/melonChart/melonChart.query";
 import { toast } from "react-toastify";
 
 const useMelonChart = () => {
-  const { usePostMelonChartApplyMutation } = usePostMelonChartApply();
+  const postMelonChartApply = usePostMelonChartApplyMutation();
 
   const melonChartApply = (artistParam: string, titleParam: string) => {
-    usePostMelonChartApplyMutation.mutateAsync(
+    postMelonChartApply.mutateAsync(
       {
         artist: artistParam,
         title: titleParam,

@@ -5,7 +5,7 @@ import { useGetMyAllWakeupSong } from "queries/myAllWakeupSong/myAllWakeupSong.q
 
 export default function MyMusicList() {
   const myData = useGetMyAllWakeupSong({ suspense: true }).data?.data;
-  const { deleteMyWakeupSong } = useDeleteMyMusic();
+  const { handleDeleteMyWakeupSong } = useDeleteMyMusic();
   return (
     <MyMusicDetailStyle.MyMusicListWrap>
       {myData?.length !== 0 ? (
@@ -31,7 +31,7 @@ export default function MyMusicList() {
               </MyMusicDetailStyle.ApplyDate>
               <BsTrash
                 style={{ cursor: "pointer" }}
-                onClick={() => deleteMyWakeupSong(item.id)}
+                onClick={() => handleDeleteMyWakeupSong(item.id)}
               />
             </MyMusicDetailStyle.MusicInfoContainer>
           );

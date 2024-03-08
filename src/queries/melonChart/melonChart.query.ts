@@ -7,10 +7,9 @@ export const useGetMelonChartLists = () =>
     melonChartRepository.getMelonChartList()
   );
 
-export const usePostMelonChartApply = () => {
-  const usePostMelonChartApplyMutation = useMutation(
-    ({ artist, title }: MelonKeyword) =>
-      melonChartRepository.postMelonChartApply({ artist, title })
+export const usePostMelonChartApplyMutation = () => {
+  const mutation = useMutation(({ artist, title }: MelonKeyword) =>
+    melonChartRepository.postMelonChartApply({ artist, title })
   );
-  return { usePostMelonChartApplyMutation };
+  return mutation;
 };
