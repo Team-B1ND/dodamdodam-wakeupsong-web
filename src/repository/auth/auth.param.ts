@@ -1,3 +1,3 @@
 export interface postRefreshTokenParam {
-  token: string;
+  refreshToken: string;
 }
