@@ -1,9 +1,9 @@
 import Title from "components/Common/Title";
-import * as Style from "./TodayMusicDetail.style";
-import ErrorBoundary from "components/Common/Errorboundary/Errordata";
+import * as Style from "./style";
+import ErrorBoundary from "components/Common/Errorboundary";
 import { Suspense } from "react";
-import Loading from "components/Common/Loading/Loading";
-import TodayMusicStore from "./TodayMusicStore";
+import Loading from "components/Common/Loading";
+import TodayMusicDetailStore from "./TodayMusicDetailStore";
 
 const TodayMusicDetail = () => {
   const nowDate = new Date().getHours();
@@ -23,7 +23,7 @@ const TodayMusicDetail = () => {
       )}
       <ErrorBoundary fallback={<div>error...</div>}>
         <Suspense fallback={<Loading />}>
-          <TodayMusicStore />
+          <TodayMusicDetailStore />
         </Suspense>
       </ErrorBoundary>
     </Style.TodayMusicDetailWrapContainer>

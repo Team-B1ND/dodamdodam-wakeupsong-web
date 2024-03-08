@@ -1,7 +1,7 @@
-import * as Style from "./PendingMusicDetail.style";
+import * as Style from "../style";
 import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
-const PendingMusicList = () => {
+const PendingMusicDetailStore = () => {
   const PendingMusicData = useGetPendingMusicList({ suspense: true }).data
     ?.data;
   return (
@@ -28,4 +28,5 @@ const PendingMusicList = () => {
     </Style.PendingMusicMusicWrap>
   );
 };
-export default PendingMusicList;
+
+export default PendingMusicDetailStore;

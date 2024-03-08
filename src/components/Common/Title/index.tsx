@@ -1,15 +1,11 @@
-import * as S from "./Title.style";
+import * as S from "./style";
 
 interface Props {
   titleMent: string;
   subTitleMent: string;
 }
 
-const Title = ({
-  titleMent = "",
-  subTitleMent = "",
-}: Props) => {
-
+const Title = ({ titleMent = "", subTitleMent = "" }: Props) => {
   return (
     <S.MusicListTitle>
       <S.TitleMent>{titleMent}</S.TitleMent>

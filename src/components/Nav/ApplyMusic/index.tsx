@@ -1,18 +1,15 @@
 import Title from "components/Common/Title";
 import useApplyWakeupSong from "hooks/applyWakeupSong/useApplyWakeupSong";
-import * as Style from "./ApplyMusic.style";
+import * as Style from "./style";
 import { useState } from "react";
 import { ChangeEvent } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import { isApplyMusicBtn } from "store/reducer";
-import { Suspense } from "react";
-import ErrorBoundary from "components/Common/Errorboundary/Errordata";
 
 const ApplyMusic = () => {
   const [applyUrl, setApplyUrl] = useState<string>("");
   const { isApply } = useRecoilValue(isApplyMusicBtn);
-  const { postApplyWakeupSong, usePostApplyMusicMutation } =
-    useApplyWakeupSong();
+  const { postApplyWakeupSong } = useApplyWakeupSong();
 
   return (
     <Style.ApplyMusicContainer>

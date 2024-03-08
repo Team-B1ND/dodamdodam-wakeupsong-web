@@ -2,7 +2,7 @@ import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { toast } from "react-toastify";
 import { allowMusicInfoIdAtom } from "store/reducer";
 import { useSetRecoilState } from "recoil";
-import { PermissionParams } from "repository/Permission/permission.Param";
+import { PermissionParams } from "repository/Permission/permission.param";
 import { PERMISSION_ACCESS_KEY } from "constants/permission/permission.constants";
 
 const useWakeupSongAllow = () => {

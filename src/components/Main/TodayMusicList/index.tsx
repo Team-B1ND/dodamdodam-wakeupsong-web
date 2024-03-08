@@ -1,4 +1,4 @@
-import * as Style from "./TodayMusicList.style";
+import * as Style from "./style";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
 import { useGetTodayMusicData } from "queries/todayMusic/todayMusic.query";

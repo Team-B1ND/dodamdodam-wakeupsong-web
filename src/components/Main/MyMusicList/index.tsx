@@ -1,4 +1,4 @@
-import * as Style from "./MyMusicList.style";
+import * as Style from "./style";
 import Title from "components/Common/Title";
 import { Link } from "react-router-dom";
 import { useGetMyAllWakeupSong } from "queries/myAllWakeupSong/myAllWakeupSong.query";

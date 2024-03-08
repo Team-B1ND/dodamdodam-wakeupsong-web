@@ -1,5 +1,3 @@
-import { Response } from "types/util/response.type";
-
 export interface WakeupSongMusic {
   channelTitle: string;
   createdAt: string;

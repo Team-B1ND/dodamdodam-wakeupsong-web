@@ -1,12 +1,13 @@
-import * as Style from "./TodayMusicDetail.style";
-import { useGetTodayMusicData } from "queries/todayMusic/todayMusic.query";
+import * as Style from "../style";
+import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
-const TodayMusicStore = () => {
-  const { data } = useGetTodayMusicData({ suspense: true });
+const PendingMusicDetailList = () => {
+  const PendingMusicData = useGetPendingMusicList({ suspense: true }).data
+    ?.data;
   return (
-    <Style.TodayMusicWrap>
-      {data?.data.length !== 0 ? (
-        data?.data.slice(0, 4).map((item, idx) => {
+    <Style.PendingMusicMusicWrap>
+      {PendingMusicData?.length !== 0 ? (
+        PendingMusicData?.map((item, idx) => {
           const createdDate = item.createdAt.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>
@@ -22,10 +23,9 @@ const TodayMusicStore = () => {
           );
         })
       ) : (
-        <Style.MusicNull>승인한 기상송이 없쓰껄</Style.MusicNull>
+        <Style.MusicNull>신청한 기상송이 없쓰껄</Style.MusicNull>
       )}
-    </Style.TodayMusicWrap>
+    </Style.PendingMusicMusicWrap>
   );
 };
-
-export default TodayMusicStore;
+export default PendingMusicDetailList;

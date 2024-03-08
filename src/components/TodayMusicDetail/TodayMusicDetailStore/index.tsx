@@ -1,7 +1,7 @@
-import * as Style from "./TodayMusicDetail.style";
+import * as Style from "../style";
 import { useGetTodayMusicData } from "queries/todayMusic/todayMusic.query";
 
-const TodayMusicList = () => {
+const TodayMusicDetailStore = () => {
   const { data } = useGetTodayMusicData({ suspense: true });
   return (
     <Style.TodayMusicWrap>
@@ -28,4 +28,4 @@ const TodayMusicList = () => {
   );
 };
 
-export default TodayMusicList;
+export default TodayMusicDetailStore;

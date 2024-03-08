@@ -6,6 +6,7 @@ export const LoadingBox = styled.div`
   align-items: center;
   margin-top: 120px;
 `;
+
 export const LoadingWrap = styled.div`
   color: red;
   display: flex;

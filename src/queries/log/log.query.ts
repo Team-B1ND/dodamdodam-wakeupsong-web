@@ -7,6 +7,5 @@ export const usePostModuleLog = () => {
     ({ description, moduleName }: postModuleLogParam) =>
       logRepository.postModuleLog({ description, moduleName })
   );
-
   return mutation;
 };

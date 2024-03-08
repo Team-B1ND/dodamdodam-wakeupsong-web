@@ -1,9 +1,9 @@
 import Title from "components/Common/Title";
-import * as MyMusicDetailStyle from "./MyMusicDetail.style";
-import ErrorBoundary from "components/Common/Errorboundary/Errordata";
+import * as MyMusicDetailStyle from "./style";
+import ErrorBoundary from "components/Common/Errorboundary";
 import { Suspense } from "react";
-import MyMusicList from "./MyMusicList";
-import Loading from "components/Common/Loading/Loading";
+import MyMusicDetailList from "./MyMusicDetailList";
+import Loading from "components/Common/Loading";
 
 const MyMusicStore = () => {
   return (
@@ -14,7 +14,7 @@ const MyMusicStore = () => {
       />
       <ErrorBoundary fallback={<div>error ...</div>}>
         <Suspense fallback={<Loading />}>
-          <MyMusicList />
+          <MyMusicDetailList />
         </Suspense>
       </ErrorBoundary>
     </MyMusicDetailStyle.MyMusicDetailWrapContainer>

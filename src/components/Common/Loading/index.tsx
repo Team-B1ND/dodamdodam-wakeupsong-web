@@ -1,5 +1,5 @@
 import { ClipLoader } from "react-spinners";
-import * as L from "./Loading.style";
+import * as L from "./style";
 
 const override = {
   display: "flex",
