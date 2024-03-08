@@ -1,13 +1,8 @@
 import customAxios from "lib/axios/customAxios";
 import { Response } from "types/util/response.type";
-import {
-  DeleteMusicId,
-  MusicInfo,
-} from "repository/wakeupSong/wakeupSong.Param";
 import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
-import { WakeupSongDibsLists } from "types/wakeupSongDibs/wakeupSongDibs.type";
 
-class wakeupSongRepository {
+class WakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
     const { data } = await customAxios.get("wakeup-song/pending");
     return data;
@@ -28,44 +23,26 @@ class wakeupSongRepository {
   }
 
   public async postApplyWakeupSong(wakeupSongUrl: string): Promise<Response> {
-    const { data } = await customAxios.post(`wakeup-song`, {
-      videoUrl: wakeupSongUrl,
-    });
-
-    return data;
-  }
-
-  public async wakeupSongAllow(musicInfo: MusicInfo): Promise<Response> {
-    const { data } = await customAxios.patch("wakeup-song/allow", {
-      id: musicInfo.id,
-      playedDate: musicInfo.playedDate,
-    });
-    return data;
-  }
-
-  public async wakeupSongRefuse(musicInfo: MusicInfo): Promise<Response> {
-    const { data } = await customAxios.patch(
-      `wakeup-song/deny/${musicInfo.id}`
-    );
-    return data;
-  }
-
-  public async postWakeupSongDibs(wakeupSongUrl: string): Promise<Response> {
-    const { data } = await customAxios.post("wakeup-song/dibs", {
+    const { data } = await customAxios.post("wakeup-song", {
       videoUrl: wakeupSongUrl,
     });
     return data;
   }
 
-  public async getWakeupSongDibs(): Promise<WakeupSongDibsLists> {
-    const { data } = await customAxios.get("wakeup-song/dibs");
+  public async wakeupSongAllow(id: number): Promise<Response> {
+    const { data } = await customAxios.patch(`wakeup-song/allow/${id}`);
     return data;
   }
 
-  public async deleteMyWakeupSong({ musicId }: DeleteMusicId) {
-    const { data } = await customAxios.delete(`wakeup-song/my/${musicId}`);
+  public async wakeupSongRefuse(id: number): Promise<Response> {
+    const { data } = await customAxios.patch(`wakeup-song/deny/${id}`);
+    return data;
+  }
+
+  public async deleteMyWakeupSong(id: number): Promise<Response> {
+    const { data } = await customAxios.delete(`wakeup-song/my/${id}`);
     return data;
   }
 }
 
-export default new wakeupSongRepository();
+export default new WakeupSongRepository();

@@ -21,7 +21,7 @@ const MyMusicList = () => {
       <Style.MyMusicListContents>
         {myData?.length !== 0 ? (
           myData?.map((item, idx) => {
-            const createdDate = item.createdDate.split(" ")[0];
+            const createdDate = item.createdAt.split(" ")[0];
             return (
               <Style.MyMusicContainer key={idx}>
                 <Style.MyMusicThumbnailImg

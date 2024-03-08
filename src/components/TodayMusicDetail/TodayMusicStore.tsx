@@ -7,7 +7,7 @@ const TodayMusicStore = () => {
     <Style.TodayMusicWrap>
       {data?.data.length !== 0 ? (
         data?.data.slice(0, 4).map((item, idx) => {
-          const createdDate = item.createdDate.split(" ")[0];
+          const createdDate = item.createdAt.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>
               <Style.ApplyRanking>{idx + 1}</Style.ApplyRanking>

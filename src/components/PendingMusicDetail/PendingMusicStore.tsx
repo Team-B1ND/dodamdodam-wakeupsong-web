@@ -8,7 +8,7 @@ const PendingMusicStore = () => {
     <Style.PendingMusicMusicWrap>
       {PendingMusicData?.length !== 0 ? (
         PendingMusicData?.map((item, idx) => {
-          const createdDate = item.createdDate.split(" ")[0];
+          const createdDate = item.createdAt.split(" ")[0];
           return (
             <Style.MusicInfoContainer key={idx}>
               <Style.ApplyRanking>{idx + 1}</Style.ApplyRanking>
