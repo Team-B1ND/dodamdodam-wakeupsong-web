@@ -2,19 +2,11 @@ import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { toast } from "react-toastify";
 import { allowMusicInfoIdAtom } from "store/reducer";
 import { useSetRecoilState } from "recoil";
-import { PermissionParams } from "repository/Permission/permission.param";
-import { PERMISSION_ACCESS_KEY } from "constants/permission/permission.constants";
+import { useGetBroadcastClubMemberCheckQuery } from "queries/Member/member.query";
 
 const useWakeupSongAllow = () => {
   const setMusicInfoId = useSetRecoilState(allowMusicInfoIdAtom);
-
-  const isPermission = (e: PermissionParams) => {
-    if (e.permission === PERMISSION_ACCESS_KEY) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const { data: isBroadcastClubMember } = useGetBroadcastClubMemberCheckQuery();
 
   const setWakeupSongAllow = async (musicInfoId: number) => {
     try {
@@ -44,7 +36,7 @@ const useWakeupSongAllow = () => {
     }
   };
 
-  return { setWakeupSongAllow, setWakeupSongRefuse, isPermission };
+  return { setWakeupSongAllow, setWakeupSongRefuse, isBroadcastClubMember };
 };
 
 export default useWakeupSongAllow;

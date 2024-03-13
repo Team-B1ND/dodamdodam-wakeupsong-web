@@ -5,15 +5,12 @@ import { allowMusicInfoIdAtom } from "store/reducer";
 import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { toast } from "react-toastify";
-import { useGetMyPermission } from "queries/permission/permission.query";
 import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
 const MusicList = () => {
   const [musicInfoId, setMusicInfoId] = useRecoilState(allowMusicInfoIdAtom);
-  // const PlayedDate = new Date().toISOString().split("T")[0];
-  const { setWakeupSongAllow, setWakeupSongRefuse, isPermission } =
+  const { setWakeupSongAllow, setWakeupSongRefuse, isBroadcastClubMember } =
     useWakeupSongAllow();
-  // const Permission = useGetMyPermission();
   const PendingMusicListData = useGetPendingMusicList().data?.data.slice(0, 16);
 
   return (
@@ -55,29 +52,29 @@ const MusicList = () => {
             );
           })}
       </S.MusicListWrapper>
-      {/* {Permission.data?.data.find(isPermission) && ( */}
-      <S.ApplyBtnContainer>
-        <S.AllowBtn
-          onClick={() => {
-            musicInfoId !== 0
-              ? setWakeupSongAllow(musicInfoId)
-              : toast.error("기상송 승인 실패");
-          }}
-        >
-          승인
-        </S.AllowBtn>
-        <S.RefuseBtn
-          onClick={() => {
-            console.log(musicInfoId);
-            musicInfoId !== 0
-              ? setWakeupSongRefuse(musicInfoId)
-              : toast.error("기상송 거절 실패");
-          }}
-        >
-          거절
-        </S.RefuseBtn>
-      </S.ApplyBtnContainer>
-      {/* )} */}
+      {isBroadcastClubMember && (
+        <S.ApplyBtnContainer>
+          <S.AllowBtn
+            onClick={() => {
+              musicInfoId !== 0
+                ? setWakeupSongAllow(musicInfoId)
+                : toast.error("기상송 승인 실패");
+            }}
+          >
+            승인
+          </S.AllowBtn>
+          <S.RefuseBtn
+            onClick={() => {
+              console.log(musicInfoId);
+              musicInfoId !== 0
+                ? setWakeupSongRefuse(musicInfoId)
+                : toast.error("기상송 거절 실패");
+            }}
+          >
+            거절
+          </S.RefuseBtn>
+        </S.ApplyBtnContainer>
+      )}
     </S.MusicListContainer>
   );
 };
