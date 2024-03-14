@@ -9,8 +9,8 @@ import cookie from "lib/cookie/cookie";
 import token from "lib/token/token";
 import authRepository from "repository/auth/auth.repository";
 
-const customAxios = axios.create({
-  baseURL: config.TEST_SERVER,
+const dodamAxios = axios.create({
+  baseURL: config.SERVER,
   headers: {
     "Access-Control-Allow-Origin": "*",
     [REQUEST_TOKEN_KEY]: `Bearer ${cookie.getCookie("access-token")}`, //요청 보낼때 header로 쿠키 보내기 [여기서 잠깐! 왜 header로 쿠키를 보내나요? body도 있지 않나요? 왜냐하면 header는 가벼운 데이터를 보내고 받을 때 사용해요]
@@ -30,7 +30,7 @@ const errorInterceptor = async (config: AxiosError) => {
           refreshToken: refresh_token!,
         });
 
-        customAxios.defaults.headers.common[
+        dodamAxios.defaults.headers.common[
           REQUEST_TOKEN_KEY
         ] = `Bearer ${newAccessToken}`;
 
@@ -47,6 +47,6 @@ const errorInterceptor = async (config: AxiosError) => {
   }
 };
 
-customAxios.interceptors.response.use((response) => response, errorInterceptor);
+dodamAxios.interceptors.response.use((response) => response, errorInterceptor);
 
-export default customAxios;
+export default dodamAxios;

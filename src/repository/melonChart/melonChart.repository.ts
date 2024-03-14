@@ -1,10 +1,10 @@
-import customAxios from "lib/axios/customAxios";
+import dodamAxios from "lib/axios/dodamAxios";
 import { MelonChartListsResponse, MelonKeyword } from "./melonChart.param";
 import { Response } from "types/util/response.type";
 
 class MelonChartRepository {
   public async getMelonChartList(): Promise<MelonChartListsResponse> {
-    const { data } = await customAxios.get("wakeup-song/chart");
+    const { data } = await dodamAxios.get("wakeup-song/chart");
     return data;
   }
 
@@ -12,7 +12,7 @@ class MelonChartRepository {
     artist,
     title,
   }: MelonKeyword): Promise<Response> {
-    const { data } = await customAxios.post("wakeup-song/keyword", {
+    const { data } = await dodamAxios.post("wakeup-song/keyword", {
       artist: artist,
       title: title,
     });

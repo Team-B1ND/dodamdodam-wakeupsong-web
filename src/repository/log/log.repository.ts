@@ -1,12 +1,12 @@
 import { postModuleLogParam } from "./log.param";
-import customAxios from "lib/axios/customAxios";
+import dodamAxios from "lib/axios/dodamAxios";
 
 class LogRepoisitory {
   public async postModuleLog({
     description,
     moduleName,
   }: postModuleLogParam): Promise<void> {
-    await customAxios.post("/logging/function", {
+    await dodamAxios.post("/logging/function", {
       description,
       moduleName,
       platform: "WEB",

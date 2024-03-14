@@ -1,9 +1,11 @@
-import customAxios from "lib/axios/customAxios";
+import dodamAxios from "lib/axios/dodamAxios";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 
 class MemberRepository {
   public async getBroadcastClubMemberCheck(): Promise<BroadcastClubMemberResponse> {
-    const { data } = await customAxios.get("/");
+    const { data } = await dodamAxios.get(
+      "/member/check/broadcast-club-member"
+    );
     return data;
   }
 }
