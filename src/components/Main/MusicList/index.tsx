@@ -55,7 +55,8 @@ const MusicList = () => {
             );
           })}
       </S.MusicListWrapper>
-      {isBroadcastClubMember && (
+
+      {isBroadcastClubMember?.data && (
         <S.ApplyBtnContainer>
           <S.AllowBtn
             onClick={() => {
