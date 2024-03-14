@@ -1,4 +1,4 @@
-import { useDeleteMyWakeupSongMutation } from "queries/deleteMyWakeupSong/deleteMyWakeupSong.query";
+import { useDeleteMyWakeupSongMutation } from "queries/wakeupSong/wakeupSong.query";
 import { useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { useSetRecoilState } from "recoil";

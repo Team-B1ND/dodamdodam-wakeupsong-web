@@ -1,12 +1,12 @@
 import { toast } from "react-toastify";
-import { usePostApplyMusic } from "queries/applyMusic/postApplyMusic.query";
 import { useQueryClient } from "react-query";
 import { isApplyMusicBtn } from "store/reducer";
 import { useSetRecoilState } from "recoil";
+import { usePostApplyMusicMutation } from "queries/wakeupSong/wakeupSong.query";
 
 const useApplyWakeupSong = () => {
   const queryClient = useQueryClient();
-  const postApplyMusicMutation = usePostApplyMusic();
+  const postApplyMusicMutation = usePostApplyMusicMutation();
   const setIsApply = useSetRecoilState(isApplyMusicBtn);
 
   const postApplyWakeupSong = async (wakeupSongUrl: string) => {

@@ -1,10 +1,10 @@
 import * as Style from "./style";
 import Title from "components/Common/Title";
+import { useGetMyAllWakeupSongQuery } from "queries/wakeupSong/wakeupSong.query";
 import { Link } from "react-router-dom";
-import { useGetMyAllWakeupSong } from "queries/myAllWakeupSong/myAllWakeupSong.query";
 
 const MyMusicList = () => {
-  const myData = useGetMyAllWakeupSong().data?.data.slice(0, 4);
+  const myData = useGetMyAllWakeupSongQuery().data?.data.slice(0, 4);
 
   return (
     <Style.MyMusicListContainer>

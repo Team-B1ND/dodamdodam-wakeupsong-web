@@ -1,8 +1,9 @@
+import { useGetTodayMusicDataQuery } from "queries/wakeupSong/wakeupSong.query";
 import * as Style from "../style";
-import { useGetTodayMusicData } from "queries/todayMusic/todayMusic.query";
 
 const TodayMusicDetailStore = () => {
-  const { data } = useGetTodayMusicData({ suspense: true });
+  const { data } = useGetTodayMusicDataQuery({ suspense: true });
+
   return (
     <Style.TodayMusicWrap>
       {data?.data.length !== 0 ? (

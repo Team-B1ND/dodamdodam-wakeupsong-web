@@ -5,13 +5,16 @@ import { allowMusicInfoIdAtom } from "store/reducer";
 import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { toast } from "react-toastify";
-import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
+import { useGetPendingMusicListQuery } from "queries/wakeupSong/wakeupSong.query";
 
 const MusicList = () => {
   const [musicInfoId, setMusicInfoId] = useRecoilState(allowMusicInfoIdAtom);
   const { setWakeupSongAllow, setWakeupSongRefuse, isBroadcastClubMember } =
     useWakeupSongAllow();
-  const PendingMusicListData = useGetPendingMusicList().data?.data.slice(0, 16);
+  const PendingMusicListData = useGetPendingMusicListQuery().data?.data.slice(
+    0,
+    16
+  );
 
   return (
     <S.MusicListContainer>

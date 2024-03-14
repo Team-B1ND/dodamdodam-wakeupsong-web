@@ -1,10 +1,10 @@
 import * as MyMusicDetailStyle from "../style";
 import { BsTrash } from "react-icons/bs";
 import useDeleteMyMusic from "hooks/deleteMyMusic/useDeleteMyWakeupSong";
-import { useGetMyAllWakeupSong } from "queries/myAllWakeupSong/myAllWakeupSong.query";
+import { useGetMyAllWakeupSongQuery } from "queries/wakeupSong/wakeupSong.query";
 
 export default function MyMusicDetailList() {
-  const myData = useGetMyAllWakeupSong({ suspense: true }).data?.data;
+  const myData = useGetMyAllWakeupSongQuery({ suspense: true }).data?.data;
   const { handleDeleteMyWakeupSong } = useDeleteMyMusic();
   return (
     <MyMusicDetailStyle.MyMusicListWrap>

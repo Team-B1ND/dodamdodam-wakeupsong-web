@@ -1,9 +1,10 @@
+import { useGetPendingMusicListQuery } from "queries/wakeupSong/wakeupSong.query";
 import * as Style from "../style";
-import { useGetPendingMusicList } from "queries/pendingMusic/pendingMusic.query";
 
 const PendingMusicDetailStore = () => {
-  const PendingMusicData = useGetPendingMusicList({ suspense: true }).data
+  const PendingMusicData = useGetPendingMusicListQuery({ suspense: true }).data
     ?.data;
+
   return (
     <Style.PendingMusicMusicWrap>
       {PendingMusicData?.length !== 0 ? (
