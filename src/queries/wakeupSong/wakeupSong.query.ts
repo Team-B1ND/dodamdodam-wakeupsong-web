@@ -1,7 +1,7 @@
 import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { useMutation, useQuery, UseQueryOptions } from "react-query";
 import { AxiosError } from "axios";
-import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
+import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
 
 // 오늘 승인된 기상송 조회
 export const useGetTodayMusicDataQuery = (
@@ -84,7 +84,7 @@ export const useAllowWakeupSongMutation = () => {
 // 기상송 거절
 export const useDenyWakeupSongMutation = () => {
   const mutation = useMutation((id: number) =>
-    wakeupSongRepository.wakeupSongRefuse(id)
+    wakeupSongRepository.wakeupSongDeny(id)
   );
   return mutation;
 };

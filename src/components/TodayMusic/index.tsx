@@ -9,7 +9,7 @@ const TodayMusic = () => {
   const nowDate = new Date().getHours();
 
   return (
-    <S.TodayMusicDetailWrapContainer>
+    <S.TodayMusicContainer>
       {nowDate >= 16 ? (
         <Title
           titleMent={"내일의 기상송"}
@@ -26,7 +26,7 @@ const TodayMusic = () => {
           <TodayMusicStore />
         </Suspense>
       </ErrorBoundary>
-    </S.TodayMusicDetailWrapContainer>
+    </S.TodayMusicContainer>
   );
 };
 

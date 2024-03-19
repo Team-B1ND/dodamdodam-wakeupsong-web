@@ -6,7 +6,7 @@ const PendingMusicStore = () => {
     ?.data;
 
   return (
-    <S.PendingMusicMusicWrap>
+    <S.PendingMusicWrap>
       {PendingMusicData?.length !== 0 ? (
         PendingMusicData?.map((item, idx) => {
           const createdDate = item.createdAt.split(" ")[0];
@@ -26,7 +26,7 @@ const PendingMusicStore = () => {
       ) : (
         <S.MusicNull>신청한 기상송이 없습니다</S.MusicNull>
       )}
-    </S.PendingMusicMusicWrap>
+    </S.PendingMusicWrap>
   );
 };
 

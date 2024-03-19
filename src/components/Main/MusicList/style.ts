@@ -117,26 +117,23 @@ export const ApplyBtnContainer = styled.div`
   gap: 10px;
 `;
 
-export const AllowBtn = styled.button`
+export const AllowAndDenyBtn = styled.button<{ buttonType: "ALLOW" | "DENY" }>`
   width: 75px;
   height: 35px;
-  background-color: ${palette.blue[300]};
-  border: none;
-  border-radius: 15px;
-  color: #fff;
-  cursor: pointer;
-  outline: none;
-`;
 
-export const RefuseBtn = styled.button`
-  width: 75px;
-  height: 35px;
-  background-color: ${palette.red[300]};
   border: none;
   border-radius: 15px;
   color: #fff;
+
   cursor: pointer;
   outline: none;
+  background-color: ${({ buttonType }) =>
+    buttonType === "ALLOW" ? palette.blue[300] : palette.red[300]};
+
+  transition: all 0.15s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
 `;
 
 export const MusicNull = styled.div`

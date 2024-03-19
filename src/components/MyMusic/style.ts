@@ -1,7 +1,7 @@
 import { palette } from "style/palette";
 import styled from "styled-components";
 
-export const MyMusicDetailWrapContainer = styled.div`
+export const MyMusicContainer = styled.div`
   width: 73%;
   height: 100%;
   overflow: auto;

@@ -3,16 +3,17 @@ import { BsTrash } from "react-icons/bs";
 import useDeleteMyMusic from "hooks/deleteMyMusic/useDeleteMyWakeupSong";
 import { useGetMyAllWakeupSongQuery } from "queries/wakeupSong/wakeupSong.query";
 
-const MyMusicList = () => {
+const MyMusicStore = () => {
   const myData = useGetMyAllWakeupSongQuery({ suspense: true }).data?.data;
   const { handleDeleteMyWakeupSong } = useDeleteMyMusic();
+
   return (
     <S.MyMusicListWrap>
       {myData?.length !== 0 ? (
         myData?.map((item, idx) => {
           const createdDate = item.createdAt.split(" ")[0];
           return (
-            <S.MusicInfoContainer>
+            <S.MusicInfoContainer key={idx}>
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
               <S.MusicThumbnailImg
                 onClick={() => window.open(item.videoUrl)}
@@ -35,4 +36,4 @@ const MyMusicList = () => {
   );
 };
 
-export default MyMusicList;
+export default MyMusicStore;

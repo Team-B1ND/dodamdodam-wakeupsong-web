@@ -14,4 +14,9 @@ export const DodamLogo = styled.img`
   width: 200px;
   margin-top: 20px;
   cursor: pointer;
+
+  transition: all 0.05s ease-in-out;
+  &:active {
+    opacity: 0.7;
+  }
 `;

@@ -1,7 +1,7 @@
 import { palette } from "style/palette";
 import styled from "styled-components";
 
-export const PendingMusicDetailWrapContainer = styled.div`
+export const PendingMusicContainer = styled.div`
   width: 73%;
   height: 100%;
   overflow: auto;
@@ -12,7 +12,7 @@ export const PendingMusicDetailWrapContainer = styled.div`
   }
 `;
 
-export const PendingMusicMusicWrap = styled.div`
+export const PendingMusicWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -2,21 +2,21 @@ import * as S from "./style";
 import Title from "components/common/Title";
 import { useRecoilState } from "recoil";
 import { allowMusicInfoIdAtom } from "store/reducer";
-import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
+import useWakeupSongDecision from "hooks/wakeupSongDecision/useWakeupSongDecision";
 import { useGetPendingMusicListQuery } from "queries/wakeupSong/wakeupSong.query";
+import { toast } from "react-toastify";
+import { useGetBroadcastClubMemberCheckQuery } from "queries/Member/member.query";
 
 const MusicList = () => {
   const [musicInfoId, setMusicInfoId] = useRecoilState(allowMusicInfoIdAtom);
-  const {
-    handleWakeupSongRefuse,
-    hanldeWakeupSongAllow,
-    isBroadcastClubMember,
-  } = useWakeupSongAllow();
+  const { handleWakeupSongDecision } = useWakeupSongDecision();
 
   const PendingMusicListData = useGetPendingMusicListQuery().data?.data.slice(
     0,
     16
   );
+
+  const { data: isBroadcastClubMember } = useGetBroadcastClubMemberCheckQuery();
 
   return (
     <S.MusicListContainer>
@@ -65,20 +65,22 @@ const MusicList = () => {
 
       {isBroadcastClubMember?.data && (
         <S.ApplyBtnContainer>
-          <S.AllowBtn
+          <S.AllowAndDenyBtn
+            buttonType="ALLOW"
             onClick={() =>
-              musicInfoId !== 0 && hanldeWakeupSongAllow(musicInfoId)
+              handleWakeupSongDecision({ musicInfoId, decisionType: "ALLOW" })
             }
           >
             승인
-          </S.AllowBtn>
-          <S.RefuseBtn
+          </S.AllowAndDenyBtn>
+          <S.AllowAndDenyBtn
+            buttonType="DENY"
             onClick={() =>
-              musicInfoId !== 0 && handleWakeupSongRefuse(musicInfoId)
+              handleWakeupSongDecision({ musicInfoId, decisionType: "DENY" })
             }
           >
             거절
-          </S.RefuseBtn>
+          </S.AllowAndDenyBtn>
         </S.ApplyBtnContainer>
       )}
     </S.MusicListContainer>

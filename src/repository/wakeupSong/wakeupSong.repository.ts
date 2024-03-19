@@ -1,6 +1,6 @@
 import dodamAxios from "libs/axios/dodamAxios";
 import { Response } from "types/util/response.type";
-import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
+import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
 
 class WakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
@@ -34,7 +34,7 @@ class WakeupSongRepository {
     return data;
   }
 
-  public async wakeupSongRefuse(id: number): Promise<Response> {
+  public async wakeupSongDeny(id: number): Promise<Response> {
     const { data } = await dodamAxios.patch(`wakeup-song/deny/${id}`);
     return data;
   }

@@ -7,7 +7,7 @@ import { Suspense } from "react";
 
 const PendingMusic = () => {
   return (
-    <S.PendingMusicDetailWrapContainer>
+    <S.PendingMusicContainer>
       <Title
         titleMent={"신청 현황"}
         subTitleMent={"어떤 노래가 있는지 확인해보세요!"}
@@ -18,7 +18,7 @@ const PendingMusic = () => {
           <PendingMusicStore />
         </Suspense>
       </ErrorBoundary>
-    </S.PendingMusicDetailWrapContainer>
+    </S.PendingMusicContainer>
   );
 };
 
