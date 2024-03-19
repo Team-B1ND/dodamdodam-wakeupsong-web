@@ -1,11 +1,8 @@
 import { atom } from "recoil";
 
-export const allowMusicInfo = atom({
-  key: "ALLOWMUSICINFO",
-  default: {
-    id: 0,
-    playedDate: "",
-  },
+export const allowMusicInfoIdAtom = atom({
+  key: "ALLOW_MUSIC_INFO_ID",
+  default: 0,
 });
 
 export const isApplyMusicBtn = atom({

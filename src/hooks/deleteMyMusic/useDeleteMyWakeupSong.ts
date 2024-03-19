@@ -1,34 +1,28 @@
-import { useDeleteMyWakeupSong } from "queries/deleteMyWakeupSong/deleteMyWakeupSong.query";
+import { useDeleteMyWakeupSongMutation } from "queries/wakeupSong/wakeupSong.query";
 import { useQueryClient } from "react-query";
 import { toast } from "react-toastify";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { isApplyMusicBtn } from "store/reducer";
 
 const useDeleteMyMusic = () => {
   const queryClient = useQueryClient();
-  const { useDeleteMyWakeupSongMutation } = useDeleteMyWakeupSong();
-  const [isApply, setIsApply] = useRecoilState(isApplyMusicBtn);
+  const deleteMyWakeupSong = useDeleteMyWakeupSongMutation();
+  const setIsApply = useSetRecoilState(isApplyMusicBtn);
 
-  const deleteMyWakeupSong = (id: number) => {
-    useDeleteMyWakeupSongMutation.mutateAsync(
-      {
-        musicId: id,
+  const handleDeleteMyWakeupSong = (id: number) => {
+    deleteMyWakeupSong.mutateAsync(id, {
+      onSuccess: () => {
+        setIsApply({ isApply: false });
+
+        queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
+        toast.success("신청한 기상송을 삭제했습니다!");
       },
-      {
-        onSuccess: () => {
-          setIsApply({ isApply: false });
-          queryClient.invalidateQueries(
-            "myAllWakeupSong/useGetMyAllWakeupSong"
-          );
-          toast.success("내가 신청한 기상송 삭제 성공");
-        },
-        onError: () => {
-          toast.error("삭제 실패. 다시 시도해 주십시오");
-        },
-      }
-    );
+      onError: () => {
+        toast.error("신청한 기상송을 삭제하지 못했습니다!");
+      },
+    });
   };
-  return { deleteMyWakeupSong };
+  return { handleDeleteMyWakeupSong };
 };
 
 export default useDeleteMyMusic;

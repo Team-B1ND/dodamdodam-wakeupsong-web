@@ -1,71 +1,48 @@
-import customAxios from "lib/axios/customAxios";
+import dodamAxios from "libs/axios/dodamAxios";
 import { Response } from "types/util/response.type";
-import {
-  DeleteMusicId,
-  MusicInfo,
-} from "repository/wakeupSong/wakeupSong.Param";
-import { WakeupSongMusicLists } from "types/wakeupSongMy/wakeupSongMy.type.";
-import { WakeupSongDibsLists } from "types/wakeupSongDibs/wakeupSongDibs.type";
+import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
 
-class wakeupSongRepository {
+class WakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {
-    const { data } = await customAxios.get("wakeup-song/pending");
+    const { data } = await dodamAxios.get("wakeup-song/pending");
     return data;
   }
 
   public async getWakeupSongMy(): Promise<WakeupSongMusicLists> {
-    const { data } = await customAxios.get("wakeup-song/my");
+    const { data } = await dodamAxios.get("wakeup-song/my");
     return data;
   }
 
   public async getWakeupSongTodayMusicData(
     date: string[]
   ): Promise<WakeupSongMusicLists> {
-    const { data } = await customAxios.get(
+    const { data } = await dodamAxios.get(
       `wakeup-song/allowed?year=${date[0]}&month=${date[1]}&day=${date[2]}`
     );
     return data;
   }
 
   public async postApplyWakeupSong(wakeupSongUrl: string): Promise<Response> {
-    const { data } = await customAxios.post(`wakeup-song`, {
-      videoUrl: wakeupSongUrl,
-    });
-
-    return data;
-  }
-
-  public async wakeupSongAllow(musicInfo: MusicInfo): Promise<Response> {
-    const { data } = await customAxios.patch("wakeup-song/allow", {
-      id: musicInfo.id,
-      playedDate: musicInfo.playedDate,
-    });
-    return data;
-  }
-
-  public async wakeupSongRefuse(musicInfo: MusicInfo): Promise<Response> {
-    const { data } = await customAxios.patch(
-      `wakeup-song/deny/${musicInfo.id}`
-    );
-    return data;
-  }
-
-  public async postWakeupSongDibs(wakeupSongUrl: string): Promise<Response> {
-    const { data } = await customAxios.post("wakeup-song/dibs", {
+    const { data } = await dodamAxios.post("wakeup-song", {
       videoUrl: wakeupSongUrl,
     });
     return data;
   }
 
-  public async getWakeupSongDibs(): Promise<WakeupSongDibsLists> {
-    const { data } = await customAxios.get("wakeup-song/dibs");
+  public async wakeupSongAllow(id: number): Promise<Response> {
+    const { data } = await dodamAxios.patch(`wakeup-song/allow/${id}`);
     return data;
   }
 
-  public async deleteMyWakeupSong({ musicId }: DeleteMusicId) {
-    const { data } = await customAxios.delete(`wakeup-song/my/${musicId}`);
+  public async wakeupSongDeny(id: number): Promise<Response> {
+    const { data } = await dodamAxios.patch(`wakeup-song/deny/${id}`);
+    return data;
+  }
+
+  public async deleteMyWakeupSong(id: number): Promise<Response> {
+    const { data } = await dodamAxios.delete(`wakeup-song/my/${id}`);
     return data;
   }
 }
 
-export default new wakeupSongRepository();
+export default new WakeupSongRepository();
