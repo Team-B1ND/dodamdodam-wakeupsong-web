@@ -13,8 +13,8 @@ class MelonChartRepository {
     title,
   }: MelonKeyword): Promise<Response> {
     const { data } = await dodamAxios.post("wakeup-song/keyword", {
-      artist: artist,
-      title: title,
+      artist,
+      title,
     });
     return data;
   }

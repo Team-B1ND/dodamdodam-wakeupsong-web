@@ -9,8 +9,13 @@ const useApplyWakeupSong = () => {
   const postApplyMusicMutation = usePostApplyMusicMutation();
   const setIsApply = useSetRecoilState(isApplyMusicBtn);
 
-  const postApplyWakeupSong = async (wakeupSongUrl: string) => {
-    postApplyMusicMutation.mutateAsync(wakeupSongUrl, {
+  const postApplyWakeupSong = (wakeupSongUrl: string) => {
+    if (wakeupSongUrl.trim() === "") {
+      toast.info("url을 입력해주세요!");
+      return;
+    }
+
+    postApplyMusicMutation.mutate(wakeupSongUrl, {
       onSuccess: (data) => {
         if (data.status === 226) {
           toast.error(`${data.message}`);
