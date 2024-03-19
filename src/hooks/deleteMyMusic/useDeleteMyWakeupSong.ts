@@ -13,11 +13,12 @@ const useDeleteMyMusic = () => {
     deleteMyWakeupSong.mutateAsync(id, {
       onSuccess: () => {
         setIsApply({ isApply: false });
+
         queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
-        toast.success("내가 신청한 기상송 삭제 성공");
+        toast.success("신청한 기상송을 삭제했습니다!");
       },
       onError: () => {
-        toast.error("삭제 실패. 다시 시도해 주십시오");
+        toast.error("신청한 기상송을 삭제하지 못했습니다!");
       },
     });
   };

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { palette } from "style/palette";
 import styled from "styled-components";
 
@@ -20,11 +21,13 @@ export const TitleContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .seeMoreDetails {
-    font-size: 0.9rem;
-    color: ${palette.gray[500]};
-  }
-  .seeMoreDetails:hover {
+`;
+
+export const SeeMore = styled(Link)`
+  font-size: 0.9rem;
+  color: ${palette.gray[500]};
+
+  &:hover {
     text-decoration: underline;
   }
 `;
@@ -99,20 +102,13 @@ export const CreatedDateContainer = styled.div`
   font-size: 0.85rem;
   display: flex;
   gap: 7px;
+`;
 
-  .applyDay {
-    color: #c5c5c5;
-  }
-  .applyDate {
-    color: #a1a1a1;
-  }
+export const ApplyDayAndDateText = styled.div<{ type: "DAY" | "DATE" }>`
+  color: ${({ type }) => (type === "DAY" ? "#c5c5c5" : "#a1a1a1")};
+
   @media screen and (max-width: 1550px) {
-    .applyDay {
-      display: none;
-    }
-    .applyDate {
-      display: none;
-    }
+    display: none;
   }
 `;
 

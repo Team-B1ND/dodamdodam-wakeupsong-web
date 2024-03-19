@@ -1,8 +1,7 @@
 import * as S from "./style";
-import Title from "components/Common/Title";
+import Title from "components/common/Title";
 import { useRecoilState } from "recoil";
 import { allowMusicInfoIdAtom } from "store/reducer";
-import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
 import { useGetPendingMusicListQuery } from "queries/wakeupSong/wakeupSong.query";
 
@@ -26,13 +25,11 @@ const MusicList = () => {
           titleMent={"신청 현황"}
           subTitleMent={"어떤 노래가 있는지 확인해보세요!"}
         />
-        <Link className="seeMoreDetails" to={"/pendingmusicdetail"}>
-          더보기
-        </Link>
+        <S.SeeMore to={"/pendingmusic"}>더보기</S.SeeMore>
       </S.TitleContainer>
 
       <S.MusicListWrapper>
-        {PendingMusicListData?.length !== 0 &&
+        {PendingMusicListData?.length! > 0 &&
           PendingMusicListData?.map((item, idx) => {
             const createdDate = item.createdAt.split(" ")[0];
 
@@ -53,8 +50,12 @@ const MusicList = () => {
 
                   <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
                   <S.CreatedDateContainer>
-                    <div className="applyDay">신청일</div>
-                    <div className="applyDate">{createdDate}</div>
+                    <S.ApplyDayAndDateText type="DAY">
+                      신청일
+                    </S.ApplyDayAndDateText>
+                    <S.ApplyDayAndDateText type="DATE">
+                      {createdDate}
+                    </S.ApplyDayAndDateText>
                   </S.CreatedDateContainer>
                 </S.TitleWrap>
               </S.MusicContainer>

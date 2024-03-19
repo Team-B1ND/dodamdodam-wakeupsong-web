@@ -1,5 +1,5 @@
 import * as S from "./style";
-import Title from "components/Common/Title";
+import Title from "components/common/Title";
 import { useGetMyAllWakeupSongQuery } from "queries/wakeupSong/wakeupSong.query";
 import { Link } from "react-router-dom";
 
@@ -13,7 +13,7 @@ const MyMusicList = () => {
           titleMent={"마이뮤직"}
           subTitleMent={"내가 신청한 기상송을 한눈에 보세요!"}
         />
-        <Link className="seeMoreDetails" to={"/mymusicdetail"}>
+        <Link className="seeMoreDetails" to={"/mymusic"}>
           더보기
         </Link>
       </S.TitleContainer>

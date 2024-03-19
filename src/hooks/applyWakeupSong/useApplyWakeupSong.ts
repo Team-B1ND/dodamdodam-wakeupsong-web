@@ -20,16 +20,18 @@ const useApplyWakeupSong = () => {
         if (data.status === 226) {
           toast.error(`${data.message}`);
         } else {
-          toast.success(`${data.message}`);
+          toast.success("기상송을 신청했습니다!");
+
           queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
           queryClient.invalidateQueries(
             "myAllWakeupSong/useGetMyAllWakeupSong"
           );
         }
+
         setIsApply({ isApply: true });
       },
       onError: () => {
-        toast.error("기상송 신청 실패");
+        toast.error("기상송 신청을 실패헀습니다!");
       },
     });
   };

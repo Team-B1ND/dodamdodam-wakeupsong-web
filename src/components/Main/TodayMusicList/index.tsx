@@ -1,5 +1,5 @@
 import * as S from "./style";
-import Title from "components/Common/Title";
+import Title from "components/common/Title";
 import { useGetTodayMusicDataQuery } from "queries/wakeupSong/wakeupSong.query";
 import { Link } from "react-router-dom";
 
@@ -21,7 +21,7 @@ const TodayMusicList = () => {
             subTitleMent={"오늘 나온 기상송은 어땠나요?"}
           />
         )}
-        <Link className="seeMoreDetails" to={"/todaymusicdetail"}>
+        <Link className="seeMoreDetails" to={"/todaymusic"}>
           더보기
         </Link>
       </S.TitleContainer>
