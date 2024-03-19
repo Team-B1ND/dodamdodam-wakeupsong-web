@@ -1,36 +1,42 @@
 import { toast } from "react-toastify";
-import { usePostApplyMusic } from "queries/applyMusic/postApplyMusic.query";
 import { useQueryClient } from "react-query";
 import { isApplyMusicBtn } from "store/reducer";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
+import { usePostApplyMusicMutation } from "queries/wakeupSong/wakeupSong.query";
 
 const useApplyWakeupSong = () => {
-  
   const queryClient = useQueryClient();
-  const { usePostApplyMusicMutation } = usePostApplyMusic();
-  const [isApply, setIsApply] = useRecoilState(isApplyMusicBtn);
+  const postApplyMusicMutation = usePostApplyMusicMutation();
+  const setIsApply = useSetRecoilState(isApplyMusicBtn);
 
-  const postApplyWakeupSong = async (wakeupSongUrl: string) => {
-    usePostApplyMusicMutation.mutateAsync(wakeupSongUrl, {
+  const postApplyWakeupSong = (wakeupSongUrl: string) => {
+    if (wakeupSongUrl.trim() === "") {
+      toast.info("url을 입력해주세요!");
+      return;
+    }
+
+    postApplyMusicMutation.mutate(wakeupSongUrl, {
       onSuccess: (data) => {
         if (data.status === 226) {
           toast.error(`${data.message}`);
         } else {
-          toast.success(`${data.message}`);
+          toast.success("기상송을 신청했습니다!");
+
           queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
           queryClient.invalidateQueries(
             "myAllWakeupSong/useGetMyAllWakeupSong"
           );
         }
+
         setIsApply({ isApply: true });
       },
       onError: () => {
-        toast.error("기상송 신청 실패");
+        toast.error("기상송 신청을 실패헀습니다!");
       },
     });
   };
 
-  return { postApplyWakeupSong, usePostApplyMusicMutation };
+  return { postApplyWakeupSong };
 };
 
 export default useApplyWakeupSong;

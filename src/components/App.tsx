@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Router from "./Router/Router";
+import Router from "./Router";
 import { ToastContainer } from "react-toastify";
 import { palette } from "style/palette";
 

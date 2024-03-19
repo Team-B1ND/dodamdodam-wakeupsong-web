@@ -1,11 +1,11 @@
-import { usePostMelonChartApply } from "queries/melonChart/melonChart.query";
+import { usePostMelonChartApplyMutation } from "queries/melonChart/melonChart.query";
 import { toast } from "react-toastify";
 
 const useMelonChart = () => {
-  const { usePostMelonChartApplyMutation } = usePostMelonChartApply();
+  const postMelonChartApply = usePostMelonChartApplyMutation();
 
   const melonChartApply = (artistParam: string, titleParam: string) => {
-    usePostMelonChartApplyMutation.mutateAsync(
+    postMelonChartApply.mutateAsync(
       {
         artist: artistParam,
         title: titleParam,
@@ -13,14 +13,15 @@ const useMelonChart = () => {
       {
         onSuccess: (e) => {
           if (e.status === 226) {
-            toast.error("이미 이번주에 기상송을 신청하셨습니다");
+            toast.error("이미 이번주에 기상송을 신청했습니다!");
             return;
           }
-          toast.success("신청 성공");
+
+          toast.success("기상송을 신청했습니다!");
         },
 
         onError: () => {
-          toast.error("신청 실패");
+          toast.error("기상송 신청을 실패했습니다!");
         },
       }
     );

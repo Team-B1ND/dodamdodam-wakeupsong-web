@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "react-query";
-import { MelonKeyword } from "repository/melonChart/melonChart.Param";
+import { MelonKeyword } from "repository/melonChart/melonChart.param";
 import melonChartRepository from "repository/melonChart/melonChart.repository";
 
 export const useGetMelonChartLists = () =>
@@ -7,10 +7,9 @@ export const useGetMelonChartLists = () =>
     melonChartRepository.getMelonChartList()
   );
 
-export const usePostMelonChartApply = () => {
-  const usePostMelonChartApplyMutation = useMutation(
-    ({ artist, title }: MelonKeyword) =>
-      melonChartRepository.postMelonChartApply({ artist, title })
+export const usePostMelonChartApplyMutation = () => {
+  const mutation = useMutation(({ artist, title }: MelonKeyword) =>
+    melonChartRepository.postMelonChartApply({ artist, title })
   );
-  return { usePostMelonChartApplyMutation };
+  return mutation;
 };
