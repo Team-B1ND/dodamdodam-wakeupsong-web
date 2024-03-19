@@ -4,13 +4,16 @@ import { useRecoilState } from "recoil";
 import { allowMusicInfoIdAtom } from "store/reducer";
 import { Link } from "react-router-dom";
 import useWakeupSongAllow from "hooks/wakeupSongAllow/useWakeupSongAllow";
-import { toast } from "react-toastify";
 import { useGetPendingMusicListQuery } from "queries/wakeupSong/wakeupSong.query";
 
 const MusicList = () => {
   const [musicInfoId, setMusicInfoId] = useRecoilState(allowMusicInfoIdAtom);
-  const { setWakeupSongAllow, setWakeupSongRefuse, isBroadcastClubMember } =
-    useWakeupSongAllow();
+  const {
+    handleWakeupSongRefuse,
+    hanldeWakeupSongAllow,
+    isBroadcastClubMember,
+  } = useWakeupSongAllow();
+
   const PendingMusicListData = useGetPendingMusicListQuery().data?.data.slice(
     0,
     16
@@ -34,7 +37,10 @@ const MusicList = () => {
             const createdDate = item.createdAt.split(" ")[0];
 
             return (
-              <S.MusicContainer key={idx} onClick={() => setMusicInfoId(0)}>
+              <S.MusicContainer
+                key={idx}
+                onClick={() => setMusicInfoId(item.id)}
+              >
                 <S.MusicTumbnailImg
                   src={item.thumbnailUrl}
                   onClick={() => window.open(item.videoUrl)}
@@ -59,21 +65,16 @@ const MusicList = () => {
       {isBroadcastClubMember?.data && (
         <S.ApplyBtnContainer>
           <S.AllowBtn
-            onClick={() => {
-              musicInfoId !== 0
-                ? setWakeupSongAllow(musicInfoId)
-                : toast.error("기상송 승인 실패");
-            }}
+            onClick={() =>
+              musicInfoId !== 0 && hanldeWakeupSongAllow(musicInfoId)
+            }
           >
             승인
           </S.AllowBtn>
           <S.RefuseBtn
-            onClick={() => {
-              console.log(musicInfoId);
-              musicInfoId !== 0
-                ? setWakeupSongRefuse(musicInfoId)
-                : toast.error("기상송 거절 실패");
-            }}
+            onClick={() =>
+              musicInfoId !== 0 && handleWakeupSongRefuse(musicInfoId)
+            }
           >
             거절
           </S.RefuseBtn>

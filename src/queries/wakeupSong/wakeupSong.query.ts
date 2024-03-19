@@ -72,3 +72,19 @@ export const useDeleteMyWakeupSongMutation = () => {
   );
   return mutation;
 };
+
+// 기상송 승인
+export const useAllowWakeupSongMutation = () => {
+  const mutation = useMutation((id: number) =>
+    wakeupSongRepository.wakeupSongAllow(id)
+  );
+  return mutation;
+};
+
+// 기상송 거절
+export const useDenyWakeupSongMutation = () => {
+  const mutation = useMutation((id: number) =>
+    wakeupSongRepository.wakeupSongRefuse(id)
+  );
+  return mutation;
+};
