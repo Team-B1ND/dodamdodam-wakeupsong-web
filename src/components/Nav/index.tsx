@@ -1,4 +1,4 @@
-import * as NavStyle from "./style";
+import * as S from "./style";
 import DODAMLOGO from "assets/logo_img/Mask group.svg";
 import ApplyMusic from "./ApplyMusic";
 import MelonChart from "./MelonChart";
@@ -7,10 +7,10 @@ import { Suspense } from "react";
 
 const Nav = () => {
   return (
-    <NavStyle.NavBarContainer>
+    <S.NavBarContainer>
       <ErrorBoundary fallback={<div>Error...</div>}>
         <Suspense fallback={<div>Loading...</div>}>
-          <NavStyle.DodamLogo
+          <S.DodamLogo
             src={DODAMLOGO}
             alt="dodam_logo"
             onClick={() => (window.location.href = "http://dodam.b1nd.com")}
@@ -19,7 +19,7 @@ const Nav = () => {
           <MelonChart />
         </Suspense>
       </ErrorBoundary>
-    </NavStyle.NavBarContainer>
+    </S.NavBarContainer>
   );
 };
 

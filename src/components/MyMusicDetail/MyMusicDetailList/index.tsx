@@ -1,4 +1,4 @@
-import * as MyMusicDetailStyle from "../style";
+import * as S from "../style";
 import { BsTrash } from "react-icons/bs";
 import useDeleteMyMusic from "hooks/deleteMyMusic/useDeleteMyWakeupSong";
 import { useGetMyAllWakeupSongQuery } from "queries/wakeupSong/wakeupSong.query";
@@ -7,40 +7,30 @@ export default function MyMusicDetailList() {
   const myData = useGetMyAllWakeupSongQuery({ suspense: true }).data?.data;
   const { handleDeleteMyWakeupSong } = useDeleteMyMusic();
   return (
-    <MyMusicDetailStyle.MyMusicListWrap>
+    <S.MyMusicListWrap>
       {myData?.length !== 0 ? (
         myData?.map((item, idx) => {
           const createdDate = item.createdAt.split(" ")[0];
           return (
-            <MyMusicDetailStyle.MusicInfoContainer>
-              <MyMusicDetailStyle.ApplyRanking>
-                {idx + 1}
-              </MyMusicDetailStyle.ApplyRanking>
-              <MyMusicDetailStyle.MusicThumbnailImg
+            <S.MusicInfoContainer>
+              <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
+              <S.MusicThumbnailImg
                 onClick={() => window.open(item.videoUrl)}
                 src={item.thumbnailUrl}
-              ></MyMusicDetailStyle.MusicThumbnailImg>
-              <MyMusicDetailStyle.VideoTitle>
-                {item.videoTitle}
-              </MyMusicDetailStyle.VideoTitle>
-              <MyMusicDetailStyle.ChannelNameData>
-                {item.channelTitle}
-              </MyMusicDetailStyle.ChannelNameData>
-              <MyMusicDetailStyle.ApplyDate>
-                {createdDate}
-              </MyMusicDetailStyle.ApplyDate>
+              ></S.MusicThumbnailImg>
+              <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
+              <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>
+              <S.ApplyDate>{createdDate}</S.ApplyDate>
               <BsTrash
                 style={{ cursor: "pointer" }}
                 onClick={() => handleDeleteMyWakeupSong(item.id)}
               />
-            </MyMusicDetailStyle.MusicInfoContainer>
+            </S.MusicInfoContainer>
           );
         })
       ) : (
-        <MyMusicDetailStyle.MusicNull>
-          신청한 기상송이 없습니다
-        </MyMusicDetailStyle.MusicNull>
+        <S.MusicNull>신청한 기상송이 없습니다</S.MusicNull>
       )}
-    </MyMusicDetailStyle.MyMusicListWrap>
+    </S.MyMusicListWrap>
   );
 }

@@ -1,14 +1,14 @@
 import Title from "components/Common/Title";
 import useMelonChart from "hooks/melonChart/useMelonChart";
 import { useGetMelonChartLists } from "queries/melonChart/melonChart.query";
-import * as Style from "./style";
+import * as S from "./style";
 
 const MelonChart = () => {
   const { data } = useGetMelonChartLists();
   const { melonChartApply } = useMelonChart();
 
   return (
-    <Style.MelonChartContainer>
+    <S.MelonChartContainer>
       <div
         style={{ cursor: "pointer" }}
         onClick={() => window.open("https://www.melon.com/chart/index.htm")}
@@ -19,31 +19,31 @@ const MelonChart = () => {
         />
       </div>
 
-      <Style.ChartListContainer>
+      <S.ChartListContainer>
         {data?.data &&
           data.data.map((item, idx) => {
             return (
-              <Style.ChartWrapper key={idx + 1}>
-                <Style.MelonChartInfoWrap>
-                  <Style.RankContainer>
+              <S.ChartWrapper key={idx + 1}>
+                <S.MelonChartInfoWrap>
+                  <S.RankContainer>
                     <div className="Rank">{item.rank}위</div>
-                  </Style.RankContainer>
-                  <Style.Thumbnail src={item.thumbnail} />
-                  <Style.ChartInfo>
-                    <Style.ChartName>{item.name}</Style.ChartName>
-                    <Style.ArtistName>{item.artist}</Style.ArtistName>
-                  </Style.ChartInfo>
-                  <Style.MusicApplyBtn
+                  </S.RankContainer>
+                  <S.Thumbnail src={item.thumbnail} />
+                  <S.ChartInfo>
+                    <S.ChartName>{item.name}</S.ChartName>
+                    <S.ArtistName>{item.artist}</S.ArtistName>
+                  </S.ChartInfo>
+                  <S.MusicApplyBtn
                     onClick={() => melonChartApply(item.artist, item.name)}
                   >
                     신청
-                  </Style.MusicApplyBtn>
-                </Style.MelonChartInfoWrap>
-              </Style.ChartWrapper>
+                  </S.MusicApplyBtn>
+                </S.MelonChartInfoWrap>
+              </S.ChartWrapper>
             );
           })}
-      </Style.ChartListContainer>
-    </Style.MelonChartContainer>
+      </S.ChartListContainer>
+    </S.MelonChartContainer>
   );
 };
 

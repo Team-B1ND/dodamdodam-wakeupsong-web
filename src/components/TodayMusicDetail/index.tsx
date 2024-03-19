@@ -1,5 +1,5 @@
 import Title from "components/Common/Title";
-import * as Style from "./style";
+import * as S from "./style";
 import ErrorBoundary from "components/Common/Errorboundary";
 import { Suspense } from "react";
 import Loading from "components/Common/Loading";
@@ -9,7 +9,7 @@ const TodayMusicDetail = () => {
   const nowDate = new Date().getHours();
 
   return (
-    <Style.TodayMusicDetailWrapContainer>
+    <S.TodayMusicDetailWrapContainer>
       {nowDate >= 16 ? (
         <Title
           titleMent={"내일의 기상송"}
@@ -26,7 +26,7 @@ const TodayMusicDetail = () => {
           <TodayMusicDetailStore />
         </Suspense>
       </ErrorBoundary>
-    </Style.TodayMusicDetailWrapContainer>
+    </S.TodayMusicDetailWrapContainer>
   );
 };
 
