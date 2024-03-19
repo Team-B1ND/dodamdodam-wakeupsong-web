@@ -1,6 +1,6 @@
 import Title from "components/common/Title";
 import * as S from "./style";
-import ErrorBoundary from "components/common/Errorboundary";
+import ErrorBoundary from "components/common/ErrorBoundary";
 import { Suspense } from "react";
 import Loading from "components/common/Loading";
 import TodayMusicStore from "./TodayMusicStore";

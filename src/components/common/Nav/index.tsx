@@ -2,7 +2,7 @@ import * as S from "./style";
 import DODAMLOGO from "assets/logo_img/Mask group.svg";
 import ApplyMusic from "./ApplyMusic";
 import MelonChart from "./MelonChart";
-import ErrorBoundary from "../Errorboundary";
+import ErrorBoundary from "../ErrorBoundary";
 import { Suspense } from "react";
 
 const Nav = () => {
