@@ -1,31 +1,31 @@
 import { useGetTodayMusicDataQuery } from "queries/wakeupSong/wakeupSong.query";
-import * as Style from "../style";
+import * as S from "../style";
 
 const TodayMusicDetailStore = () => {
   const { data } = useGetTodayMusicDataQuery({ suspense: true });
 
   return (
-    <Style.TodayMusicWrap>
+    <S.TodayMusicWrap>
       {data?.data.length !== 0 ? (
         data?.data.slice(0, 4).map((item, idx) => {
           const createdDate = item.createdAt.split(" ")[0];
           return (
-            <Style.MusicInfoContainer key={idx}>
-              <Style.ApplyRanking>{idx + 1}</Style.ApplyRanking>
-              <Style.MusicThumbnailImg
+            <S.MusicInfoContainer key={idx}>
+              <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
+              <S.MusicThumbnailImg
                 onClick={() => window.open(item.videoUrl)}
                 src={item.thumbnailUrl}
-              ></Style.MusicThumbnailImg>
-              <Style.VideoTitle>{item.videoTitle}</Style.VideoTitle>
-              <Style.ChannelNameData>{item.channelTitle}</Style.ChannelNameData>
-              <Style.ApplyDate>{createdDate}</Style.ApplyDate>
-            </Style.MusicInfoContainer>
+              ></S.MusicThumbnailImg>
+              <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
+              <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>
+              <S.ApplyDate>{createdDate}</S.ApplyDate>
+            </S.MusicInfoContainer>
           );
         })
       ) : (
-        <Style.MusicNull>승인한 기상송이 없쓰껄</Style.MusicNull>
+        <S.MusicNull>승인한 기상송이 없습니다</S.MusicNull>
       )}
-    </Style.TodayMusicWrap>
+    </S.TodayMusicWrap>
   );
 };
 

@@ -38,7 +38,7 @@ export default function MyMusicDetailList() {
         })
       ) : (
         <MyMusicDetailStyle.MusicNull>
-          신청한 기상송이 없쓰껄
+          신청한 기상송이 없습니다
         </MyMusicDetailStyle.MusicNull>
       )}
     </MyMusicDetailStyle.MyMusicListWrap>

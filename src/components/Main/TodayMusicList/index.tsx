@@ -1,4 +1,4 @@
-import * as Style from "./style";
+import * as S from "./style";
 import Title from "components/Common/Title";
 import { useGetTodayMusicDataQuery } from "queries/wakeupSong/wakeupSong.query";
 import { Link } from "react-router-dom";
@@ -8,8 +8,8 @@ const TodayMusicList = () => {
   const nowDate = new Date().getHours();
 
   return (
-    <Style.TodayMusicListContainer>
-      <Style.TitleContainer>
+    <S.TodayMusicListContainer>
+      <S.TitleContainer>
         {nowDate >= 16 ? (
           <Title
             titleMent={"내일의 기상송"}
@@ -24,29 +24,29 @@ const TodayMusicList = () => {
         <Link className="seeMoreDetails" to={"/todaymusicdetail"}>
           더보기
         </Link>
-      </Style.TitleContainer>
+      </S.TitleContainer>
 
-      <Style.TodayMusicListContents>
+      <S.TodayMusicListContents>
         {data?.data.length !== 0 ? (
           data?.data.slice(0, 4).map((item, idx) => {
             return (
-              <Style.MusicContainer
+              <S.MusicContainer
                 onClick={() => window.open(item.videoUrl)}
                 key={idx + 1}
               >
-                <Style.MusicThumbnailImg src={item.thumbnailUrl}>
-                  <Style.MusicThumbnailTitle>
+                <S.MusicThumbnailImg src={item.thumbnailUrl}>
+                  <S.MusicThumbnailTitle>
                     {item.videoTitle}
-                  </Style.MusicThumbnailTitle>
-                </Style.MusicThumbnailImg>
-              </Style.MusicContainer>
+                  </S.MusicThumbnailTitle>
+                </S.MusicThumbnailImg>
+              </S.MusicContainer>
             );
           })
         ) : (
-          <Style.MusicNull>승인된 기상송이 없습니닷기릿</Style.MusicNull>
+          <S.MusicNull>승인된 기상송이 없습니다</S.MusicNull>
         )}
-      </Style.TodayMusicListContents>
-    </Style.TodayMusicListContainer>
+      </S.TodayMusicListContents>
+    </S.TodayMusicListContainer>
   );
 };
 

@@ -39,7 +39,7 @@ const MyMusicList = () => {
             );
           })
         ) : (
-          <Style.MusicNull>신청한 기상송이 없쓰껄</Style.MusicNull>
+          <Style.MusicNull>신청한 기상송이 없습니다</Style.MusicNull>
         )}
       </Style.MyMusicListContents>
     </Style.MyMusicListContainer>
