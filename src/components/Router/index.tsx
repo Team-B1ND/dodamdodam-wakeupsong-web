@@ -8,7 +8,7 @@ import PendingMusic from "components/PendingMusic";
 
 const Router = () => {
   return (
-    <BrowserRouter basename="/wakeupsong">
+    <BrowserRouter basename="/wakesong">
       <Header />
       <Routes>
         <Route path="/" element={<Main />} />
