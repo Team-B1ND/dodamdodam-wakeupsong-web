@@ -15,7 +15,7 @@ const PendingMusicStore = () => {
               <S.ApplyRanking>{idx + 1}</S.ApplyRanking>
               <S.MusicThumbnailImg
                 onClick={() => window.open(item.videoUrl)}
-                src={item.thumbnailUrl}
+                src={item.thumbnail}
               ></S.MusicThumbnailImg>
               <S.VideoTitle>{item.videoTitle}</S.VideoTitle>
               <S.ChannelNameData>{item.channelTitle}</S.ChannelNameData>

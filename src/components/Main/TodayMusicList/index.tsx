@@ -34,7 +34,7 @@ const TodayMusicList = () => {
                 onClick={() => window.open(item.videoUrl)}
                 key={idx + 1}
               >
-                <S.MusicThumbnailImg src={item.thumbnailUrl}>
+                <S.MusicThumbnailImg src={item.thumbnail}>
                   <S.MusicThumbnailTitle>
                     {item.videoTitle}
                   </S.MusicThumbnailTitle>

@@ -39,7 +39,7 @@ const MusicList = () => {
                 onClick={() => setMusicInfoId(item.id)}
               >
                 <S.MusicTumbnailImg
-                  src={item.thumbnailUrl}
+                  src={item.thumbnail}
                   onClick={() => window.open(item.videoUrl)}
                 />
 

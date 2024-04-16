@@ -4,7 +4,7 @@ export interface WakeupSongMusic {
   id: number;
   playDate: string;
   status: "ALLOWED" | "PENDING" | "DENIED";
-  thumbnailUrl: string;
+  thumbnail: string;
   videoId: string;
   videoTitle: string;
   videoUrl: string;

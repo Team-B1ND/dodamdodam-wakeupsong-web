@@ -25,7 +25,7 @@ const MyMusicList = () => {
             return (
               <S.MyMusicContainer key={idx}>
                 <S.MyMusicThumbnailImg
-                  src={item.thumbnailUrl}
+                  src={item.thumbnail}
                   onClick={() => window.open(item.videoUrl)}
                 />
                 <S.MyMusicThumbnailTitle>
