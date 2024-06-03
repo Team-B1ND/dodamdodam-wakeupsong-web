@@ -23,16 +23,17 @@ export const errorInterceptor = async (config: AxiosError) => {
 
         dodamAxios.defaults.headers.common[
           REQUEST_TOKEN_KEY
-        ] = `Bearer ${newAccessToken}`;
+        ] = `Bearer ${newAccessToken.accessToken}`;
 
-        cookie.setCookie(ACCESS_TOKEN_KEY, newAccessToken);
+        cookie.setCookie(ACCESS_TOKEN_KEY, newAccessToken.accessToken);
 
         originalRequest.headers![
           REQUEST_TOKEN_KEY
-        ] = `Bearer ${newAccessToken}`;
+        ] = `Bearer ${newAccessToken.accessToken}`;
         return axios(originalRequest);
       } catch (error) {
-        window.location.href = "http://dodam.b1nd.com/sign";
+        console.log(error);
+        // window.location.href = "http://dodam.b1nd.com/sign";
       }
     }
   }

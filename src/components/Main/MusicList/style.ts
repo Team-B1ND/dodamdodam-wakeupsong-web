@@ -42,10 +42,10 @@ export const MusicContainer = styled.button`
   align-items: center;
   background-color: ${palette.gray[50]};
   &:focus {
-    background-color: ${palette.gray[200]};
+    background-color: ${palette.gray[300]};
   }
   &:hover {
-    background-color: ${palette.gray[200]};
+    background-color: ${palette.gray[300]};
   }
 `;
 
