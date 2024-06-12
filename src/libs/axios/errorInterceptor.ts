@@ -32,8 +32,7 @@ export const errorInterceptor = async (config: AxiosError) => {
         ] = `Bearer ${newAccessToken.accessToken}`;
         return axios(originalRequest);
       } catch (error) {
-        console.log(error);
-        // window.location.href = "http://dodam.b1nd.com/sign";
+        window.location.href = "http://dodam.b1nd.com/sign";
       }
     }
   }
