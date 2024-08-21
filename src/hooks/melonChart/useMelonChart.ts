@@ -11,16 +11,19 @@ const useMelonChart = () => {
         title: titleParam,
       },
       {
-        onSuccess: (e) => {
-          if (e.status === 226) {
-            toast.error("이미 이번주에 기상송을 신청했습니다!");
-            return;
-          }
-
+        onSuccess: () => {
           toast.success("기상송을 신청했습니다!");
         },
 
-        onError: () => {
+        onError: (error: any) => {
+          if (error.status === 422) {
+            toast.error("MV형식은 지원하지 않습니다!");
+            return;
+          }
+          if (error.status === 423) {
+            toast.error("이미 이번주에 기상송을 신청했습니다!");
+            return;
+          }
           toast.error("기상송 신청을 실패했습니다!");
         },
       }

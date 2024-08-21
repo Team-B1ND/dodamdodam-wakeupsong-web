@@ -30,8 +30,12 @@ const useApplyWakeupSong = () => {
 
         setIsApply({ isApply: true });
       },
-      onError: () => {
-        toast.error("기상송 신청을 실패헀습니다!");
+      onError: (error: any) => {
+        if (error.status === 423) {
+          toast.error("이미 이번주에 기상송을 신청했습니다!");
+          return
+        }
+        toast.error("기상송 신청을 실패했습니다!");
       },
     });
   };

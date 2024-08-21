@@ -36,4 +36,6 @@ export const errorInterceptor = async (config: AxiosError) => {
       }
     }
   }
+
+  return Promise.reject(config.response?.data);
 };
