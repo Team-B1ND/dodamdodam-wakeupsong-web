@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   width: 73%;
   height: 100%;
   overflow-y: auto;
-  overflow-x: none;
+  overflow-x: hidden;
   background-color: ${palette.gray[50]};
   &::-webkit-scrollbar {
     display: none;

@@ -11,8 +11,8 @@ export const useGetTodayMusicDataQuery = (
     WakeupSongMusicLists,
     "todayMusicData/getTodayMusicData"
   >
-) =>
-  useQuery(
+) => {
+  return useQuery(
     "todayMusicData/getTodayMusicData",
     () =>
       wakeupSongRepository.getWakeupSongTodayMusicData(
@@ -22,6 +22,31 @@ export const useGetTodayMusicDataQuery = (
       ...options,
     }
   );
+};
+
+// 내일 승인된 기상송 조회
+export const useGetTomorrowMusicDataQuery = (
+  options?: UseQueryOptions<
+    WakeupSongMusicLists,
+    AxiosError,
+    WakeupSongMusicLists,
+    "tomorrowMusicData/getTomorrowMusicData"
+  >
+) => {
+  const date = new Date();
+  date.setDate(date.getDate() + 1);
+
+  return useQuery(
+    "tomorrowMusicData/getTomorrowMusicData",
+    () =>
+      wakeupSongRepository.getWakeupSongTodayMusicData(
+        date.toLocaleDateString().split(".")
+      ),
+    {
+      ...options,
+    }
+  );
+};
 
 // 대기 중인 기상송 조회
 export const useGetPendingMusicListQuery = (

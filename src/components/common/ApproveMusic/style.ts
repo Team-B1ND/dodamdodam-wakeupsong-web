@@ -1,13 +1,6 @@
 import { palette } from "style/palette";
 import styled from "styled-components";
 
-export const TodayMusicListContainer = styled.div`
-  margin-top: 90px;
-  display: grid;
-  gap: 15px;
-  padding-left: 40px;
-`;
-
 export const TitleContainer = styled.div`
   width: 96.3%;
   display: flex;
@@ -22,25 +15,12 @@ export const TitleContainer = styled.div`
   }
 `;
 
-export const TodayMusicListTitle = styled.div`
-  display: grid;
-  gap: 5px;
-`;
-
-export const TodayMusicListContents = styled.div`
+export const MusicListContents = styled.div`
   width: 97.5%;
   overflow: auto;
   display: flex;
   gap: 5px;
-`;
-
-export const TitleMent = styled.div`
-  font-weight: bold;
-  font-size: 1.3rem;
-`;
-
-export const SubTitleMent = styled.div`
-  font-size: 0.9rem;
+  margin-top: 15px;
 `;
 
 export const MusicContainer = styled.div`
@@ -85,7 +65,7 @@ export const MusicThumbnailTitle = styled.div`
 
 export const MusicNull = styled.div`
   width: 100%;
-  height: 200px;
+  height: 178px;
   display: flex;
   justify-content: center;
   align-items: center;

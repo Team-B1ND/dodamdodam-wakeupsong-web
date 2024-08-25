@@ -1,7 +1,7 @@
 import { palette } from "style/palette";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const TodayMusicContainer = styled.div`
+export const ApproveMusicContainer = styled.div`
   width: 73%;
   height: 100%;
   overflow: auto;
@@ -12,7 +12,35 @@ export const TodayMusicContainer = styled.div`
   }
 `;
 
-export const TodayMusicWrap = styled.div`
+export const TitleWrap = styled.div`
+  width: 97%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+export const MusicChangeButton = styled.button<{ nowDate: string }>`
+  width: 95px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 700;
+  border: 1px solid ${palette.main};
+  border-radius: 10px;
+  cursor: pointer;
+
+  ${({ nowDate }) =>
+    nowDate === "today"
+      ? css`
+          color: white;
+          background-color: ${palette.main};
+        `
+      : css`
+          color: ${palette.main};
+          background-color: white;
+        `}
+`;
+
+export const ApproveMusicWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
