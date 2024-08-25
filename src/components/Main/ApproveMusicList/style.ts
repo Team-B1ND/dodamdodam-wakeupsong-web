@@ -3,7 +3,7 @@ import { palette } from "style/palette";
 
 export const ApproveMusicListContainer = styled.div`
   width: 100%;
-  margin: 50px 0 0 40px;
+  margin: 60px 0 0 40px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
