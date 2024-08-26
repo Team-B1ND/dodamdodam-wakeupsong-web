@@ -1,8 +1,10 @@
+import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useQueryClient } from "react-query";
 import { isApplyMusicBtn } from "store/reducer";
 import { useSetRecoilState } from "recoil";
 import { usePostApplyMusicMutation } from "queries/wakeupSong/wakeupSong.query";
+import ErrorHandler from "utils/Error/ErrorHandler";
 
 const useApplyWakeupSong = () => {
   const queryClient = useQueryClient();
@@ -30,8 +32,9 @@ const useApplyWakeupSong = () => {
 
         setIsApply({ isApply: true });
       },
-      onError: () => {
-        toast.error("기상송 신청을 실패헀습니다!");
+      onError: (error) => {
+        const errorCode = error as AxiosError;
+        toast.error(ErrorHandler.applyWakeupSongError(errorCode));
       },
     });
   };

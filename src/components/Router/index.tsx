@@ -3,7 +3,7 @@ import Header from "../common/Header";
 import Main from "../Main";
 import Nav from "../common/Nav";
 import MyMusic from "components/MyMusic";
-import TodayMusic from "components/TodayMusic";
+import ApproveMusic from "components/ApproveMusic";
 import PendingMusic from "components/PendingMusic";
 
 const Router = () => {
@@ -13,7 +13,7 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/mymusic" element={<MyMusic />} />
-        <Route path="/todaymusic" element={<TodayMusic />} />
+        <Route path="/todaymusic" element={<ApproveMusic />} />
         <Route path="/pendingmusic" element={<PendingMusic />} />
       </Routes>
       <Nav />
