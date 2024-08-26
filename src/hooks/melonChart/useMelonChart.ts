@@ -1,5 +1,7 @@
+import { AxiosError } from "axios";
 import { usePostMelonChartApplyMutation } from "queries/melonChart/melonChart.query";
 import { toast } from "react-toastify";
+import ErrorHandler from "utils/Error/ErrorHandler";
 
 const useMelonChart = () => {
   const postMelonChartApply = usePostMelonChartApplyMutation();
@@ -15,16 +17,9 @@ const useMelonChart = () => {
           toast.success("기상송을 신청했습니다!");
         },
 
-        onError: (error: any) => {
-          if (error.status === 422) {
-            toast.error("MV형식은 지원하지 않습니다!");
-            return;
-          }
-          if (error.status === 423) {
-            toast.error("이미 이번주에 기상송을 신청했습니다!");
-            return;
-          }
-          toast.error("기상송 신청을 실패했습니다!");
+        onError: (error) => {
+          const errorCode = error as AxiosError;
+          toast.error(ErrorHandler.applyWakeupSongError(errorCode));
         },
       }
     );
