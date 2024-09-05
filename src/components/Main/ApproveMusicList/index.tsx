@@ -22,14 +22,19 @@ const ApproveMusicList = () => {
   const setting = {
     dots: false,
     arrows: false,
-    Infinity: true,
+    infinity: false,
     autoplay: true,
     autoplaySpeed: 5000,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     beforeChange: (prevIdx: number, _: number) => {
-      prevIdx ? setDate("today") : setDate("tomorrow");
+      if (prevIdx) {
+        sliderRef.current?.slickPrev();
+        setDate("today");
+      } else {
+        setDate("tomorrow");
+      }
     },
   };
 
