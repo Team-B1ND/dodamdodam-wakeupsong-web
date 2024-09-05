@@ -22,7 +22,6 @@ const ApproveMusicList = () => {
   const setting = {
     dots: false,
     arrows: false,
-    infinity: false,
     autoplay: true,
     autoplaySpeed: 5000,
     speed: 1000,
