@@ -17,7 +17,7 @@ const ApproveMusicList = () => {
 
   useEffect(() => {
     resetDate();
-  }, []);
+  }, [resetDate]);
 
   const setting = {
     dots: false,
