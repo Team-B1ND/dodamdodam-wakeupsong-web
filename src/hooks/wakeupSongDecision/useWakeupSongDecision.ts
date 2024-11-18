@@ -30,7 +30,7 @@ const useWakeupSongDecision = () => {
       onSuccess: () => {
         toast.success("기상송을 승인했습니다!");
         handleSuccessfulWakeupSongEvent();
-        queryClient.invalidateQueries("wakeup-song/allow")
+        queryClient.invalidateQueries("pendingMusic/getPendingMusicList")
       },
       onError: (e) => {
         toast.error("기상송 승인을 실패했습니다!");
@@ -43,6 +43,7 @@ const useWakeupSongDecision = () => {
       onSuccess: () => {
         toast.success("기상송을 거절했습니다!");
         handleSuccessfulWakeupSongEvent();
+        queryClient.invalidateQueries("pendingMusic/getPendingMusicList")
       },
       onError: (e) => {
         toast.error("기상송 거절을 실패했습니다!");
