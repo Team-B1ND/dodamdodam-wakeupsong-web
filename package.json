@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@b1nd/dds-web": "^0.1.36",
     "@craco/craco": "^7.1.0",
     "@team-b1nd/dodamdodam_web_component_library": "^1.2.2",
     "@testing-library/jest-dom": "5.16.5",
@@ -11,7 +12,7 @@
     "@types/jest": "27.5.2",
     "@types/js-cookie": "3.0.2",
     "@types/node": "16.11.56",
-    "@types/react": "18.0.18",
+    "@types/react": "^18.2.0",
     "@types/react-dom": "18.0.6",
     "axios": "0.27.2",
     "eslint": "^8.57.1",
@@ -32,7 +33,7 @@
     "recoil": "0.7.5",
     "request": "2.88.2",
     "slick-carousel": "^1.8.1",
-    "styled-components": "5.3.5",
+    "styled-components": "^6.1.8",
     "styled-reset": "4.4.2",
     "typescript": "4.8.2",
     "web-vitals": "2.1.4"
