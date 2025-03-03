@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import Router from "./Router";
 import { ToastContainer } from "react-toastify";
-import { palette } from "style/palette";
 
 const App = () => {
   return (
@@ -26,7 +25,6 @@ const AppContainer = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
-  background-color: ${palette.gray[50]};
 `;
 
 export default App;

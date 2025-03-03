@@ -5,7 +5,6 @@
   "dependencies": {
     "@b1nd/dds-web": "^0.1.36",
     "@craco/craco": "^7.1.0",
-    "@team-b1nd/dodamdodam_web_component_library": "^1.2.2",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "13.5.0",

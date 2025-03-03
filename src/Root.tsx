@@ -1,10 +1,9 @@
-import GlobalStyle from "style/global";
-import { ThemeProvider } from "styled-components";
-import { lightTheme } from "style/theme";
 import App from "components/App";
 import { RecoilRoot } from "recoil";
 import "react-toastify/dist/ReactToastify.css";
 import { QueryClient, QueryClientProvider } from "react-query";
+import PageTemplate from "components/Common/PageTemplate";
+import ThemeProviderContainer from "components/Common/ThemeProviderContainer";
 
 const Root = () => {
   const queryClient = new QueryClient();
@@ -12,10 +11,11 @@ const Root = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
-        <ThemeProvider theme={lightTheme}>
-          <GlobalStyle />
-          <App />
-        </ThemeProvider>
+        <ThemeProviderContainer>
+          <PageTemplate>
+            <App />
+          </PageTemplate>
+        </ThemeProviderContainer>
       </RecoilRoot>
     </QueryClientProvider>
   );
