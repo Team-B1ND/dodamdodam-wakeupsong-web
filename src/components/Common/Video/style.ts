@@ -37,3 +37,8 @@ export const VideoLabel = styled.p`
   color: ${({ theme }) => theme.labelAlternative};
   ${DodamTypography.Caption1.Medium}
 `;
+
+export const VideoDate = styled.p`
+  color: ${({ theme }) => theme.labelAlternative};
+  ${DodamTypography.Caption2.Regular}
+`;

@@ -5,4 +5,8 @@ export const PageContainer = styled.div`
   height: 100%;
 
   display: flex;
+
+  gap: 32px;
+  padding-top: 58px;
+  padding-bottom: 59px;
 `;
