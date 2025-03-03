@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   gap: 4px;
   cursor: pointer;
+  user-select: none;
 `;
 
 export const VideoImg = styled.img`

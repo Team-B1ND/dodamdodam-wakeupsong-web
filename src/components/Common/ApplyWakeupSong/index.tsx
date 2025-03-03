@@ -9,6 +9,7 @@ const ApplyWakeupSong = () => {
       <DodamFilledButton
         size="Large"
         textTheme="staticWhite"
+        customStyle={{ userSelect: "none" }}
         onClick={() => console.log("기상송 신청")}>
         신청
       </DodamFilledButton>

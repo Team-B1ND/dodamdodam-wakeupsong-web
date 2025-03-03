@@ -9,6 +9,8 @@ export const Container = styled.div`
 
   padding: 12px 0;
   gap: 16px;
+  cursor: pointer;
+  user-select: none;
 `;
 
 export const VideoNum = styled.p`

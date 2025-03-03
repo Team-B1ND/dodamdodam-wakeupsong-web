@@ -31,5 +31,6 @@ export const Input = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme.labelAlternative};
+    user-select: none;
   }
 `;
