@@ -18,9 +18,15 @@ export const Title = styled.p`
 
 export const VideoWrap = styled.div`
   width: 100%;
+  max-height: 330px;
 
   display: flex;
   flex-direction: column;
 
+  overflow-y: auto;
   gap: 28px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
