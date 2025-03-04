@@ -1,4 +1,4 @@
-import dodamAxios from "libs/axios/dodamAxios";
+import dodamAxios from "libs/Axios/dodamAxios";
 import { Response } from "types/util/response.type";
 import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
 

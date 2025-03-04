@@ -1,4 +1,4 @@
-import dodamAxios from "libs/axios/dodamAxios";
+import dodamAxios from "libs/Axios/dodamAxios";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 
 class MemberRepository {

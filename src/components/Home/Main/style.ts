@@ -15,6 +15,10 @@ export const Container = styled.div`
   padding: 24px;
   margin-left: 22px;
   gap: 32px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Wrap = styled.div`

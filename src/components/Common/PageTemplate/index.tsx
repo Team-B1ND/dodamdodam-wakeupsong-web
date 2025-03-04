@@ -13,7 +13,7 @@ const PageTemplagte = ({ children }: Props) => {
   return (
     <PageTemplateContainer>
       <DodamNavBar
-        location="schedule"
+        location="wakesong"
         currentTheme={themeColor}
         handleTheme={handleTheme}
         logout={() => console.log("로그아웃")}

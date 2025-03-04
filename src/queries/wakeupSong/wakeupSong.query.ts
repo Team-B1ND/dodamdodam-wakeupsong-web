@@ -1,4 +1,4 @@
-import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
+import wakeupSongRepository from "repository/WakeupSong/wakeupSong.repository";
 import { useMutation, useQuery, UseQueryOptions } from "react-query";
 import { AxiosError } from "axios";
 import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";

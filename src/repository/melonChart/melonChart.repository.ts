@@ -1,5 +1,5 @@
-import dodamAxios from "libs/axios/dodamAxios";
-import { MelonChartListsResponse, MelonKeyword } from "./melonChart.Param";
+import dodamAxios from "libs/Axios/dodamAxios";
+import { MelonChartListsResponse, MelonKeyword } from "./melonChart.param";
 import { Response } from "types/util/response.type";
 
 class MelonChartRepository {
