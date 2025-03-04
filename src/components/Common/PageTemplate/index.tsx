@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 import { PageTemplateContainer } from "./style";
 import { DodamNavBar } from "@b1nd/dds-web";
 import { useThemes } from "hooks/Theme/useTheme";
+import useLogout from "hooks/Auth/useLogout";
 
 interface Props {
   children: ReactNode;
@@ -9,6 +10,7 @@ interface Props {
 
 const PageTemplagte = ({ children }: Props) => {
   const { themeColor, handleTheme } = useThemes();
+  const { handleClickLogout } = useLogout();
 
   return (
     <PageTemplateContainer>
@@ -16,7 +18,7 @@ const PageTemplagte = ({ children }: Props) => {
         location="wakesong"
         currentTheme={themeColor}
         handleTheme={handleTheme}
-        logout={() => console.log("로그아웃")}
+        logout={handleClickLogout}
       />
       {children}
     </PageTemplateContainer>

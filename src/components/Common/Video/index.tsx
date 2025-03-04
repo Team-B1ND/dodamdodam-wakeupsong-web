@@ -5,11 +5,12 @@ interface Props {
   label: string;
   date?: string;
   img: string;
+  url: string;
 }
 
-const Video = ({ title, label, date, img }: Props) => {
+const Video = ({ title, label, date, img, url }: Props) => {
   return (
-    <S.Container>
+    <S.Container onClick={() => window.open(url)}>
       <S.VideoImg src={img} />
       <S.VideoInfo>
         <S.VideoTitle>{title}</S.VideoTitle>

@@ -1,20 +1,23 @@
 import * as S from "./style";
 import Video from "components/Common/Video/index";
-import Img from "assets/img/image 74.svg";
+import { useGetTomorrowMusicDataQuery } from "queries/WakeupSong/wakeupSong.query";
 
 const ApproveWakeupSong = () => {
+  const { data: TomorrowData } = useGetTomorrowMusicDataQuery();
+
   return (
     <S.Container>
       <S.Title>기상송</S.Title>
       <S.ContentWrap>
         <S.ContentTitle>내일의 기상송</S.ContentTitle>
         <S.VideoWrap>
-          {Array.from({ length: 3 }).map((_, idx) => (
+          {TomorrowData?.data.map((video) => (
             <Video
-              title="TWS (투어스) '첫 만남은 계획대로 되"
-              label="HYBE LABELS"
-              img={Img}
-              key={idx}
+              key={video.id}
+              title={video.videoTitle}
+              label={video.channelTitle}
+              img={video.thumbnail}
+              url={video.videoUrl}
             />
           ))}
         </S.VideoWrap>

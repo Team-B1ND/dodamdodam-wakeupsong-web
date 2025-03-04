@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   max-width: 287px;
-  height: 207px;
+  height: auto;
 
   display: flex;
   flex-direction: column;
@@ -11,11 +11,15 @@ export const Container = styled.div`
   gap: 4px;
   cursor: pointer;
   user-select: none;
+
+  &:hover > div > p:nth-child(1) {
+    text-decoration: underline;
+  }
 `;
 
 export const VideoImg = styled.img`
   width: 100%;
-  height: 100%;
+  max-height: 190px;
 
   ${DodamShape.ExtraSmall}
 `;

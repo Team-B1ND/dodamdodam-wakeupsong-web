@@ -1,20 +1,27 @@
 import * as S from "./style";
 import Video from "components/Common/Video";
-import Img from "assets/img/image 74.svg";
+import { useGetMyAllWakeupSongQuery } from "queries/WakeupSong/wakeupSong.query";
 
 const MyWakeupSong = () => {
+  const { data: MyData } = useGetMyAllWakeupSongQuery();
+
   return (
     <S.Container>
       <S.Title>내가 신청한 기상송</S.Title>
       <S.VideoWrap>
-        {Array.from({ length: 1 }).map((_, idx) => (
-          <Video
-            title="TWS (투어스) '첫 만남은 계획대로 되"
-            label="HYBE LABELS"
-            date="2024.03.18"
-            img={Img}
-          />
-        ))}
+        {MyData?.data.map((video) => {
+          const createVideo = video.createdAt.replaceAll("-", ".");
+          return (
+            <Video
+              key={video.id}
+              title={video.videoTitle}
+              label={video.channelTitle}
+              date={createVideo}
+              img={video.thumbnail}
+              url={video.videoUrl}
+            />
+          );
+        })}
       </S.VideoWrap>
     </S.Container>
   );
