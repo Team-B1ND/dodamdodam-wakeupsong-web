@@ -14,11 +14,13 @@ const MyWakeupSong = () => {
           return (
             <Video
               key={video.id}
+              id={video.id}
               title={video.videoTitle}
               label={video.channelTitle}
               date={createVideo}
               img={video.thumbnail}
               url={video.videoUrl}
+              isDelete={true}
             />
           );
         })}

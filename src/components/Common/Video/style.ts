@@ -2,26 +2,29 @@ import { DodamShape, DodamTypography } from "@b1nd/dds-web";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  max-width: 287px;
+  max-width: 300px;
   height: auto;
 
   display: flex;
   flex-direction: column;
 
   gap: 4px;
-  cursor: pointer;
   user-select: none;
-
-  &:hover > div > p:nth-child(1) {
-    text-decoration: underline;
-  }
 `;
 
 export const VideoImg = styled.img`
   width: 100%;
-  max-height: 190px;
+  max-height: 200px;
 
   ${DodamShape.ExtraSmall}
+
+  cursor: pointer;
+
+  &:hover {
+    + div > p {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const VideoInfo = styled.div`
@@ -38,6 +41,21 @@ export const VideoTitle = styled.p`
   ${DodamTypography.Body1.Bold}
 `;
 
+export const Wrap = styled.div`
+  width: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+export const Box = styled.div`
+  width: auto;
+
+  display: flex;
+  flex-direction: column;
+`;
+
 export const VideoLabel = styled.p`
   color: ${({ theme }) => theme.labelAlternative};
   ${DodamTypography.Caption1.Medium}
@@ -46,4 +64,9 @@ export const VideoLabel = styled.p`
 export const VideoDate = styled.p`
   color: ${({ theme }) => theme.labelAlternative};
   ${DodamTypography.Caption2.Regular}
+`;
+
+export const DeleteIconWrap = styled.div`
+  width: auto;
+  height: auto;
 `;

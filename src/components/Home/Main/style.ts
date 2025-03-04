@@ -2,7 +2,7 @@ import { DodamShape } from "@b1nd/dds-web";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 792px;
+  width: 822px;
 
   display: flex;
   flex-direction: column;
