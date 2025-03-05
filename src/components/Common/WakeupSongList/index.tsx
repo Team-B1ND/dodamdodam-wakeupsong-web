@@ -1,26 +1,57 @@
+import { DodamFilledButton } from "@b1nd/dds-web";
 import * as S from "./style";
-import Img from "assets/img/image 74.svg";
 import VideoRank from "components/Common/VideoRank";
+import {
+  MelonChartListType,
+  MelonKeyword,
+} from "repository/MelonChart/melonChart.param";
 
 interface Props {
   title: string;
   description: string;
+  wakeupSongList: MelonChartListType[];
+  melonChartInfo?: MelonKeyword;
+  handleClickWakeupSong?: (id: number, title: string, label: string) => void;
+  handleClickMelonChartApply?: () => void;
 }
 
-const WakeupSongList = ({ title, description }: Props) => {
+const WakeupSongList = ({
+  title,
+  description,
+  melonChartInfo,
+  wakeupSongList,
+  handleClickWakeupSong,
+  handleClickMelonChartApply,
+}: Props) => {
   return (
     <S.Container>
-      <S.Info>
-        <S.Title>{title}</S.Title>
-        <S.Description>{description}</S.Description>
-      </S.Info>
+      <S.Wrap>
+        <S.Info>
+          <S.Title>{title}</S.Title>
+          <S.Description>{description}</S.Description>
+        </S.Info>
+        {melonChartInfo?.title && melonChartInfo?.artist && (
+          <DodamFilledButton
+            size="Small"
+            text="신청"
+            width={80}
+            textTheme="staticWhite"
+            typography={["Label", "Bold"]}
+            customStyle={{ minHeight: "37px" }}
+            onClick={handleClickMelonChartApply}
+          />
+        )}
+      </S.Wrap>
       <S.VideoWrap>
-        {Array.from({ length: 5 }).map((_, idx) => (
+        {wakeupSongList.map((item) => (
           <VideoRank
-            num={idx + 1}
-            title="TWS (투어스) '첫 만남은 계획대로 되"
-            label="HYBE LABELS"
-            img={Img}
+            key={item.rank}
+            rank={item.rank}
+            title={item.name}
+            label={item.artist}
+            img={item.thumbnail}
+            isAtv={item.isAtv}
+            onClick={handleClickWakeupSong}
           />
         ))}
       </S.VideoWrap>

@@ -10,6 +10,14 @@ export const Container = styled.div`
   gap: 8px;
 `;
 
+export const Wrap = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
 export const Info = styled.div`
   width: 100%;
 
@@ -31,7 +39,14 @@ export const Description = styled.p`
 
 export const VideoWrap = styled.div`
   width: 100%;
+  max-height: 500px;
 
   display: flex;
   flex-direction: column;
+
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;

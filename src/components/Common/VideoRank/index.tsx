@@ -1,16 +1,18 @@
 import * as S from "./style";
 
 interface Props {
-  num: number;
+  rank: number;
   title: string;
   label: string;
   img: string;
+  isAtv: boolean;
+  onClick?: (id: number, title: string, label: string) => void;
 }
 
-const VideoRank = ({ num, title, label, img }: Props) => {
+const VideoRank = ({ rank, title, label, img, isAtv, onClick }: Props) => {
   return (
-    <S.Container>
-      <S.VideoNum>{num}</S.VideoNum>
+    <S.Container isAtv={isAtv} onClick={() => onClick!(rank, title, label)}>
+      <S.VideoRank>{rank}</S.VideoRank>
       <S.Wrap>
         <S.VideoImg src={img} />
         <S.VideoInfo>

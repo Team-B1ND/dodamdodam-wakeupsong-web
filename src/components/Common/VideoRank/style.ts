@@ -1,19 +1,27 @@
 import { DodamShape, DodamTypography } from "@b1nd/dds-web";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.div<{ isAtv: boolean }>`
   width: 100%;
 
   display: flex;
   align-items: center;
 
-  padding: 12px 0;
+  ${DodamShape.Large}
+  background-color: ${({ isAtv, theme }) =>
+    isAtv ? theme.backgroundNeutral : "transparent"};
+
+  padding: 12px 10px;
   gap: 16px;
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.fillNeutral};
+  }
 `;
 
-export const VideoNum = styled.p`
+export const VideoRank = styled.p`
   color: ${({ theme }) => theme.primaryNormal};
   ${DodamTypography.Label.Bold}
 `;
@@ -29,7 +37,7 @@ export const Wrap = styled.div`
 
 export const VideoImg = styled.img`
   width: 120px;
-  height: 100%;
+  height: 67px;
 
   ${DodamShape.ExtraSmall}
 `;

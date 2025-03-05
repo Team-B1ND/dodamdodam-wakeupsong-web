@@ -28,7 +28,7 @@ const Video = ({ id, title, label, date, img, url, isDelete }: Props) => {
           {isDelete && (
             <S.DeleteIconWrap
               onClick={() => deleteMyWakeupSong.handleDeleteMyWakeupSong(id!)}>
-              <Trash $svgStyle={{ cursor: "pointer" }} />
+              <Trash color="labelStrong" $svgStyle={{ cursor: "pointer" }} />
             </S.DeleteIconWrap>
           )}
         </S.Wrap>

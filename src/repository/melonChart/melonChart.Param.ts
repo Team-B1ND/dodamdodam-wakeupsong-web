@@ -1,3 +1,7 @@
+export interface MelonChartListType extends MelonChartListsPrams {
+  isAtv: boolean;
+}
+
 export interface MelonChartListsPrams {
   album: string;
   artist: string;

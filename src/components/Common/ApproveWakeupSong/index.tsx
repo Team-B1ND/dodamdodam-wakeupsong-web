@@ -11,15 +11,19 @@ const ApproveWakeupSong = () => {
       <S.ContentWrap>
         <S.ContentTitle>내일의 기상송</S.ContentTitle>
         <S.VideoWrap>
-          {TomorrowData?.data.map((video) => (
-            <Video
-              key={video.id}
-              title={video.videoTitle}
-              label={video.channelTitle}
-              img={video.thumbnail}
-              url={video.videoUrl}
-            />
-          ))}
+          {TomorrowData?.data.length === 0 ? (
+            <S.NullVideo>승인된 기상송이 없습니다</S.NullVideo>
+          ) : (
+            TomorrowData?.data.map((video) => (
+              <Video
+                key={video.id}
+                title={video.videoTitle}
+                label={video.channelTitle}
+                img={video.thumbnail}
+                url={video.videoUrl}
+              />
+            ))
+          )}
         </S.VideoWrap>
       </S.ContentWrap>
     </S.Container>
