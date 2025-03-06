@@ -49,6 +49,12 @@ export const VideoImg = styled.img`
   height: 67px;
 
   ${DodamShape.ExtraSmall}
+
+  &:hover {
+    + div > p:nth-child(1) {
+      text-decoration: underline;
+    }
+  }
 `;
 
 export const VideoInfo = styled.div`

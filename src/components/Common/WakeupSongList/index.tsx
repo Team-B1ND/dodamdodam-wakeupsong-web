@@ -109,6 +109,7 @@ const WakeupSongList = ({
                 rank={idx + 1}
                 title={PendingWakeupSongItem.videoTitle}
                 label={PendingWakeupSongItem.channelTitle}
+                url={PendingWakeupSongItem.videoUrl}
                 img={PendingWakeupSongItem.thumbnail}
                 isAtv={PendingWakeupSongItem.isAtv}
                 isBroadCast={isBroadcastClubMember?.data!}

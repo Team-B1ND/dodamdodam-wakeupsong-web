@@ -1,6 +1,6 @@
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
-import { ChangeEvent, useState } from "react";
+import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useQueryClient } from "react-query";
 import { usePostApplyMusicMutation } from "queries/WakeupSong/wakeupSong.query";
 import { usePostMelonChartApplyMutation } from "queries/MelonChart/melonChart.query";
@@ -12,11 +12,13 @@ const useApplyWakeupSong = () => {
   const postApplyMusicMutation = usePostApplyMusicMutation();
   const postMelonChartApplyMutation = usePostMelonChartApplyMutation();
 
+  console.log(value);
+
   const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  const handleKeyDown = (e: any) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       handleClickPostWakeupSong();
     }
@@ -35,11 +37,10 @@ const useApplyWakeupSong = () => {
           if (data.status === 226) {
             toast.error(`${data.message}`);
           } else {
+            setValue("");
             toast.success("기상송을 신청했습니다!");
             queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries(
-              "myAllWakeupSong/useGetMyAllWakeupSong"
-            );
+            queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
           }
         },
         onError: (error) => {
@@ -57,11 +58,10 @@ const useApplyWakeupSong = () => {
         { artist, title },
         {
           onSuccess: () => {
+            setValue("");
             toast.success("기상송을 신청했습니다!");
             queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries(
-              "myAllWakeupSong/useGetMyAllWakeupSong"
-            );
+            queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
           },
           onError: (error) => {
             const errorCode = error as AxiosError;
@@ -70,8 +70,6 @@ const useApplyWakeupSong = () => {
         }
       );
     }
-
-    setValue("");
   };
 
   return {

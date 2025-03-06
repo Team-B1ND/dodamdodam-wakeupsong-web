@@ -5,6 +5,7 @@ interface Props {
   rank: number;
   title: string;
   label: string;
+  url: string;
   img: string;
   isAtv: boolean;
   isBroadCast: boolean;
@@ -16,6 +17,7 @@ const PendingWakeupSong = ({
   rank,
   title,
   label,
+  url,
   img,
   isAtv,
   isBroadCast,
@@ -28,7 +30,7 @@ const PendingWakeupSong = ({
       onClick={() => handleClickWakeupSong!(id)}>
       <S.VideoRank isAtv={isAtv} isBroadCast={isBroadCast}>{rank}</S.VideoRank>
       <S.Wrap>
-        <S.VideoImg src={img} />
+        <S.VideoImg src={img} onClick={() => window.open(url)} />
         <S.VideoInfo>
           <S.VideoTitle isAtv={isAtv} isBroadCast={isBroadCast}>{title}</S.VideoTitle>
           <S.VideoLabel isAtv={isAtv} isBroadCast={isBroadCast}>{label}</S.VideoLabel>
