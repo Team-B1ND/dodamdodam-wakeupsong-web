@@ -37,6 +37,12 @@ export const Description = styled.p`
   ${DodamTypography.Label.Medium}
 `;
 
+export const ButtonWrap = styled.div`
+  display: flex;
+
+  gap: 5px;
+`;
+
 export const VideoWrap = styled.div`
   width: 100%;
   max-height: 500px;

@@ -7,7 +7,7 @@ export const Container = styled.div<{ isAtv: boolean }>`
   display: flex;
   align-items: center;
 
-  ${DodamShape.Large}
+  ${DodamShape.Medium}
   background-color: ${({ isAtv, theme }) =>
     isAtv ? theme.backgroundNeutral : "transparent"};
 
@@ -31,6 +31,7 @@ export const Wrap = styled.div`
   height: 100%;
 
   display: flex;
+  align-items: center;
 
   gap: 16px;
 `;

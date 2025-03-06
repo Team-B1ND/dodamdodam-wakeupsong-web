@@ -1,27 +1,44 @@
 import { DodamFilledButton } from "@b1nd/dds-web";
 import * as S from "./style";
-import VideoRank from "components/Common/VideoRank";
+import MelonChart from "components/Common/VideoRank/MelonChart";
+import PendingWakeupSong from "components/Common/VideoRank/PendingWakeupSong";
 import {
   MelonChartListType,
   MelonKeyword,
 } from "repository/MelonChart/melonChart.param";
+import { WakeupSongMusicType } from "types/wakeupSong/wakeupSong.type";
+import { BroadcastClubMemberResponse } from "types/Member/member.type";
 
 interface Props {
   title: string;
   description: string;
-  wakeupSongList: MelonChartListType[];
+  wakeupSongList: MelonChartListType[] | WakeupSongMusicType[];
+
+  // melonChart
   melonChartInfo?: MelonKeyword;
-  handleClickWakeupSong?: (id: number, title: string, label: string) => void;
+  handleClickMelonChart?: (id: number, title: string, label: string) => void;
   handleClickMelonChartApply?: () => void;
+
+  // pendingWakeupSong
+  musicInfoId?: number;
+  isBroadcastClubMember?: BroadcastClubMemberResponse;
+  handleClickWakeupSong?: (id: number) => void;
+  hanldeWakeupSongAllow?: () => void;
+  hanldeWakeupSongDeny?: () => void;
 }
 
 const WakeupSongList = ({
   title,
   description,
   melonChartInfo,
+  musicInfoId,
   wakeupSongList,
+  isBroadcastClubMember,
+  handleClickMelonChart,
   handleClickWakeupSong,
   handleClickMelonChartApply,
+  hanldeWakeupSongAllow,
+  hanldeWakeupSongDeny,
 }: Props) => {
   return (
     <S.Container>
@@ -30,30 +47,75 @@ const WakeupSongList = ({
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>
         </S.Info>
-        {melonChartInfo?.title && melonChartInfo?.artist && (
-          <DodamFilledButton
-            size="Small"
-            text="신청"
-            width={80}
-            textTheme="staticWhite"
-            typography={["Label", "Bold"]}
-            customStyle={{ minHeight: "37px" }}
-            onClick={handleClickMelonChartApply}
-          />
-        )}
+        {title === "멜론 차트"
+          ? melonChartInfo?.title &&
+            melonChartInfo?.artist && (
+              <DodamFilledButton
+                size="Small"
+                text="신청"
+                width={80}
+                textTheme="staticWhite"
+                typography={["Label", "Bold"]}
+                customStyle={{ minHeight: "37px" }}
+                onClick={handleClickMelonChartApply}
+              />
+            )
+          : isBroadcastClubMember?.data &&
+            musicInfoId !== undefined && (
+              <S.ButtonWrap>
+                <DodamFilledButton
+                  size="Small"
+                  text="승인"
+                  width={70}
+                  textTheme="staticWhite"
+                  typography={["Label", "Bold"]}
+                  customStyle={{ minHeight: "37px" }}
+                  onClick={hanldeWakeupSongAllow}
+                />
+                <DodamFilledButton
+                  size="Small"
+                  text="거절"
+                  width={70}
+                  textTheme="staticWhite"
+                  backgroundColorType="Negative"
+                  typography={["Label", "Bold"]}
+                  customStyle={{ minHeight: "37px" }}
+                  onClick={hanldeWakeupSongDeny}
+                />
+              </S.ButtonWrap>
+            )}
       </S.Wrap>
       <S.VideoWrap>
-        {wakeupSongList.map((item) => (
-          <VideoRank
-            key={item.rank}
-            rank={item.rank}
-            title={item.name}
-            label={item.artist}
-            img={item.thumbnail}
-            isAtv={item.isAtv}
-            onClick={handleClickWakeupSong}
-          />
-        ))}
+        {wakeupSongList.map((item, idx) => {
+          if (title === "멜론 차트") {
+            const MelonChartItem = item as MelonChartListType;
+            return (
+              <MelonChart
+                key={MelonChartItem.rank}
+                rank={MelonChartItem.rank}
+                title={MelonChartItem.name}
+                label={MelonChartItem.artist}
+                img={MelonChartItem.thumbnail}
+                isAtv={MelonChartItem.isAtv}
+                onClick={handleClickMelonChart}
+              />
+            );
+          } else {
+            const PendingWakeupSongItem = item as WakeupSongMusicType;
+            return (
+              <PendingWakeupSong
+                key={PendingWakeupSongItem.id}
+                id={PendingWakeupSongItem.id}
+                rank={idx + 1}
+                title={PendingWakeupSongItem.videoTitle}
+                label={PendingWakeupSongItem.channelTitle}
+                img={PendingWakeupSongItem.thumbnail}
+                isAtv={PendingWakeupSongItem.isAtv}
+                handleClickWakeupSong={handleClickWakeupSong}
+              />
+            );
+          }
+        })}
       </S.VideoWrap>
     </S.Container>
   );

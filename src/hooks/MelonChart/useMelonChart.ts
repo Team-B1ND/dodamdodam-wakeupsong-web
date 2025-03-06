@@ -22,7 +22,7 @@ const useMelonChart = () => {
     title: "",
   });
 
-  const handleClickWakeupSong = (id: number, title: string, artist: string) => {
+  const handleClickMelonChart = (id: number, title: string, artist: string) => {
     setMelonChart((prev) =>
       prev.map((item) =>
         item.rank === id
@@ -67,7 +67,7 @@ const useMelonChart = () => {
   return {
     melonChart,
     melonChartInfo,
-    handleClickWakeupSong,
+    handleClickMelonChart,
     handleClickMelonChartApply,
   };
 };

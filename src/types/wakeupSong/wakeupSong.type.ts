@@ -1,3 +1,7 @@
+export interface WakeupSongMusicType extends WakeupSongMusic {
+  isAtv: boolean;
+}
+
 export interface WakeupSongMusic {
   channelTitle: string;
   createdAt: string;

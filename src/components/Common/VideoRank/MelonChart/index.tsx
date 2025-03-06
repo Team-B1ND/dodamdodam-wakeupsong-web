@@ -9,7 +9,7 @@ interface Props {
   onClick?: (id: number, title: string, label: string) => void;
 }
 
-const VideoRank = ({ rank, title, label, img, isAtv, onClick }: Props) => {
+const MelonChart = ({ rank, title, label, img, isAtv, onClick }: Props) => {
   return (
     <S.Container isAtv={isAtv} onClick={() => onClick!(rank, title, label)}>
       <S.VideoRank>{rank}</S.VideoRank>
@@ -24,4 +24,4 @@ const VideoRank = ({ rank, title, label, img, isAtv, onClick }: Props) => {
   );
 };
 
-export default VideoRank;
+export default MelonChart;
