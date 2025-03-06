@@ -1,15 +1,19 @@
-import { DodamShape, DodamTypography } from "@b1nd/dds-web";
+import { DodamShape, DodamTypography, hexToRgba } from "@b1nd/dds-web";
 import styled from "styled-components";
 
-export const Container = styled.div<{ isAtv: boolean }>`
+export const Container = styled.div<{ isAtv: boolean; isBroadCast: boolean }>`
   width: 100%;
 
   display: flex;
   align-items: center;
 
   ${DodamShape.Medium}
-  background-color: ${({ isAtv, theme }) =>
-    isAtv ? theme.backgroundNeutral : "transparent"};
+  background-color: ${({ isAtv, isBroadCast, theme }) =>
+    isAtv
+      ? isBroadCast
+        ? theme.primaryNormal
+        : theme.backgroundNeutral
+      : "transparent"};
 
   padding: 12px 10px;
   gap: 16px;
@@ -17,12 +21,16 @@ export const Container = styled.div<{ isAtv: boolean }>`
   user-select: none;
 
   &:hover {
-    background-color: ${({ theme }) => theme.fillNeutral};
+    background-color: ${({ isAtv, isBroadCast, theme }) =>
+      isAtv && isBroadCast
+        ? hexToRgba(theme.primaryNormal, 0.75)
+        : theme.fillNeutral};
   }
 `;
 
-export const VideoRank = styled.p`
-  color: ${({ theme }) => theme.primaryNormal};
+export const VideoRank = styled.p<{ isAtv: boolean; isBroadCast: boolean }>`
+  color: ${({ isAtv, isBroadCast, theme }) =>
+    isAtv && isBroadCast ? theme.staticWhite : theme.primaryNormal};
   ${DodamTypography.Label.Bold}
 `;
 
@@ -51,12 +59,14 @@ export const VideoInfo = styled.div`
   flex-direction: column;
 `;
 
-export const VideoTitle = styled.p`
-  color: ${({ theme }) => theme.labelNormal};
+export const VideoTitle = styled.p<{ isAtv: boolean; isBroadCast: boolean }>`
+  color: ${({ isAtv, isBroadCast, theme }) =>
+    isAtv && isBroadCast ? theme.staticWhite : theme.labelNormal};
   ${DodamTypography.Body2.Bold}
 `;
 
-export const VideoLabel = styled.p`
-  color: ${({ theme }) => theme.labelAlternative};
+export const VideoLabel = styled.p<{ isAtv: boolean; isBroadCast: boolean }>`
+  color: ${({ isAtv, isBroadCast, theme }) =>
+    isAtv && isBroadCast ? theme.staticWhite : theme.labelAlternative};
   ${DodamTypography.Caption2.Medium}
 `;

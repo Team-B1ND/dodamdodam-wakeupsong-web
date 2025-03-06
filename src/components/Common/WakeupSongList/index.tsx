@@ -111,6 +111,7 @@ const WakeupSongList = ({
                 label={PendingWakeupSongItem.channelTitle}
                 img={PendingWakeupSongItem.thumbnail}
                 isAtv={PendingWakeupSongItem.isAtv}
+                isBroadCast={isBroadcastClubMember?.data!}
                 handleClickWakeupSong={handleClickWakeupSong}
               />
             );
