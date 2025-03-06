@@ -30,3 +30,15 @@ export const VideoWrap = styled.div`
     display: none;
   }
 `;
+
+export const NullVideo = styled.div`
+  width: 100%;
+  height: 180px;
+
+  color: ${({ theme }) => theme.labelAlternative};
+  ${DodamTypography.Body1.Medium}
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;

@@ -9,21 +9,25 @@ const MyWakeupSong = () => {
     <S.Container>
       <S.Title>내가 신청한 기상송</S.Title>
       <S.VideoWrap>
-        {MyData?.data.map((video) => {
-          const createVideo = video.createdAt.replaceAll("-", ".");
-          return (
-            <Video
-              key={video.id}
-              id={video.id}
-              title={video.videoTitle}
-              label={video.channelTitle}
-              date={createVideo}
-              img={video.thumbnail}
-              url={video.videoUrl}
-              isDelete={true}
-            />
-          );
-        })}
+        {MyData?.data.length === 0 ? (
+          <S.NullVideo>신청한 기상송이 없습니다</S.NullVideo>
+        ) : (
+          MyData?.data.map((video) => {
+            const createVideo = video.createdAt.replaceAll("-", ".");
+            return (
+              <Video
+                key={video.id}
+                id={video.id}
+                title={video.videoTitle}
+                label={video.channelTitle}
+                date={createVideo}
+                img={video.thumbnail}
+                url={video.videoUrl}
+                isDelete={true}
+              />
+            );
+          })
+        )}
       </S.VideoWrap>
     </S.Container>
   );
