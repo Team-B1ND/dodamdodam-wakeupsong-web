@@ -14,8 +14,6 @@ const ApproveWakeupSong = () => {
   const [date, setDate] = useRecoilState(WakeupSongDate);
   const resetDate = useResetRecoilState(WakeupSongDate);
 
-  console.log(theme);
-
   const handleClickNext = () => {
     sliderRef.current?.slickNext();
   };
@@ -48,7 +46,7 @@ const ApproveWakeupSong = () => {
         <S.Title>기상송</S.Title>
         <DodamFilledButton
           size="Small"
-          width={120}
+          width={110}
           text={date === "today" ? "오늘의 기상송" : "내일의 기상송"}
           typography={["Label", "Bold"]}
           textTheme={date === "today" ? "staticWhite" : "primaryNormal"}
@@ -57,7 +55,7 @@ const ApproveWakeupSong = () => {
             border: `1px solid ${theme.primaryNormal}`,
             borderRadius: "12px",
             backgroundColor:
-              date === "today" ? theme.primaryNormal : theme.staticWhite,
+              date === "today" ? theme.primaryNormal : theme.backgroundNormal,
           }}
         />
       </S.Wrap>
