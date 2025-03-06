@@ -6,6 +6,27 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
+
+  .slick-initialized {
+    width: 100%;
+    position: relative;
+  }
+
+  .slick-list {
+    overflow: hidden;
+  }
+
+  .slick-track {
+    display: flex;
+  }
+`;
+
+export const Wrap = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 export const Title = styled.p`
@@ -13,39 +34,4 @@ export const Title = styled.p`
   ${DodamTypography.Heading1.Bold}
 
   margin-bottom: 30px;
-`;
-
-export const ContentWrap = styled.div`
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 16px;
-`;
-
-export const ContentTitle = styled.p`
-  color: ${({ theme }) => theme.labelNormal};
-  ${DodamTypography.Headline.Bold}
-`;
-
-export const VideoWrap = styled.div`
-  width: 100%;
-  height: 100%;
-
-  display: flex;
-
-  gap: 12px;
-`;
-
-export const NullVideo = styled.div`
-  width: 100%;
-  height: 270px;
-
-  color: ${({ theme }) => theme.labelAlternative};
-  ${DodamTypography.Body1.Medium}
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
