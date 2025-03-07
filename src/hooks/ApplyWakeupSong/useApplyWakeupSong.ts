@@ -9,13 +9,15 @@ import ErrorHandler from "utils/Error/ErrorHandler";
 const useApplyWakeupSong = () => {
   const queryClient = useQueryClient();
   const [value, setValue] = useState<string>("");
+  const [isError, setIsError] = useState(false);
   const postApplyMusicMutation = usePostApplyMusicMutation();
   const postMelonChartApplyMutation = usePostMelonChartApplyMutation();
 
-  console.log(value);
-
   const handleChangeValue = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
+    if (isError) {
+      setIsError(false);
+    }
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -27,6 +29,7 @@ const useApplyWakeupSong = () => {
   const handleClickPostWakeupSong = () => {
     if (value.trim() === "") {
       toast.info("url을 입력해주세요");
+      setIsError(true);
       return;
     }
 
@@ -37,15 +40,18 @@ const useApplyWakeupSong = () => {
           if (data.status === 226) {
             toast.error(`${data.message}`);
           } else {
-            setValue("");
             toast.success("기상송을 신청했습니다!");
             queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
+            queryClient.invalidateQueries(
+              "myAllWakeupSong/useGetMyAllWakeupSong"
+            );
+            setValue("");
           }
         },
         onError: (error) => {
           const axiosError = error as AxiosError;
           toast.error(ErrorHandler.applyWakeupSongError(axiosError));
+          setIsError(true);
         },
       });
     }
@@ -58,14 +64,17 @@ const useApplyWakeupSong = () => {
         { artist, title },
         {
           onSuccess: () => {
-            setValue("");
             toast.success("기상송을 신청했습니다!");
             queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
+            queryClient.invalidateQueries(
+              "myAllWakeupSong/useGetMyAllWakeupSong"
+            );
+            setValue("");
           },
           onError: (error) => {
             const errorCode = error as AxiosError;
             toast.error(ErrorHandler.applyWakeupSongError(errorCode));
+            setIsError(true);
           },
         }
       );
@@ -74,6 +83,7 @@ const useApplyWakeupSong = () => {
 
   return {
     value,
+    isError,
     handleChangeValue,
     handleKeyDown,
     handleClickPostWakeupSong,

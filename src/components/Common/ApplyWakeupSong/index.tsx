@@ -1,5 +1,5 @@
 import * as S from "./style";
-import { DodamFilledButton } from "@b1nd/dds-web";
+import { DodamFilledButton, DodamFilledTextField } from "@b1nd/dds-web";
 import useApplyWakeupSong from "hooks/ApplyWakeupSong/useApplyWakeupSong";
 
 const ApplyWakeupSong = () => {
@@ -8,12 +8,16 @@ const ApplyWakeupSong = () => {
   return (
     <S.Container>
       <S.Title>기상송 신청</S.Title>
-      <S.Input
+      <DodamFilledTextField
         type="text"
+        label=""
         value={applyWakeupSong.value}
+        isError={applyWakeupSong.isError}
         onChange={applyWakeupSong.handleChangeValue}
         onKeyDown={applyWakeupSong.handleKeyDown}
-        placeholder="제목, 아티스트 혹은 링크"></S.Input>
+        placeholder="제목, 아티스트 혹은 링크"
+        customStyle={{ height: "62px" }}
+      />
       <DodamFilledButton
         size="Large"
         textTheme="staticWhite"
