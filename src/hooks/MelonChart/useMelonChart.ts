@@ -11,6 +11,7 @@ import { useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import ErrorHandler from "utils/Error/ErrorHandler";
+import { QUERY_KEYS } from "queries/queryKey";
 
 const useMelonChart = () => {
   const queryClient = useQueryClient();
@@ -42,8 +43,8 @@ const useMelonChart = () => {
     postMelonChartApplyMutation.mutate(melonChartInfo, {
       onSuccess: () => {
         toast.success("기상송을 신청했습니다!");
-        queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-        queryClient.invalidateQueries("myAllWakeupSong/useGetMyAllWakeupSong");
+        queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
+        queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
         setMelonChartInfo({ artist: "", title: "" });
         setMelonChart((prev) =>
           prev.map((item) => ({ ...item, isAtv: false }))

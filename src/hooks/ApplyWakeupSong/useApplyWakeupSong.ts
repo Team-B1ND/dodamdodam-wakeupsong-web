@@ -5,6 +5,7 @@ import { useQueryClient } from "react-query";
 import { usePostApplyMusicMutation } from "queries/WakeupSong/wakeupSong.query";
 import { usePostMelonChartApplyMutation } from "queries/MelonChart/melonChart.query";
 import ErrorHandler from "utils/Error/ErrorHandler";
+import { QUERY_KEYS } from "queries/queryKey";
 
 const useApplyWakeupSong = () => {
   const queryClient = useQueryClient();
@@ -41,10 +42,8 @@ const useApplyWakeupSong = () => {
             toast.error(`${data.message}`);
           } else {
             toast.success("기상송을 신청했습니다!");
-            queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries(
-              "myAllWakeupSong/useGetMyAllWakeupSong"
-            );
+            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
+            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
             setValue("");
           }
         },
@@ -65,10 +64,8 @@ const useApplyWakeupSong = () => {
         {
           onSuccess: () => {
             toast.success("기상송을 신청했습니다!");
-            queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
-            queryClient.invalidateQueries(
-              "myAllWakeupSong/useGetMyAllWakeupSong"
-            );
+            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
+            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
             setValue("");
           },
           onError: (error) => {

@@ -1,4 +1,5 @@
 import { useGetBroadcastClubMemberCheckQuery } from "queries/Member/member.query";
+import { QUERY_KEYS } from "queries/queryKey";
 import {
   useAllowWakeupSongMutation,
   useDenyWakeupSongMutation,
@@ -57,7 +58,7 @@ const useDecisionWakeupSong = () => {
       onSuccess: () => {
         toast.success("기상송을 거절했습니다!");
         handleSuccessfulWakeupSongEvent();
-        queryClient.invalidateQueries("pendingMusic/getPendingMusicList");
+        queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
       },
       onError: () => {
         toast.error("기상송 거절을 실패하였습니다!");

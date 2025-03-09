@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@b1nd/dds-web": "^0.1.38",
+    "@b1nd/dds-web": "^0.1.44",
     "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",
