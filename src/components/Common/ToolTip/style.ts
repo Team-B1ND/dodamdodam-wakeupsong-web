@@ -10,7 +10,7 @@ const bounce = keyframes`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ isFirstVisit: boolean }>`
   width: auto;
   height: auto;
 
@@ -25,7 +25,10 @@ export const Container = styled.div`
   right: 10%;
   top: -50%;
 
-  animation: ${bounce} 1s ease-in-out infinite;
+  animation: ${bounce} 1.2s ease-in-out infinite;
+
+  transition: opacity 1s ease-in-out;
+  opacity: ${({ isFirstVisit }) => (isFirstVisit ? 1 : 0)};
 `;
 
 export const ToolTipWrap = styled.div`

@@ -52,7 +52,7 @@ const WakeupSongList = ({
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>
         </S.Info>
-        {title === "멜론 차트" && isFirstVisit && <ToolTip />}
+        {title === "멜론 차트" && <ToolTip isFirstVisit={isFirstVisit} />}
         {title === "멜론 차트"
           ? melonChartInfo?.title &&
             melonChartInfo?.artist && (
