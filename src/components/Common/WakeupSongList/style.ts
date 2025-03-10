@@ -16,6 +16,8 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+
+  position: relative
 `;
 
 export const Info = styled.div`

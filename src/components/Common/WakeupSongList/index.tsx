@@ -8,6 +8,9 @@ import {
 } from "repository/MelonChart/melonChart.param";
 import { WakeupSongMusicType } from "types/wakeupSong/wakeupSong.type";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
+import ToolTip from "components/Common/ToolTip";
+import { useRecoilValue } from "recoil";
+import { IsFirstVisit } from "store/ToolTip/toolTip.store";
 
 interface Props {
   title: string;
@@ -40,6 +43,8 @@ const WakeupSongList = ({
   hanldeWakeupSongAllow,
   hanldeWakeupSongDeny,
 }: Props) => {
+  const isFirstVisit = useRecoilValue(IsFirstVisit);
+
   return (
     <S.Container>
       <S.Wrap>
@@ -47,6 +52,7 @@ const WakeupSongList = ({
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>
         </S.Info>
+        {title === "멜론 차트" && isFirstVisit && <ToolTip />}
         {title === "멜론 차트"
           ? melonChartInfo?.title &&
             melonChartInfo?.artist && (

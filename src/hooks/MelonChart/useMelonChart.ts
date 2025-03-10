@@ -12,11 +12,15 @@ import { toast } from "react-toastify";
 import { AxiosError } from "axios";
 import ErrorHandler from "utils/Error/ErrorHandler";
 import { QUERY_KEYS } from "queries/queryKey";
+import { useRecoilState } from "recoil";
+import { IsFirstVisit } from "store/ToolTip/toolTip.store";
+import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
 
 const useMelonChart = () => {
   const queryClient = useQueryClient();
   const postMelonChartApplyMutation = usePostMelonChartApplyMutation();
   const { data: MelonChartList } = useGetMelonChartLists();
+  const [isFirstVisit, setIsFirstVisit] = useRecoilState(IsFirstVisit);
   const [melonChart, setMelonChart] = useState<MelonChartListType[]>([]);
   const [melonChartInfo, setMelonChartInfo] = useState<MelonKeyword>({
     artist: "",
@@ -24,6 +28,11 @@ const useMelonChart = () => {
   });
 
   const handleClickMelonChart = (id: number, title: string, artist: string) => {
+    if (isFirstVisit) {
+      localStorage.setItem(TOOL_TIP_KEY, "false");
+      setIsFirstVisit(false);
+    }
+
     setMelonChart((prev) =>
       prev.map((item) =>
         item.rank === id
@@ -43,7 +52,9 @@ const useMelonChart = () => {
     postMelonChartApplyMutation.mutate(melonChartInfo, {
       onSuccess: () => {
         toast.success("기상송을 신청했습니다!");
-        queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
+        queryClient.invalidateQueries(
+          QUERY_KEYS.wakeupSong.getPendingMusicList
+        );
         queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
         setMelonChartInfo({ artist: "", title: "" });
         setMelonChart((prev) =>
