@@ -6,7 +6,7 @@ export const getTheme = (): ETheme => {
 
   if (typeof window !== "undefined" && themeMode === null) {
     const isDarkTheme: boolean = window.matchMedia(
-      `(prefers-color-scheme: light)`
+      `(prefers-color-scheme: dark)`
     ).matches;
 
     if (isDarkTheme) {
