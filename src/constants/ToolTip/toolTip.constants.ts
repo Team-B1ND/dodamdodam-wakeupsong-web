@@ -1,1 +1,1 @@
-export const TOOL_TIP_KEY = "isFirstVisit" as const;
+export const TOOL_TIP_KEY = "visit-count" as const;

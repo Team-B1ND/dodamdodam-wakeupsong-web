@@ -1,15 +1,12 @@
 import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
+import token from "libs/Token/token";
 
-export const getFirstVisit = (): boolean => {
-  const isFirstVisitValue = window.localStorage.getItem(TOOL_TIP_KEY);
+export const getFirstVisit = (): number => {
+  const visitCountValue = token.getToken(TOOL_TIP_KEY);
 
-  if (typeof window !== "undefined" && isFirstVisitValue === null) {
-    return true;
+  if (visitCountValue === undefined) {
+    return 0;
   }
 
-  if (isFirstVisitValue === "true") {
-    return true;
-  }
-
-  return false;
+  return +visitCountValue;
 };

@@ -17,6 +17,7 @@ const Main = () => {
           description="인기가 많은 노래들을 모아봤어요!"
           wakeupSongList={melonChart.melonChart}
           melonChartInfo={melonChart.melonChartInfo}
+          isHideToolTip={melonChart.isHideToolTip}
           handleClickMelonChart={melonChart.handleClickMelonChart}
           handleClickMelonChartApply={melonChart.handleClickMelonChartApply}
         />

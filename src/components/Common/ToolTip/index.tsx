@@ -1,12 +1,12 @@
 import * as S from "./style";
 
 interface Props {
-  isFirstVisit: boolean;
+  isHideToolTip: boolean;
 }
 
-const ToolTip = ({ isFirstVisit }: Props) => {
+const ToolTip = ({ isHideToolTip }: Props) => {
   return (
-    <S.Container isFirstVisit={isFirstVisit}>
+    <S.Container isHideToolTip={isHideToolTip}>
       <S.ToolTipWrap>
         <S.ToolTip>
           클릭하여 <strong>신청</strong>해보아요!

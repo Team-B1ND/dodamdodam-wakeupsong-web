@@ -10,7 +10,10 @@ import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 import ToolTip from "components/Common/ToolTip";
 import { useRecoilValue } from "recoil";
-import { IsFirstVisit } from "store/ToolTip/toolTip.store";
+import { VisitCount } from "store/ToolTip/toolTip.store";
+import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
+import { useEffect } from "react";
+import token from "libs/Token/token";
 
 interface Props {
   title: string;
@@ -18,6 +21,7 @@ interface Props {
   wakeupSongList: MelonChartListType[] | WakeupSongMusicType[];
 
   // melonChart
+  isHideToolTip?: boolean;
   melonChartInfo?: MelonKeyword;
   handleClickMelonChart?: (id: number, title: string, label: string) => void;
   handleClickMelonChartApply?: () => void;
@@ -33,6 +37,7 @@ interface Props {
 const WakeupSongList = ({
   title,
   description,
+  isHideToolTip,
   melonChartInfo,
   musicInfoId,
   wakeupSongList,
@@ -43,7 +48,12 @@ const WakeupSongList = ({
   hanldeWakeupSongAllow,
   hanldeWakeupSongDeny,
 }: Props) => {
-  const isFirstVisit = useRecoilValue(IsFirstVisit);
+  const visitCount = useRecoilValue(VisitCount);
+
+  // 로딩될때마다 방문한 수 증가
+  useEffect(() => {
+    token.setToken(TOOL_TIP_KEY, (visitCount + 1).toString());
+  }, [visitCount]);
 
   return (
     <S.Container>
@@ -52,7 +62,7 @@ const WakeupSongList = ({
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>
         </S.Info>
-        {title === "멜론 차트" && <ToolTip isFirstVisit={isFirstVisit} />}
+        {title === "멜론 차트" && !visitCount && <ToolTip isHideToolTip={isHideToolTip!} />}
         {title === "멜론 차트"
           ? melonChartInfo?.title &&
             melonChartInfo?.artist && (
