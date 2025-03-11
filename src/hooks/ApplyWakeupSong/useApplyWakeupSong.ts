@@ -27,6 +27,10 @@ const useApplyWakeupSong = () => {
     }
   };
 
+  const handleRemoveClick = () => {
+    setValue("");
+  };
+
   const handleClickPostWakeupSong = () => {
     if (value.trim() === "") {
       toast.info("url을 입력해주세요");
@@ -42,8 +46,12 @@ const useApplyWakeupSong = () => {
             toast.error(`${data.message}`);
           } else {
             toast.success("기상송을 신청했습니다!");
-            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
-            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
+            queryClient.invalidateQueries(
+              QUERY_KEYS.wakeupSong.getPendingMusicList
+            );
+            queryClient.invalidateQueries(
+              QUERY_KEYS.wakeupSong.getMyAllWakeupSong
+            );
             setValue("");
           }
         },
@@ -64,8 +72,12 @@ const useApplyWakeupSong = () => {
         {
           onSuccess: () => {
             toast.success("기상송을 신청했습니다!");
-            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
-            queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getMyAllWakeupSong);
+            queryClient.invalidateQueries(
+              QUERY_KEYS.wakeupSong.getPendingMusicList
+            );
+            queryClient.invalidateQueries(
+              QUERY_KEYS.wakeupSong.getMyAllWakeupSong
+            );
             setValue("");
           },
           onError: (error) => {
@@ -83,6 +95,7 @@ const useApplyWakeupSong = () => {
     isError,
     handleChangeValue,
     handleKeyDown,
+    handleRemoveClick,
     handleClickPostWakeupSong,
   };
 };

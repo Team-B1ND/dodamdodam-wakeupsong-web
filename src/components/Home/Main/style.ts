@@ -13,7 +13,6 @@ export const Container = styled.div`
   overflow-y: auto;
 
   padding: 24px;
-  margin-left: 22px;
   gap: 32px;
 
   &::-webkit-scrollbar {

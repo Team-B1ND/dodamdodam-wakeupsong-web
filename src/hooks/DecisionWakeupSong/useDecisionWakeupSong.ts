@@ -8,7 +8,7 @@ import {
 import { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 import { toast } from "react-toastify";
-import { WakeupSongMusicType } from "types/wakeupSong/wakeupSong.type";
+import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
 
 const useDecisionWakeupSong = () => {
   const queryClient = useQueryClient();
@@ -45,7 +45,10 @@ const useDecisionWakeupSong = () => {
       onSuccess: () => {
         toast.success("기상송을 승인했습니다!");
         handleSuccessfulWakeupSongEvent();
-        queryClient.invalidateQueries("wakeup-song/allow");
+        queryClient.invalidateQueries([
+          QUERY_KEYS.wakeupSong.getTodayMusicData,
+          QUERY_KEYS.wakeupSong.getTomorrowMusicData,
+        ]);
       },
       onError: () => {
         toast.error("기상송 승인을 실패하였습니다!");
@@ -58,7 +61,9 @@ const useDecisionWakeupSong = () => {
       onSuccess: () => {
         toast.success("기상송을 거절했습니다!");
         handleSuccessfulWakeupSongEvent();
-        queryClient.invalidateQueries(QUERY_KEYS.wakeupSong.getPendingMusicList);
+        queryClient.invalidateQueries(
+          QUERY_KEYS.wakeupSong.getPendingMusicList
+        );
       },
       onError: () => {
         toast.error("기상송 거절을 실패하였습니다!");

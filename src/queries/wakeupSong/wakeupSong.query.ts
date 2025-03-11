@@ -1,7 +1,7 @@
 import { useMutation, useQuery, UseQueryOptions } from "react-query";
 import { AxiosError } from "axios";
 import { QUERY_KEYS } from "queries/queryKey";
-import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
+import { WakeupSongMusicLists } from "types/WakeupSong/wakeupSong.type";
 import wakeupSongRepository from "repository/WakeupSong/wakeupSong.repository";
 
 // 오늘 승인된 기상송 조회

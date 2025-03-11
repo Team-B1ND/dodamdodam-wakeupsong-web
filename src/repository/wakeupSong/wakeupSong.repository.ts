@@ -1,6 +1,6 @@
 import dodamAxios from "libs/Axios/dodamAxios";
-import { Response } from "types/util/response.type";
-import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
+import { Response } from "types/Util/response.type";
+import { WakeupSongMusicLists } from "types/WakeupSong/wakeupSong.type";
 
 class WakeupSongRepository {
   public async getWakeupSongPendingMusicListData(): Promise<WakeupSongMusicLists> {

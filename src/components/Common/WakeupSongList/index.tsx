@@ -6,7 +6,7 @@ import {
   MelonChartListType,
   MelonKeyword,
 } from "repository/MelonChart/melonChart.param";
-import { WakeupSongMusicType } from "types/wakeupSong/wakeupSong.type";
+import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 import ToolTip from "components/Common/ToolTip";
 import { useRecoilValue } from "recoil";

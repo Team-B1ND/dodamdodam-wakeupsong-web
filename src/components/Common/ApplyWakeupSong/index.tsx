@@ -15,6 +15,7 @@ const ApplyWakeupSong = () => {
         isError={applyWakeupSong.isError}
         onChange={applyWakeupSong.handleChangeValue}
         onKeyDown={applyWakeupSong.handleKeyDown}
+        onRemoveClick={applyWakeupSong.handleRemoveClick}
         placeholder="제목, 아티스트 혹은 링크"
         customStyle={{ height: "62px" }}
       />

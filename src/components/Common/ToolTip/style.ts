@@ -5,7 +5,7 @@ const bounce = keyframes`
   0%, 100% {
     transform: translateY(0);
   }
-  50% {
+  35% {
     transform: translateY(-10px);
   }
 `;
@@ -27,7 +27,7 @@ export const Container = styled.div<{ isFirstVisit: boolean }>`
 
   animation: ${bounce} 1.2s ease-in-out infinite;
 
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
   opacity: ${({ isFirstVisit }) => (isFirstVisit ? 1 : 0)};
 `;
 
