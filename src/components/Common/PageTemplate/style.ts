@@ -6,4 +6,8 @@ export const PageTemplateContainer = styled.div`
   display: flex;
 
   background-color: ${({ theme }) => theme.backgroundNeutral};
+
+  @media (max-width: 797px) {
+    height: min-content;
+  }
 `;

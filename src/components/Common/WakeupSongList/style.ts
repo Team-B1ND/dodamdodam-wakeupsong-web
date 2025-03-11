@@ -2,12 +2,16 @@ import { DodamTypography } from "@b1nd/dds-web";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
+  width: calc(50% - 16px);
 
   display: flex;
   flex-direction: column;
 
   gap: 8px;
+
+   @media (max-width: 550px) {
+    width: 100%;
+  }
 `;
 
 export const Wrap = styled.div`
