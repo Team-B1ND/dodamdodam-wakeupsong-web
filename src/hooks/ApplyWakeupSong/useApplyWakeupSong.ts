@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { toast } from "react-toastify";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useQueryClient } from "react-query";
 import { usePostApplyMusicMutation } from "queries/WakeupSong/wakeupSong.query";
@@ -33,7 +33,7 @@ const useApplyWakeupSong = () => {
 
   const handleClickPostWakeupSong = () => {
     if (value.trim() === "") {
-      toast.info("url을 입력해주세요");
+      B1ndToast.showInfo("url을 입력해주세요");
       setIsError(true);
       return;
     }
@@ -43,9 +43,9 @@ const useApplyWakeupSong = () => {
       postApplyMusicMutation.mutate(value, {
         onSuccess: (data) => {
           if (data.status === 226) {
-            toast.error(`${data.message}`);
+            B1ndToast.showError(`${data.message}`);
           } else {
-            toast.success("기상송을 신청했습니다!");
+            B1ndToast.showSuccess("기상송을 신청했습니다!");
             queryClient.invalidateQueries(
               QUERY_KEYS.wakeupSong.getPendingMusicList
             );
@@ -57,7 +57,7 @@ const useApplyWakeupSong = () => {
         },
         onError: (error) => {
           const axiosError = error as AxiosError;
-          toast.error(ErrorHandler.applyWakeupSongError(axiosError));
+          B1ndToast.showError(ErrorHandler.applyWakeupSongError(axiosError));
           setIsError(true);
         },
       });
@@ -71,7 +71,7 @@ const useApplyWakeupSong = () => {
         { artist, title },
         {
           onSuccess: () => {
-            toast.success("기상송을 신청했습니다!");
+            B1ndToast.showSuccess("기상송을 신청했습니다!");
             queryClient.invalidateQueries(
               QUERY_KEYS.wakeupSong.getPendingMusicList
             );
@@ -82,7 +82,7 @@ const useApplyWakeupSong = () => {
           },
           onError: (error) => {
             const errorCode = error as AxiosError;
-            toast.error(ErrorHandler.applyWakeupSongError(errorCode));
+            B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
             setIsError(true);
           },
         }

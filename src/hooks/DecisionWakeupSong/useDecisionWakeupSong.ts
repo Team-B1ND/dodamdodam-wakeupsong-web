@@ -7,7 +7,7 @@ import {
 } from "queries/WakeupSong/wakeupSong.query";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
-import { toast } from "react-toastify";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
 
 const useDecisionWakeupSong = () => {
@@ -43,7 +43,7 @@ const useDecisionWakeupSong = () => {
   const hanldeWakeupSongAllow = () => {
     allowWakeupSongMutation.mutate(musicInfoId!, {
       onSuccess: () => {
-        toast.success("기상송을 승인했습니다!");
+        B1ndToast.showSuccess("기상송을 승인했습니다!");
         handleSuccessfulWakeupSongEvent();
         queryClient.invalidateQueries([
           QUERY_KEYS.wakeupSong.getTodayMusicData,
@@ -51,7 +51,7 @@ const useDecisionWakeupSong = () => {
         ]);
       },
       onError: () => {
-        toast.error("기상송 승인을 실패하였습니다!");
+        B1ndToast.showError("기상송 승인을 실패하였습니다!");
       },
     });
   };
@@ -59,14 +59,14 @@ const useDecisionWakeupSong = () => {
   const hanldeWakeupSongDeny = () => {
     denyWakeupSongMutation.mutate(musicInfoId!, {
       onSuccess: () => {
-        toast.success("기상송을 거절했습니다!");
+        B1ndToast.showSuccess("기상송을 거절했습니다!");
         handleSuccessfulWakeupSongEvent();
         queryClient.invalidateQueries(
           QUERY_KEYS.wakeupSong.getPendingMusicList
         );
       },
       onError: () => {
-        toast.error("기상송 거절을 실패하였습니다!");
+        B1ndToast.showError("기상송 거절을 실패하였습니다!");
       },
     });
   };

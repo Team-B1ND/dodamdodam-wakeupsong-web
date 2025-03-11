@@ -8,7 +8,7 @@ import {
   MelonKeyword,
 } from "repository/MelonChart/melonChart.param";
 import { useQueryClient } from "react-query";
-import { toast } from "react-toastify";
+import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { AxiosError } from "axios";
 import ErrorHandler from "utils/Error/ErrorHandler";
 import { QUERY_KEYS } from "queries/queryKey";
@@ -51,7 +51,7 @@ const useMelonChart = () => {
   const handleClickMelonChartApply = () => {
     postMelonChartApplyMutation.mutate(melonChartInfo, {
       onSuccess: () => {
-        toast.success("기상송을 신청했습니다!");
+        B1ndToast.showSuccess("기상송을 신청했습니다!");
         queryClient.invalidateQueries(
           QUERY_KEYS.wakeupSong.getPendingMusicList
         );
@@ -63,7 +63,7 @@ const useMelonChart = () => {
       },
       onError: (error) => {
         const errorCode = error as AxiosError;
-        toast.error(ErrorHandler.applyWakeupSongError(errorCode));
+        B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
       },
     });
   };

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@b1nd/b1nd-toastify": "^2.0.1",
     "@b1nd/dds-web": "^0.1.46",
     "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "5.16.5",
@@ -28,7 +29,6 @@
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.2",
     "react-spinners": "^0.13.8",
-    "react-toastify": "9.0.8",
     "recoil": "0.7.5",
     "request": "2.88.2",
     "slick-carousel": "^1.8.1",

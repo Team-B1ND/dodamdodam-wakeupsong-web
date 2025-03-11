@@ -1,21 +1,9 @@
 import styled from "styled-components";
 import Router from "./Router";
-import { ToastContainer } from "react-toastify";
 
 const App = () => {
   return (
     <AppContainer>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <Router />
     </AppContainer>
   );
