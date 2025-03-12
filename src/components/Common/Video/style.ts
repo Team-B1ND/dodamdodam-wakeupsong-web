@@ -1,19 +1,30 @@
 import { DodamShape, DodamTypography } from "@b1nd/dds-web";
 import styled from "styled-components";
+import { TypeProps } from "./index";
 
-export const Container = styled.div`
-  max-width: 300px;
-  width: 33%;
-  height: auto;
+export const Container = styled.div<{ type: TypeProps }>`
+  width: ${({ type }) => (type === "All" ? "33%" : "100%")};
+  max-width: ${({ type }) => type === "All" && "300px"};
 
   display: flex;
   flex-direction: column;
 
   gap: 4px;
   user-select: none;
+
+  @media (max-width: 797px) {
+    ${({ type }) =>
+      type === "My" && `flex-direction: row; gap: 10px; align-items: center;`}
+  }
+
+  @media (max-width: 600px) {
+    ${({ type }) =>
+      type === "My" &&
+      `flex-direction: column; gap: 4px; align-items: flex-start;`}
+  }
 `;
 
-export const VideoImg = styled.img`
+export const VideoImg = styled.img<{ type: TypeProps }>`
   width: 100%;
   max-height: 200px;
 
@@ -26,15 +37,31 @@ export const VideoImg = styled.img`
       text-decoration: underline;
     }
   }
+
+  @media (max-width: 797px) {
+    ${({ type }) => type === "My" && `width: 30%;`}
+  }
+
+  @media (max-width: 600px) {
+    ${({ type }) => type === "My" && `width: 100%; max-height: 300px;`}
+  }
 `;
 
-export const VideoInfo = styled.div`
+export const VideoInfo = styled.div<{ type: TypeProps }>`
   width: 100%;
 
   display: flex;
   flex-direction: column;
 
   gap: 2px;
+
+  @media (max-width: 797px) {
+    ${({ type }) => type === "My" && `width: calc(70% - 24px);`}
+  }
+
+  @media (max-width: 600px) {
+    ${({ type }) => type === "My" && `width: 100%;`}
+  }
 `;
 
 export const VideoTitle = styled.p`

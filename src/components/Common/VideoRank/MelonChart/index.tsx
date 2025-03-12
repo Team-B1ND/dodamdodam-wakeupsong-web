@@ -1,3 +1,4 @@
+import textTransform from "utils/Text/textTransform";
 import * as S from "./style";
 
 interface Props {
@@ -16,7 +17,7 @@ const MelonChart = ({ rank, title, label, img, isAtv, onClick }: Props) => {
       <S.Wrap>
         <S.VideoImg src={img} />
         <S.VideoInfo>
-          <S.VideoTitle>{title}</S.VideoTitle>
+          <S.VideoTitle>{textTransform.ellipsis(title, 50)}</S.VideoTitle>
           <S.VideoLabel>{label}</S.VideoLabel>
         </S.VideoInfo>
       </S.Wrap>

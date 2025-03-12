@@ -18,6 +18,7 @@ const MyWakeupSong = () => {
               <Video
                 key={video.id}
                 id={video.id}
+                type="My"
                 title={video.videoTitle}
                 label={video.channelTitle}
                 date={createVideo}

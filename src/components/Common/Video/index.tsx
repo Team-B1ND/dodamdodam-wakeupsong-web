@@ -1,9 +1,13 @@
-import useDeleteMyWakeupSong from "hooks/DeleteMyWakeupSong/useDeleteMyWakeupSong";
 import * as S from "./style";
 import { Trash } from "@b1nd/dds-web";
+import textTransform from "utils/Text/textTransform";
+import useDeleteMyWakeupSong from "hooks/DeleteMyWakeupSong/useDeleteMyWakeupSong";
+
+export type TypeProps = "All" | "My";
 
 interface Props {
   id?: number;
+  type: TypeProps;
   title: string;
   label: string;
   date?: string;
@@ -12,14 +16,14 @@ interface Props {
   isDelete?: boolean;
 }
 
-const Video = ({ id, title, label, date, img, url, isDelete }: Props) => {
+const Video = ({ id, type, title, label, date, img, url, isDelete }: Props) => {
   const { ...deleteMyWakeupSong } = useDeleteMyWakeupSong();
 
   return (
-    <S.Container>
-      <S.VideoImg src={img} onClick={() => window.open(url)} />
-      <S.VideoInfo>
-        <S.VideoTitle>{title}</S.VideoTitle>
+    <S.Container type={type}>
+      <S.VideoImg src={img} type={type} onClick={() => window.open(url)} />
+      <S.VideoInfo type={type}>
+        <S.VideoTitle>{textTransform.ellipsis(title, 50)}</S.VideoTitle>
         <S.Wrap>
           <S.Box>
             <S.VideoLabel>{label}</S.VideoLabel>

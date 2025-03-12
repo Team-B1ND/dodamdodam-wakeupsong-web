@@ -16,6 +16,7 @@ export const Container = styled.div`
 
   @media (max-width: 797px) {
     width: 100%;
+    height: 220px;
 
     display: flex;
     flex-direction: row;
@@ -23,12 +24,13 @@ export const Container = styled.div`
     & > :nth-child(2) {
       width: 1px;
       min-width: 0;
-      height: 200px;
+      height: 100%;
     }
   }
 
   @media (max-width: 600px) {
     width: 100%;
+    height: auto;
 
     display: flex;
     flex-direction: column;

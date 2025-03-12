@@ -1,3 +1,4 @@
+import textTransform from "utils/Text/textTransform";
 import * as S from "./style";
 
 interface Props {
@@ -28,12 +29,18 @@ const PendingWakeupSong = ({
       isAtv={isAtv}
       isBroadCast={isBroadCast}
       onClick={() => handleClickWakeupSong!(id)}>
-      <S.VideoRank isAtv={isAtv} isBroadCast={isBroadCast}>{rank}</S.VideoRank>
+      <S.VideoRank isAtv={isAtv} isBroadCast={isBroadCast}>
+        {rank}
+      </S.VideoRank>
       <S.Wrap>
         <S.VideoImg src={img} onClick={() => window.open(url)} />
         <S.VideoInfo>
-          <S.VideoTitle isAtv={isAtv} isBroadCast={isBroadCast}>{title}</S.VideoTitle>
-          <S.VideoLabel isAtv={isAtv} isBroadCast={isBroadCast}>{label}</S.VideoLabel>
+          <S.VideoTitle isAtv={isAtv} isBroadCast={isBroadCast}>
+            {textTransform.ellipsis(title, 50)}
+          </S.VideoTitle>
+          <S.VideoLabel isAtv={isAtv} isBroadCast={isBroadCast}>
+            {label}
+          </S.VideoLabel>
         </S.VideoInfo>
       </S.Wrap>
     </S.Container>

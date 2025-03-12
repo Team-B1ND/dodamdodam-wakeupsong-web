@@ -17,6 +17,7 @@ const TodayWakeupSong = () => {
             .map((video) => (
               <Video
                 key={video.id}
+                type="All"
                 title={video.videoTitle}
                 label={video.channelTitle}
                 img={video.thumbnail}

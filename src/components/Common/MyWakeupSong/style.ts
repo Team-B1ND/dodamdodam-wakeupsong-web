@@ -42,7 +42,6 @@ export const VideoWrap = styled.div`
 export const NullVideo = styled.div`
   width: 100%;
   aspect-ratio: 16 / 7;
-  /* height: 180px; */
 
   color: ${({ theme }) => theme.labelAlternative};
   ${DodamTypography.Body1.Medium}
