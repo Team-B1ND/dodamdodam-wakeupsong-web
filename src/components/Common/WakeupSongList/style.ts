@@ -9,7 +9,7 @@ export const Container = styled.div`
 
   gap: 8px;
 
-   @media (max-width: 550px) {
+  @media (max-width: 600px) {
     width: 100%;
   }
 `;
@@ -21,7 +21,7 @@ export const Wrap = styled.div`
   justify-content: space-between;
   align-items: flex-end;
 
-  position: relative
+  position: relative;
 `;
 
 export const Info = styled.div`

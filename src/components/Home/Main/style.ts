@@ -25,7 +25,6 @@ export const Container = styled.div`
 
   @media (max-width: 797px) {
     width: 100%;
-    margin-bottom: 0;
   }
 `;
 
@@ -36,7 +35,7 @@ export const Wrap = styled.div`
 
   gap: 32px;
 
-   @media (max-width: 550px) {
+  @media (max-width: 600px) {
     width: 100%;
     display: flex;
     flex-direction: column;

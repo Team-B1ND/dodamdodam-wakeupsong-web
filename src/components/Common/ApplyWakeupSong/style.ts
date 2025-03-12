@@ -8,6 +8,14 @@ export const Container = styled.div`
   flex-direction: column;
 
   gap: 16px;
+
+  @media (max-width: 797px) {
+    width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.p`

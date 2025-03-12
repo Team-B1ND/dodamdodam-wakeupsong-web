@@ -9,6 +9,14 @@ export const Container = styled.div`
 
   gap: 16px;
   margin-bottom: 16px;
+
+  @media (max-width: 797px) {
+    width: 50%;
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 `;
 
 export const Title = styled.p`
@@ -33,7 +41,8 @@ export const VideoWrap = styled.div`
 
 export const NullVideo = styled.div`
   width: 100%;
-  height: 180px;
+  aspect-ratio: 16 / 7;
+  /* height: 180px; */
 
   color: ${({ theme }) => theme.labelAlternative};
   ${DodamTypography.Body1.Medium}

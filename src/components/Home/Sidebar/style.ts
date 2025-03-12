@@ -16,6 +16,26 @@ export const Container = styled.div`
 
   @media (max-width: 797px) {
     width: 100%;
-    margin-bottom: 24px;
+
+    display: flex;
+    flex-direction: row;
+
+    & > :nth-child(2) {
+      width: 1px;
+      min-width: 0;
+      height: 200px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    & > :nth-child(2) {
+      width: 100%;
+      height: 1px;
+    }
   }
 `;
