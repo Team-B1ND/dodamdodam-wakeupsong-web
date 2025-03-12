@@ -16,6 +16,8 @@ const useDecisionWakeupSong = () => {
   const denyWakeupSongMutation = useDenyWakeupSongMutation();
   const { data: PendingWakeupSongList } = useGetPendingMusicListQuery();
   const { data: isBroadcastClubMember } = useGetBroadcastClubMemberCheckQuery();
+
+  const [isEnabled, setIsEnabled] = useState(true);
   const [musicInfoId, setMusicInfoId] = useState<number>();
   const [pendingWakeupSong, setPendingWakeupSong] = useState<
     WakeupSongMusicType[]
@@ -41,6 +43,10 @@ const useDecisionWakeupSong = () => {
   };
 
   const hanldeWakeupSongAllow = () => {
+    if (!isEnabled) return;
+
+    setIsEnabled(false);
+
     allowWakeupSongMutation.mutate(musicInfoId!, {
       onSuccess: () => {
         B1ndToast.showSuccess("기상송을 승인했습니다!");
@@ -49,14 +55,20 @@ const useDecisionWakeupSong = () => {
           QUERY_KEYS.wakeupSong.getTodayMusicData,
           QUERY_KEYS.wakeupSong.getTomorrowMusicData,
         ]);
+        setIsEnabled(true);
       },
       onError: () => {
         B1ndToast.showError("기상송 승인을 실패하였습니다!");
+        setIsEnabled(true);
       },
     });
   };
 
   const hanldeWakeupSongDeny = () => {
+    if (!isEnabled) return;
+
+    setIsEnabled(false);
+
     denyWakeupSongMutation.mutate(musicInfoId!, {
       onSuccess: () => {
         B1ndToast.showSuccess("기상송을 거절했습니다!");
@@ -64,9 +76,11 @@ const useDecisionWakeupSong = () => {
         queryClient.invalidateQueries(
           QUERY_KEYS.wakeupSong.getPendingMusicList
         );
+        setIsEnabled(true);
       },
       onError: () => {
         B1ndToast.showError("기상송 거절을 실패하였습니다!");
+        setIsEnabled(true);
       },
     });
   };
@@ -80,6 +94,7 @@ const useDecisionWakeupSong = () => {
   }, [PendingWakeupSongList]);
 
   return {
+    isEnabled,
     musicInfoId,
     pendingWakeupSong,
     isBroadcastClubMember,

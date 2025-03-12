@@ -17,6 +17,8 @@ const useMelonChart = () => {
   const queryClient = useQueryClient();
   const postMelonChartApplyMutation = usePostMelonChartApplyMutation();
   const { data: MelonChartList } = useGetMelonChartLists();
+
+  const [isEnabled, setIsEnabled] = useState(true);
   const [isHideToolTip, setIsShowToolTip] = useState(false);
   const [melonChart, setMelonChart] = useState<MelonChartListType[]>([]);
   const [melonChartInfo, setMelonChartInfo] = useState<MelonKeyword>({
@@ -42,6 +44,10 @@ const useMelonChart = () => {
   };
 
   const handleClickMelonChartApply = () => {
+    if (!isEnabled) return;
+
+    setIsEnabled(false);
+
     postMelonChartApplyMutation.mutate(melonChartInfo, {
       onSuccess: () => {
         B1ndToast.showSuccess("기상송을 신청했습니다!");
@@ -53,10 +59,12 @@ const useMelonChart = () => {
         setMelonChart((prev) =>
           prev.map((item) => ({ ...item, isAtv: false }))
         );
+        setIsEnabled(true);
       },
       onError: (error) => {
         const errorCode = error as AxiosError;
         B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
+        setIsEnabled(true);
       },
     });
   };
@@ -70,6 +78,7 @@ const useMelonChart = () => {
   }, [MelonChartList]);
 
   return {
+    isEnabled,
     melonChart,
     melonChartInfo,
     isHideToolTip,

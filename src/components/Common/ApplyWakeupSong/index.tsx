@@ -23,6 +23,7 @@ const ApplyWakeupSong = () => {
         size="Large"
         textTheme="staticWhite"
         customStyle={{ userSelect: "none" }}
+        enabled={applyWakeupSong.isEnabled}
         onClick={() => applyWakeupSong.handleClickPostWakeupSong()}>
         신청
       </DodamFilledButton>

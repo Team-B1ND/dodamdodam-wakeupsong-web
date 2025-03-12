@@ -18,6 +18,7 @@ import token from "libs/Token/token";
 interface Props {
   title: string;
   description: string;
+  isEnabled: boolean;
   wakeupSongList: MelonChartListType[] | WakeupSongMusicType[];
 
   // melonChart
@@ -37,6 +38,7 @@ interface Props {
 const WakeupSongList = ({
   title,
   description,
+  isEnabled,
   isHideToolTip,
   melonChartInfo,
   musicInfoId,
@@ -70,6 +72,7 @@ const WakeupSongList = ({
                 size="Small"
                 text="신청"
                 width={80}
+                enabled={isEnabled}
                 textTheme="staticWhite"
                 typography={["Label", "Bold"]}
                 customStyle={{ minHeight: "37px" }}
@@ -83,6 +86,7 @@ const WakeupSongList = ({
                   size="Small"
                   text="승인"
                   width={70}
+                  enabled={isEnabled}
                   textTheme="staticWhite"
                   typography={["Label", "Bold"]}
                   customStyle={{ minHeight: "37px" }}
@@ -92,6 +96,7 @@ const WakeupSongList = ({
                   size="Small"
                   text="거절"
                   width={70}
+                  enabled={isEnabled}
                   textTheme="staticWhite"
                   backgroundColorType="Negative"
                   typography={["Label", "Bold"]}

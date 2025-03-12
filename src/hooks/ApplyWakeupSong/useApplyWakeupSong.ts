@@ -11,6 +11,7 @@ const useApplyWakeupSong = () => {
   const queryClient = useQueryClient();
   const [value, setValue] = useState<string>("");
   const [isError, setIsError] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(true);
   const postApplyMusicMutation = usePostApplyMusicMutation();
   const postMelonChartApplyMutation = usePostMelonChartApplyMutation();
 
@@ -32,9 +33,14 @@ const useApplyWakeupSong = () => {
   };
 
   const handleClickPostWakeupSong = () => {
+    if (!isEnabled) return;
+
+    setIsEnabled(false);
+
     if (value.trim() === "") {
       B1ndToast.showInfo("url을 입력해주세요");
       setIsError(true);
+      setIsEnabled(true);
       return;
     }
 
@@ -54,11 +60,13 @@ const useApplyWakeupSong = () => {
             );
             setValue("");
           }
+          setIsEnabled(true);
         },
         onError: (error) => {
           const axiosError = error as AxiosError;
           B1ndToast.showError(ErrorHandler.applyWakeupSongError(axiosError));
           setIsError(true);
+          setIsEnabled(true);
         },
       });
     }
@@ -79,11 +87,13 @@ const useApplyWakeupSong = () => {
               QUERY_KEYS.wakeupSong.getMyAllWakeupSong
             );
             setValue("");
+            setIsEnabled(true);
           },
           onError: (error) => {
             const errorCode = error as AxiosError;
             B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
             setIsError(true);
+            setIsEnabled(true);
           },
         }
       );
@@ -93,6 +103,7 @@ const useApplyWakeupSong = () => {
   return {
     value,
     isError,
+    isEnabled,
     handleChangeValue,
     handleKeyDown,
     handleRemoveClick,

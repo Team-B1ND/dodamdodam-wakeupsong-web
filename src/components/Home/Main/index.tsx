@@ -15,6 +15,7 @@ const Main = () => {
         <WakeupSongList
           title="멜론 차트"
           description="인기가 많은 노래들을 모아봤어요!"
+          isEnabled={melonChart.isEnabled}
           wakeupSongList={melonChart.melonChart}
           melonChartInfo={melonChart.melonChartInfo}
           isHideToolTip={melonChart.isHideToolTip}
@@ -24,6 +25,7 @@ const Main = () => {
         <WakeupSongList
           title="신청 현황"
           description="어떤 노래가 있는지 확인해보세요!"
+          isEnabled={decisionWakeupSong.isEnabled}
           musicInfoId={decisionWakeupSong.musicInfoId}
           wakeupSongList={decisionWakeupSong.pendingWakeupSong}
           isBroadcastClubMember={decisionWakeupSong.isBroadcastClubMember}
