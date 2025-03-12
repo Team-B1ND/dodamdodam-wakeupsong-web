@@ -27,6 +27,8 @@ export const Wrap = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+
+  padding: 0 24px;
 `;
 
 export const Title = styled.p`

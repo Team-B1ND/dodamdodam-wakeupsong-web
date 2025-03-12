@@ -12,7 +12,7 @@ export const Container = styled.div`
 
   overflow-y: auto;
 
-  padding: 24px;
+  padding: 24px 0;
   gap: 32px;
 
   &::-webkit-scrollbar {
@@ -34,6 +34,7 @@ export const Wrap = styled.div`
   display: flex;
 
   gap: 32px;
+  padding: 0 24px;
 
   @media (max-width: 600px) {
     width: 100%;
