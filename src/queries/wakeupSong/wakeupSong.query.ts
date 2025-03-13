@@ -1,7 +1,8 @@
-import wakeupSongRepository from "repository/wakeupSong/wakeupSong.repository";
 import { useMutation, useQuery, UseQueryOptions } from "react-query";
 import { AxiosError } from "axios";
-import { WakeupSongMusicLists } from "types/wakeupSong/wakeupSong.type";
+import { QUERY_KEYS } from "queries/queryKey";
+import { WakeupSongMusicLists } from "types/WakeupSong/wakeupSong.type";
+import wakeupSongRepository from "repository/WakeupSong/wakeupSong.repository";
 
 // 오늘 승인된 기상송 조회
 export const useGetTodayMusicDataQuery = (
@@ -9,11 +10,11 @@ export const useGetTodayMusicDataQuery = (
     WakeupSongMusicLists,
     AxiosError,
     WakeupSongMusicLists,
-    "todayMusicData/getTodayMusicData"
+    string
   >
 ) => {
   return useQuery(
-    "todayMusicData/getTodayMusicData",
+    QUERY_KEYS.wakeupSong.getTodayMusicData,
     () =>
       wakeupSongRepository.getWakeupSongTodayMusicData(
         new Date().toLocaleDateString().split(".")
@@ -30,14 +31,14 @@ export const useGetTomorrowMusicDataQuery = (
     WakeupSongMusicLists,
     AxiosError,
     WakeupSongMusicLists,
-    "tomorrowMusicData/getTomorrowMusicData"
+    string
   >
 ) => {
   const date = new Date();
   date.setDate(date.getDate() + 1);
 
   return useQuery(
-    "tomorrowMusicData/getTomorrowMusicData",
+    QUERY_KEYS.wakeupSong.getTomorrowMusicData,
     () =>
       wakeupSongRepository.getWakeupSongTodayMusicData(
         date.toLocaleDateString().split(".")
@@ -54,11 +55,11 @@ export const useGetPendingMusicListQuery = (
     WakeupSongMusicLists,
     AxiosError,
     WakeupSongMusicLists,
-    "pendingMusic/getPendingMusicList"
+    string
   >
 ) =>
   useQuery(
-    "pendingMusic/getPendingMusicList",
+    QUERY_KEYS.wakeupSong.getPendingMusicList,
     () => wakeupSongRepository.getWakeupSongPendingMusicListData(),
     {
       ...options,
@@ -71,11 +72,11 @@ export const useGetMyAllWakeupSongQuery = (
     WakeupSongMusicLists,
     AxiosError,
     WakeupSongMusicLists,
-    "myAllWakeupSong/useGetMyAllWakeupSong"
+    string
   >
 ) =>
   useQuery(
-    "myAllWakeupSong/useGetMyAllWakeupSong",
+    QUERY_KEYS.wakeupSong.getMyAllWakeupSong,
     () => wakeupSongRepository.getWakeupSongMy(),
     {
       ...options,

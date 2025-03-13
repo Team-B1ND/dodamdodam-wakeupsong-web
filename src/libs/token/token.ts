@@ -1,8 +1,8 @@
 import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
-} from "constants/token/token.contants";
-import cookie from "../cookie/cookie";
+} from "constants/Token/token.contants";
+import cookie from "../Cookie/cookie";
 
 class Token {
   public getToken(key: string): string | undefined {
