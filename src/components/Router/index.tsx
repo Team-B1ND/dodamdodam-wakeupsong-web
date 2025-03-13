@@ -1,6 +1,6 @@
 import { DodamNotFoundPage } from "@b1nd/dds-web";
 import PageTemplate from "components/Common/PageTemplate";
-import WakeupSongPage from "pages";
+import WakeupSongPage from "pages/page";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Router = () => {
