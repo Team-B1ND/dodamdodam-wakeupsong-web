@@ -1,4 +1,4 @@
-import { Response } from "types/util/response.type";
+import { Response } from "types/Util/response.type";
 
 export interface BroadcastClubMemberResponse extends Response {
   data: boolean;

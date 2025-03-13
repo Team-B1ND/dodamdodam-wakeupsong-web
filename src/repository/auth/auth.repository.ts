@@ -1,5 +1,5 @@
 import axios from "axios";
-import { RefreshResponse } from "types/auth/auth.type";
+import { RefreshResponse } from "types/Auth/auth.type";
 import config from "config/config.json";
 import { postRefreshTokenParam } from "./auth.param";
 

@@ -1,22 +1,17 @@
+import { DodamNotFoundPage } from "@b1nd/dds-web";
+import PageTemplate from "components/Common/PageTemplate";
+import WakeupSongPage from "pages";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "../common/Header";
-import Main from "../Main";
-import Nav from "../common/Nav";
-import MyMusic from "components/MyMusic";
-import TodayMusic from "components/TodayMusic";
-import PendingMusic from "components/PendingMusic";
 
 const Router = () => {
   return (
-    <BrowserRouter>
-      <Header />
+    <BrowserRouter basename="/wakesong">
       <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/mymusic" element={<MyMusic />} />
-        <Route path="/todaymusic" element={<TodayMusic />} />
-        <Route path="/pendingmusic" element={<PendingMusic />} />
+        <Route path="/" element={<PageTemplate />}>
+          <Route index element={<WakeupSongPage />} />
+        </Route>
+        <Route path="*" element={<DodamNotFoundPage />} />
       </Routes>
-      <Nav />
     </BrowserRouter>
   );
 };

@@ -3,15 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@b1nd/b1nd-toastify": "^2.0.1",
+    "@b1nd/dds-web": "^0.1.48",
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "13.5.0",
     "@types/jest": "27.5.2",
     "@types/js-cookie": "3.0.2",
     "@types/node": "16.11.56",
-    "@types/react": "18.0.18",
+    "@types/react": "^18.2.0",
     "@types/react-dom": "18.0.6",
     "axios": "0.27.2",
+    "eslint": "^8.57.1",
+    "husky": "^9.1.6",
     "js-cookie": "3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -22,18 +27,19 @@
     "react-query": "^3.39.2",
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.30.2",
     "react-spinners": "^0.13.8",
-    "react-toastify": "9.0.8",
     "recoil": "0.7.5",
     "request": "2.88.2",
-    "styled-components": "5.3.5",
+    "slick-carousel": "^1.8.1",
+    "styled-components": "^6.1.8",
     "styled-reset": "4.4.2",
     "typescript": "4.8.2",
     "web-vitals": "2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "craco start",
+    "build": "craco build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -57,6 +63,7 @@
   },
   "devDependencies": {
     "@types/react-scroll": "^1.8.4",
+    "@types/react-slick": "^0.23.13",
     "@types/styled-components": "5.1.26"
   }
 }

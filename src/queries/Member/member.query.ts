@@ -1,4 +1,5 @@
 import { AxiosError } from "axios";
+import { QUERY_KEYS } from "queries/queryKey";
 import { UseQueryOptions, useQuery } from "react-query";
 import memberRepository from "repository/Member/member.repository";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
@@ -8,11 +9,11 @@ export const useGetBroadcastClubMemberCheckQuery = (
     BroadcastClubMemberResponse,
     AxiosError,
     BroadcastClubMemberResponse,
-    "member/getBroadcastClubMemberCheck"
+    string
   >
 ) =>
   useQuery(
-    "member/getBroadcastClubMemberCheck",
+    QUERY_KEYS.member.getBroadCastClubMember,
     () => memberRepository.getBroadcastClubMemberCheck(),
     {
       ...options,
