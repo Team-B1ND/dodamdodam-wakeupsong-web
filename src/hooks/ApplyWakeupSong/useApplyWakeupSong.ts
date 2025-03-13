@@ -2,8 +2,8 @@ import { AxiosError } from "axios";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useQueryClient } from "react-query";
-import { usePostApplyMusicMutation } from "queries/WakeupSong/wakeupSong.query";
-import { usePostMelonChartApplyMutation } from "queries/MelonChart/melonChart.query";
+import { usePostApplyMusicMutation } from "queries/WakeupSongs/wakeupSong.query";
+import { usePostMelonChartApplyMutation } from "queries/MelonCharts/melonChart.query";
 import ErrorHandler from "utils/Error/ErrorHandler";
 import { QUERY_KEYS } from "queries/queryKey";
 

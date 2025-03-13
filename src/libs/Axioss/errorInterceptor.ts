@@ -3,10 +3,10 @@ import {
   ACCESS_TOKEN_KEY,
   REFRESH_TOKEN_KEY,
   REQUEST_TOKEN_KEY,
-} from "constants/Token/token.contants";
-import authRepository from "repository/Auth/auth.repository";
+} from "constants/Tokens/token.contants";
+import authRepository from "repository/Auths/auth.repository";
 import dodamAxios from "./dodamAxios";
-import cookie from "libs/Cookie/cookie";
+import cookie from "libs/Cookies/cookie";
 
 export const errorInterceptor = async (config: AxiosError) => {
   const refresh_token = cookie.getCookie(REFRESH_TOKEN_KEY);

@@ -5,15 +5,15 @@ import PendingWakeupSong from "components/Common/VideoRank/PendingWakeupSong";
 import {
   MelonChartListType,
   MelonKeyword,
-} from "repository/MelonChart/melonChart.param";
-import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
+} from "repository/MelonCharts/melonChart.param";
+import { WakeupSongMusicType } from "types/WakeupSongs/wakeupSong.type";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 import ToolTip from "components/Common/ToolTip";
 import { useRecoilValue } from "recoil";
 import { VisitCount } from "store/ToolTip/toolTip.store";
 import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
 import { useEffect } from "react";
-import token from "libs/Token/token";
+import token from "libs/Tokens/token";
 
 interface Props {
   title: string;
@@ -64,7 +64,9 @@ const WakeupSongList = ({
           <S.Title>{title}</S.Title>
           <S.Description>{description}</S.Description>
         </S.Info>
-        {title === "멜론 차트" && !visitCount && <ToolTip isHideToolTip={isHideToolTip!} />}
+        {title === "멜론 차트" && !visitCount && (
+          <ToolTip isHideToolTip={isHideToolTip!} />
+        )}
         {title === "멜론 차트"
           ? melonChartInfo?.title &&
             melonChartInfo?.artist && (

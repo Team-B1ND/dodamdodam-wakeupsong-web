@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "config/config.json";
-import { REQUEST_TOKEN_KEY } from "constants/Token/token.contants";
-import cookie from "libs/Cookie/cookie";
+import { REQUEST_TOKEN_KEY } from "constants/Tokens/token.contants";
+import cookie from "libs/Cookies/cookie";
 import { errorInterceptor } from "./errorInterceptor";
 
 const dodamAxios = axios.create({

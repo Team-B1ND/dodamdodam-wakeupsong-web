@@ -4,11 +4,11 @@ import {
   useAllowWakeupSongMutation,
   useDenyWakeupSongMutation,
   useGetPendingMusicListQuery,
-} from "queries/WakeupSong/wakeupSong.query";
+} from "queries/WakeupSongs/wakeupSong.query";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
-import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
+import { WakeupSongMusicType } from "types/WakeupSongs/wakeupSong.type";
 
 const useDecisionWakeupSong = () => {
   const queryClient = useQueryClient();

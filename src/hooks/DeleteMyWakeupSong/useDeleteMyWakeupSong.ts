@@ -1,5 +1,5 @@
 import { useQueryClient } from "react-query";
-import { useDeleteMyWakeupSongMutation } from "queries/WakeupSong/wakeupSong.query";
+import { useDeleteMyWakeupSongMutation } from "queries/WakeupSongs/wakeupSong.query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { QUERY_KEYS } from "queries/queryKey";
 

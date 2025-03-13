@@ -1,4 +1,4 @@
-import { Response } from "../Util/response.type";
+import { Response } from "../Utils/response.type";
 
 export interface RefreshResponse extends Response {
   data: {

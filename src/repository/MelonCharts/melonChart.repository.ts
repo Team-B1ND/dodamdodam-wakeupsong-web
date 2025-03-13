@@ -1,6 +1,6 @@
-import dodamAxios from "libs/Axios/dodamAxios";
+import dodamAxios from "libs/Axioss/dodamAxios";
 import { MelonChartListsResponse, MelonKeyword } from "./melonChart.param";
-import { Response } from "types/Util/response.type";
+import { Response } from "types/Utils/response.type";
 
 class MelonChartRepository {
   public async getMelonChartList(): Promise<MelonChartListsResponse> {
