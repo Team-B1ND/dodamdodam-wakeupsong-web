@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@b1nd/b1nd-toastify": "^2.0.1",
-    "@b1nd/dds-web": "^0.1.47",
+    "@b1nd/dds-web": "^0.1.48",
     "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "13.3.0",

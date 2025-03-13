@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PageContainer = styled.div`
-  width: calc(100% - 250px);
+  width: calc(100% - 200px);
   height: 100%;
 
   display: flex;
