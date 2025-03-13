@@ -1,6 +1,6 @@
 import * as S from "./style";
 import Video from "components/Common/Video";
-import { useGetMyAllWakeupSongQuery } from "queries/WakeupSongs/wakeupSong.query";
+import { useGetMyAllWakeupSongQuery } from "queries/WakeupSong/wakeupSong.query";
 
 const MyWakeupSong = () => {
   const { data: MyData } = useGetMyAllWakeupSongQuery();

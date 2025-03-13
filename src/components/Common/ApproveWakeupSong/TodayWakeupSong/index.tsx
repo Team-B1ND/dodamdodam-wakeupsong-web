@@ -1,4 +1,4 @@
-import { useGetTodayMusicDataQuery } from "queries/WakeupSongs/wakeupSong.query";
+import { useGetTodayMusicDataQuery } from "queries/WakeupSong/wakeupSong.query";
 import * as S from "./style";
 import Video from "components/Common/Video/index";
 

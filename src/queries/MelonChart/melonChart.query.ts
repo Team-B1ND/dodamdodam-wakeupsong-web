@@ -1,7 +1,7 @@
 import { QUERY_KEYS } from "queries/queryKey";
 import { useMutation, useQuery } from "react-query";
-import { MelonKeyword } from "repository/MelonCharts/melonChart.param";
-import melonChartRepository from "repository/MelonCharts/melonChart.repository";
+import { MelonKeyword } from "repository/MelonChart/melonChart.param";
+import melonChartRepository from "repository/MelonChart/melonChart.repository";
 
 export const useGetMelonChartLists = () =>
   useQuery(QUERY_KEYS.melonChart.getMelonChartList, () =>

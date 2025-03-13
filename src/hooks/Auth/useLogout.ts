@@ -1,4 +1,4 @@
-import token from "libs/Tokens/token";
+import token from "libs/Token/token";
 
 const useLogout = () => {
   const handleClickLogout = () => {

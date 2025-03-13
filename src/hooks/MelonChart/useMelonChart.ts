@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import {
   useGetMelonChartLists,
   usePostMelonChartApplyMutation,
-} from "queries/MelonCharts/melonChart.query";
+} from "queries/MelonChart/melonChart.query";
 import {
   MelonChartListType,
   MelonKeyword,
-} from "repository/MelonCharts/melonChart.param";
+} from "repository/MelonChart/melonChart.param";
 import { useQueryClient } from "react-query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { AxiosError } from "axios";

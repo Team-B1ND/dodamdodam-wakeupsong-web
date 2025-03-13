@@ -5,15 +5,15 @@ import PendingWakeupSong from "components/Common/VideoRank/PendingWakeupSong";
 import {
   MelonChartListType,
   MelonKeyword,
-} from "repository/MelonCharts/melonChart.param";
-import { WakeupSongMusicType } from "types/WakeupSongs/wakeupSong.type";
+} from "repository/MelonChart/melonChart.param";
+import { WakeupSongMusicType } from "types/WakeupSong/wakeupSong.type";
 import { BroadcastClubMemberResponse } from "types/Member/member.type";
 import ToolTip from "components/Common/ToolTip";
 import { useRecoilValue } from "recoil";
 import { VisitCount } from "store/ToolTip/toolTip.store";
 import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
 import { useEffect } from "react";
-import token from "libs/Tokens/token";
+import token from "libs/Token/token";
 
 interface Props {
   title: string;
