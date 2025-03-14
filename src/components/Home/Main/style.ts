@@ -19,7 +19,7 @@ export const Container = styled.div`
     display: none;
   }
 
-  @media (max-width: 1068px) {
+  @media (max-width: 1068px), (max-height: 794px) {
     margin-bottom: 24px;
   }
 
