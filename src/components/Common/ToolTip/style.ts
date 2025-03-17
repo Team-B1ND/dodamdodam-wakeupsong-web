@@ -22,8 +22,8 @@ export const Container = styled.div<{ isHideToolTip: boolean }>`
   background-color: transparent;
 
   position: absolute;
-  right: 10%;
-  top: -50%;
+  right: 5%;
+  top: -30%;
 
   animation: ${bounce} 1.2s ease-in-out infinite;
 
