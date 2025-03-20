@@ -61,12 +61,12 @@ const ApproveWakeupSong = () => {
         />
       </S.Wrap>
       <Slider {...setting} ref={sliderRef}>
-        <DodamErrorBoundary text="오류 발생" showButton={true}>
+        <DodamErrorBoundary text="오늘의 기상송을 불러오지 못했습니다" showButton={true}>
           <Suspense fallback={<MyWakeupSongFallback type="All" date="today" length={3} />}>
             <TodayWakeupSong />
           </Suspense>
         </DodamErrorBoundary>
-        <DodamErrorBoundary text="오류 발생" showButton={true}>
+        <DodamErrorBoundary text="내일의 기상송을 불러오지 못했습니다" showButton={true}>
           <Suspense fallback={<MyWakeupSongFallback type="All" date="tomorrow" length={3} />}>
             <TomorrowWakeupSong />
           </Suspense>

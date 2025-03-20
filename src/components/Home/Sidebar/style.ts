@@ -2,7 +2,7 @@ import { DodamShape } from "@b1nd/dds-web";
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: calc(28% - 32px);
+  width: 28%;
   height: min-content;
 
   display: flex;
