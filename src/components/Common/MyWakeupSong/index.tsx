@@ -1,6 +1,7 @@
 import * as S from "./style";
 import Video from "components/Common/Video";
 import { useGetMyAllWakeupSongQuery } from "queries/WakeupSong/wakeupSong.query";
+import VideoEmpty from "components/Common/Empty/VideoEmpty";
 
 const MyWakeupSong = () => {
   const { data: MyData } = useGetMyAllWakeupSongQuery({ suspense: true });
@@ -10,7 +11,7 @@ const MyWakeupSong = () => {
       <S.Title>내가 신청한 기상송</S.Title>
       <S.VideoWrap>
         {MyData?.data.length === 0 ? (
-          <S.NullVideo>신청한 기상송이 없습니다</S.NullVideo>
+          <VideoEmpty type="My" />
         ) : (
           MyData?.data.map((video) => {
             const createVideo = video.createdAt.replaceAll("-", ".");

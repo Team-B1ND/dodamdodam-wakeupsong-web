@@ -1,16 +1,19 @@
 import { useGetTomorrowMusicDataQuery } from "queries/WakeupSong/wakeupSong.query";
 import * as S from "./style";
 import Video from "components/Common/Video/index";
+import VideoEmpty from "components/Common/Empty/VideoEmpty";
 
 const TomorrowWakeupSong = () => {
-  const { data: TomorrowData } = useGetTomorrowMusicDataQuery({ suspense: true });
+  const { data: TomorrowData } = useGetTomorrowMusicDataQuery({
+    suspense: true,
+  });
 
   return (
     <S.Container>
       <S.ContentTitle>내일의 기상송</S.ContentTitle>
       <S.VideoWrap>
         {TomorrowData?.data.length === 0 ? (
-          <S.NullVideo>승인된 기상송이 없습니다</S.NullVideo>
+          <VideoEmpty type="All" />
         ) : (
           TomorrowData?.data
             .slice(0, 3)
