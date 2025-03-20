@@ -20,4 +20,6 @@ class MelonChartRepository {
   }
 }
 
-export default new MelonChartRepository();
+const melonChartRepository = new MelonChartRepository();
+export default melonChartRepository;
+

@@ -4,7 +4,7 @@ import { useState, ChangeEvent, KeyboardEvent } from "react";
 import { useQueryClient } from "react-query";
 import { usePostApplyMusicMutation } from "queries/WakeupSong/wakeupSong.query";
 import { usePostMelonChartApplyMutation } from "queries/MelonChart/melonChart.query";
-import ErrorHandler from "utils/Error/ErrorHandler";
+import errorHandler from "utils/Error/ErrorHandler";
 import { QUERY_KEYS } from "queries/queryKey";
 
 const useApplyWakeupSong = () => {
@@ -64,7 +64,7 @@ const useApplyWakeupSong = () => {
         },
         onError: (error) => {
           const axiosError = error as AxiosError;
-          B1ndToast.showError(ErrorHandler.applyWakeupSongError(axiosError));
+          B1ndToast.showError(errorHandler.applyWakeupSongError(axiosError));
           setIsError(true);
           setIsEnabled(true);
         },
@@ -91,7 +91,7 @@ const useApplyWakeupSong = () => {
           },
           onError: (error) => {
             const errorCode = error as AxiosError;
-            B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
+            B1ndToast.showError(errorHandler.applyWakeupSongError(errorCode));
             setIsError(true);
             setIsEnabled(true);
           },

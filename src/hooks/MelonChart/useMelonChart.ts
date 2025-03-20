@@ -10,7 +10,7 @@ import {
 import { useQueryClient } from "react-query";
 import { B1ndToast } from "@b1nd/b1nd-toastify";
 import { AxiosError } from "axios";
-import ErrorHandler from "utils/Error/ErrorHandler";
+import errorHandler from "utils/Error/ErrorHandler";
 import { QUERY_KEYS } from "queries/queryKey";
 
 const useMelonChart = () => {
@@ -63,7 +63,7 @@ const useMelonChart = () => {
       },
       onError: (error) => {
         const errorCode = error as AxiosError;
-        B1ndToast.showError(ErrorHandler.applyWakeupSongError(errorCode));
+        B1ndToast.showError(errorHandler.applyWakeupSongError(errorCode));
         setIsEnabled(true);
       },
     });
