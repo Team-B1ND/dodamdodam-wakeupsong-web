@@ -1,5 +1,5 @@
-import { DodamFilledButton } from "@b1nd/dds-web";
-import { useEffect, useRef } from "react";
+import { DodamErrorBoundary, DodamFilledButton } from "@b1nd/dds-web";
+import { Suspense, useEffect, useRef } from "react";
 import { useTheme } from "styled-components";
 import * as S from "./style";
 import { useRecoilState, useResetRecoilState } from "recoil";
@@ -7,6 +7,7 @@ import { WakeupSongDate } from "store/ApproveWakeupSong/approveWakeupSong.store"
 import Slider from "react-slick";
 import TodayWakeupSong from "./TodayWakeupSong";
 import TomorrowWakeupSong from "./TomorrowWakeupSong";
+import MyWakeupSongFallback from "../Fallback/MyWakeupSongFallback";
 
 const ApproveWakeupSong = () => {
   const theme = useTheme();
@@ -60,8 +61,16 @@ const ApproveWakeupSong = () => {
         />
       </S.Wrap>
       <Slider {...setting} ref={sliderRef}>
-        <TodayWakeupSong />
-        <TomorrowWakeupSong />
+        <DodamErrorBoundary text="오류 발생" showButton={true}>
+          <Suspense fallback={<MyWakeupSongFallback type="All" date="today" length={3} />}>
+            <TodayWakeupSong />
+          </Suspense>
+        </DodamErrorBoundary>
+        <DodamErrorBoundary text="오류 발생" showButton={true}>
+          <Suspense fallback={<MyWakeupSongFallback type="All" date="tomorrow" length={3} />}>
+            <TomorrowWakeupSong />
+          </Suspense>
+        </DodamErrorBoundary>
       </Slider>
     </S.Container>
   );

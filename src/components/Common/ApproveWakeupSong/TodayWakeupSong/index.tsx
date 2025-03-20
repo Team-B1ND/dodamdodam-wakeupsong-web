@@ -3,7 +3,7 @@ import * as S from "./style";
 import Video from "components/Common/Video/index";
 
 const TodayWakeupSong = () => {
-  const { data: TodayData } = useGetTodayMusicDataQuery();
+  const { data: TodayData } = useGetTodayMusicDataQuery({ suspense: true });
 
   return (
     <S.Container>

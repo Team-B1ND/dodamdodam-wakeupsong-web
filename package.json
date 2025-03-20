@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@b1nd/b1nd-styled-components-util": "^1.0.4",
     "@b1nd/b1nd-toastify": "^2.0.1",
     "@b1nd/dds-web": "^0.1.51",
     "@craco/craco": "^7.1.0",

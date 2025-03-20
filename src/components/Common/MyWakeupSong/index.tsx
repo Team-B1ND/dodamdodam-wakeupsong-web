@@ -3,7 +3,7 @@ import Video from "components/Common/Video";
 import { useGetMyAllWakeupSongQuery } from "queries/WakeupSong/wakeupSong.query";
 
 const MyWakeupSong = () => {
-  const { data: MyData } = useGetMyAllWakeupSongQuery();
+  const { data: MyData } = useGetMyAllWakeupSongQuery({ suspense: true });
 
   return (
     <S.Container>
