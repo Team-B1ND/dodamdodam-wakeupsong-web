@@ -10,4 +10,5 @@ class MemberRepository {
   }
 }
 
-export default new MemberRepository();
+const memberRepository = new MemberRepository();
+export default memberRepository;

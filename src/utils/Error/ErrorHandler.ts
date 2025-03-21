@@ -17,4 +17,5 @@ class ErrorHandler {
   };
 }
 
-export default new ErrorHandler();
+const errorHandler = new ErrorHandler();
+export default errorHandler;

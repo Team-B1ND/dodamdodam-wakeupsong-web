@@ -26,6 +26,7 @@ export const Container = styled.div<{ type: TypeProps }>`
 
 export const VideoImg = styled.img<{ type: TypeProps }>`
   width: 100%;
+  aspect-ratio: 16 / 11;
   max-height: 200px;
 
   ${DodamShape.ExtraSmall}

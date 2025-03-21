@@ -45,4 +45,5 @@ class WakeupSongRepository {
   }
 }
 
-export default new WakeupSongRepository();
+const wakeupSongRepository = new WakeupSongRepository();
+export default wakeupSongRepository;

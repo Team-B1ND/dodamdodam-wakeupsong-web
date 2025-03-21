@@ -24,15 +24,3 @@ export const VideoWrap = styled.div`
 
   gap: 12px;
 `;
-
-export const NullVideo = styled.div`
-  width: 100%;
-  height: 270px;
-
-  color: ${({ theme }) => theme.labelAlternative};
-  ${DodamTypography.Body1.Medium}
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
