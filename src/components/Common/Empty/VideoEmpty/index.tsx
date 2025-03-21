@@ -24,6 +24,10 @@ const Container = styled.div<{ type: "All" | "My" }>`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 600px) and (max-width: 797px) {
+    height: 150px;
+  }
 `;
 
 const Text = styled.p`
