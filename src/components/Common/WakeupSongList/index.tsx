@@ -14,6 +14,7 @@ import { VisitCount } from "store/ToolTip/toolTip.store";
 import { TOOL_TIP_KEY } from "constants/ToolTip/toolTip.constants";
 import { useEffect } from "react";
 import token from "libs/Token/token";
+import { April_Fools_Day_Theme } from "style/theme";
 
 interface Props {
   title: string;
@@ -77,7 +78,10 @@ const WakeupSongList = ({
                 enabled={isEnabled}
                 textTheme="staticWhite"
                 typography={["Label", "Bold"]}
-                customStyle={{ minHeight: "37px" }}
+                customStyle={{
+                  minHeight: "37px",
+                  backgroundColor: April_Fools_Day_Theme.primaryNormal,
+                }}
                 onClick={handleClickMelonChartApply}
               />
             )
@@ -91,7 +95,10 @@ const WakeupSongList = ({
                   enabled={isEnabled}
                   textTheme="staticWhite"
                   typography={["Label", "Bold"]}
-                  customStyle={{ minHeight: "37px" }}
+                  customStyle={{
+                    minHeight: "37px",
+                    backgroundColor: April_Fools_Day_Theme.primaryNormal,
+                  }}
                   onClick={hanldeWakeupSongAllow}
                 />
                 <DodamFilledButton
@@ -102,7 +109,10 @@ const WakeupSongList = ({
                   textTheme="staticWhite"
                   backgroundColorType="Negative"
                   typography={["Label", "Bold"]}
-                  customStyle={{ minHeight: "37px" }}
+                  customStyle={{
+                    minHeight: "37px",
+                    backgroundColor: April_Fools_Day_Theme.primaryAlternative,
+                  }}
                   onClick={hanldeWakeupSongDeny}
                 />
               </S.ButtonWrap>

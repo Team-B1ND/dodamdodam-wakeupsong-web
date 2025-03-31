@@ -1,4 +1,5 @@
 import { DodamShape, DodamTypography } from "@b1nd/dds-web";
+import { April_Fools_Day_Theme } from "style/theme";
 import styled from "styled-components";
 
 export const Container = styled.div<{ isAtv: boolean }>`
@@ -22,7 +23,8 @@ export const Container = styled.div<{ isAtv: boolean }>`
 `;
 
 export const VideoRank = styled.p`
-  color: ${({ theme }) => theme.primaryNormal};
+  /* color: ${({ theme }) => theme.primaryNormal}; */
+  color: ${April_Fools_Day_Theme.primaryNormal};
   ${DodamTypography.Label.Bold}
 `;
 
