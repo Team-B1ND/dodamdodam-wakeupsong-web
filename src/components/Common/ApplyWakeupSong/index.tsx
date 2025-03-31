@@ -1,7 +1,6 @@
 import * as S from "./style";
 import { DodamFilledButton, DodamFilledTextField } from "@b1nd/dds-web";
 import useApplyWakeupSong from "hooks/ApplyWakeupSong/useApplyWakeupSong";
-import { April_Fools_Day_Theme } from "style/theme";
 
 const ApplyWakeupSong = () => {
   const { ...applyWakeupSong } = useApplyWakeupSong();
@@ -23,10 +22,7 @@ const ApplyWakeupSong = () => {
       <DodamFilledButton
         size="Large"
         textTheme="staticWhite"
-        customStyle={{
-          userSelect: "none",
-          backgroundColor: April_Fools_Day_Theme.primaryNormal,
-        }}
+        customStyle={{ userSelect: "none" }}
         enabled={applyWakeupSong.isEnabled}
         onClick={() => applyWakeupSong.handleClickPostWakeupSong()}>
         신청

@@ -1,5 +1,4 @@
 import { DodamShape, DodamTypography, hexToRgba } from "@b1nd/dds-web";
-import { April_Fools_Day_Theme } from "style/theme";
 import styled from "styled-components";
 
 export const Container = styled.div<{ isAtv: boolean; isBroadCast: boolean }>`
@@ -9,17 +8,10 @@ export const Container = styled.div<{ isAtv: boolean; isBroadCast: boolean }>`
   align-items: center;
 
   ${DodamShape.Medium}
-  /* background-color: ${({ isAtv, isBroadCast, theme }) =>
-    isAtv
-      ? isBroadCast
-        ? theme.primaryNormal
-        : theme.backgroundNeutral
-      : "transparent"}; */
-
   background-color: ${({ isAtv, isBroadCast, theme }) =>
     isAtv
       ? isBroadCast
-        ? April_Fools_Day_Theme.primaryNormal
+        ? theme.primaryNormal
         : theme.backgroundNeutral
       : "transparent"};
 
@@ -29,26 +21,17 @@ export const Container = styled.div<{ isAtv: boolean; isBroadCast: boolean }>`
   user-select: none;
 
   &:hover {
-    /* background-color: ${({ isAtv, isBroadCast, theme }) =>
-      isAtv && isBroadCast
-        ? hexToRgba(theme.primaryNormal, 0.75)
-        : theme.fillNeutral}; */
-
     background-color: ${({ isAtv, isBroadCast, theme }) =>
       isAtv && isBroadCast
-        ? hexToRgba(April_Fools_Day_Theme.primaryNormal, 0.75)
+        ? hexToRgba(theme.primaryNormal, 0.75)
         : theme.fillNeutral};
   }
 `;
 
 export const VideoRank = styled.p<{ isAtv: boolean; isBroadCast: boolean }>`
-  /* color: ${({ isAtv, isBroadCast, theme }) =>
-    isAtv && isBroadCast ? theme.staticWhite : theme.primaryNormal}; */
-
   color: ${({ isAtv, isBroadCast, theme }) =>
-    isAtv && isBroadCast
-      ? theme.staticWhite
-      : April_Fools_Day_Theme.primaryNormal};
+    isAtv && isBroadCast ? theme.staticWhite : theme.primaryNormal};
+
   ${DodamTypography.Label.Bold};
 `;
 

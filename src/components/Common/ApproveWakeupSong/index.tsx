@@ -8,7 +8,6 @@ import Slider from "react-slick";
 import TodayWakeupSong from "./TodayWakeupSong";
 import TomorrowWakeupSong from "./TomorrowWakeupSong";
 import MyWakeupSongFallback from "../Fallback/MyWakeupSongFallback";
-import { April_Fools_Day_Theme } from "style/theme";
 
 const ApproveWakeupSong = () => {
   const theme = useTheme();
@@ -51,27 +50,34 @@ const ApproveWakeupSong = () => {
           width={110}
           text={date === "today" ? "오늘의 기상송" : "내일의 기상송"}
           typography={["Label", "Bold"]}
-          // textTheme={date === "today" ? "staticWhite" : "primaryNormal"}
+          textTheme={date === "today" ? "staticWhite" : "primaryNormal"}
           onClick={handleClickNext}
           customStyle={{
-            color: date === "today" ? theme.staticWhite : April_Fools_Day_Theme.primaryNormal,
-            // border: `1px solid ${theme.primaryNormal}`,
-            border: `1px solid ${April_Fools_Day_Theme.primaryNormal}`,
+            border: `1px solid ${theme.primaryNormal}`,
             borderRadius: "12px",
             backgroundColor:
-              // date === "today" ? theme.primaryNormal : theme.backgroundNormal,
-              date === "today" ? April_Fools_Day_Theme.primaryNormal : theme.backgroundNormal
+              date === "today" ? theme.primaryNormal : theme.backgroundNormal,
           }}
         />
       </S.Wrap>
       <Slider {...setting} ref={sliderRef}>
-        <DodamErrorBoundary text="오늘의 기상송을 불러오지 못했습니다" showButton={true}>
-          <Suspense fallback={<MyWakeupSongFallback type="All" date="today" length={3} />}>
+        <DodamErrorBoundary
+          text="오늘의 기상송을 불러오지 못했습니다"
+          showButton={true}>
+          <Suspense
+            fallback={
+              <MyWakeupSongFallback type="All" date="today" length={3} />
+            }>
             <TodayWakeupSong />
           </Suspense>
         </DodamErrorBoundary>
-        <DodamErrorBoundary text="내일의 기상송을 불러오지 못했습니다" showButton={true}>
-          <Suspense fallback={<MyWakeupSongFallback type="All" date="tomorrow" length={3} />}>
+        <DodamErrorBoundary
+          text="내일의 기상송을 불러오지 못했습니다"
+          showButton={true}>
+          <Suspense
+            fallback={
+              <MyWakeupSongFallback type="All" date="tomorrow" length={3} />
+            }>
             <TomorrowWakeupSong />
           </Suspense>
         </DodamErrorBoundary>
