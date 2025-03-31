@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import TodayWakeupSong from "./TodayWakeupSong";
 import TomorrowWakeupSong from "./TomorrowWakeupSong";
 import MyWakeupSongFallback from "../Fallback/MyWakeupSongFallback";
+import { April_Fools_Day_Theme } from "style/theme";
 
 const ApproveWakeupSong = () => {
   const theme = useTheme();
@@ -50,13 +51,16 @@ const ApproveWakeupSong = () => {
           width={110}
           text={date === "today" ? "오늘의 기상송" : "내일의 기상송"}
           typography={["Label", "Bold"]}
-          textTheme={date === "today" ? "staticWhite" : "primaryNormal"}
+          // textTheme={date === "today" ? "staticWhite" : "primaryNormal"}
           onClick={handleClickNext}
           customStyle={{
-            border: `1px solid ${theme.primaryNormal}`,
+            color: date === "today" ? theme.staticWhite : April_Fools_Day_Theme.primaryNormal,
+            // border: `1px solid ${theme.primaryNormal}`,
+            border: `1px solid ${April_Fools_Day_Theme.primaryNormal}`,
             borderRadius: "12px",
             backgroundColor:
-              date === "today" ? theme.primaryNormal : theme.backgroundNormal,
+              // date === "today" ? theme.primaryNormal : theme.backgroundNormal,
+              date === "today" ? April_Fools_Day_Theme.primaryNormal : theme.backgroundNormal
           }}
         />
       </S.Wrap>
