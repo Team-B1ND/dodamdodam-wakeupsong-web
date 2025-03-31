@@ -18,8 +18,8 @@ export const PageTemplateContainer = styled.div`
       fill: ${April_Fools_Day_Theme.primaryNormal};
     }
 
-    // 선택된거 배경색 변경
-    & > div:nth-child(2) > div > a:nth-child(3) {
+    // 기상송 배경색 변경
+    & > div:nth-child(2) > div > a:nth-child(4) {
       background-color: ${April_Fools_Day_Theme.primaryNormal};
     }
   }
